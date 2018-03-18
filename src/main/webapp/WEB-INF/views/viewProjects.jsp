@@ -35,7 +35,7 @@
 				<th>Name</th>
 				<th>Description</th>
 				<th>Type</th>
-
+				<th>Is deleted</th>
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Edit</th>
 					<th>Delete</th>
@@ -48,6 +48,7 @@
 					<td>${project.projectName}</td>
 					<td>${project.description}</td>
 					<td>${project.type}</td>
+					<td>${project.deleted}</td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-project">Update project</a></td>

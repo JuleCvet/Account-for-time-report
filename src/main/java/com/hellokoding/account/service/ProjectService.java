@@ -13,6 +13,8 @@ public interface ProjectService {
 	boolean updateProject(Project project);
 
 	void deleteProject(Project project);
-
+	
+	boolean updateProjectDel(Project project);
+	
 	List<Project> showAllProjects();
 }

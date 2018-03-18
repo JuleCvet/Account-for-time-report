@@ -81,7 +81,7 @@ public class ProjectController {
 			return "delete-project";
 		}
 
-		projectService.deleteProject(project);
+		projectService.updateProjectDel(project);
 
 		return "redirect:/welcome";
 	}
