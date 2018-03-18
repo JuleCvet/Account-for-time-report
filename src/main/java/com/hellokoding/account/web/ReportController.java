@@ -55,26 +55,25 @@ public class ReportController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/delete-report", method = RequestMethod.GET)
 	public String delete_report(Model model) {
-		model.addAttribute("deleteReport", new Report());
+		model.addAttribute("updateReportDel", new Report());
 
 		return "delete-report";
 	}
 
 	@RequestMapping(value = "/delete-report", method = RequestMethod.POST)
-	public String delete_report(@ModelAttribute("deleteReport") Report report, BindingResult bindingResult,
+	public String delete_report(@ModelAttribute("updateReportDel") Report report, BindingResult bindingResult,
 			Model model) {
 		if (bindingResult.hasErrors()) {
 			return "delete-report";
 		}
 
-		reportService.updateReport(report);
+		reportService.updateReportDel(report);
 
 		return "redirect:/welcome";
 	}
 
 	@RequestMapping(value = "/viewReports", method = RequestMethod.GET)
 	public String view_reports(Model model) {
-
 		model.addAttribute("list", reportService.showAllREports());
 
 		return "viewReports";

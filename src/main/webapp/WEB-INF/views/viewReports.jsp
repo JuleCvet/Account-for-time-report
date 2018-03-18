@@ -46,7 +46,7 @@
 				<th>User Id</th>
 				<th>Report for date:</th>
 				<th>Date when report is been modified:</th>
-
+				<th>Is deleted</th>
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Update report</th>
 					<th>Delete report</th>
@@ -66,6 +66,7 @@
 					<td>${report.userID}</td>
 					<td>${report.forDate}</td>
 					<td>${report.dateModified}</td>
+					<td>${report.deleted}</td>
 
 			<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-report">Update report</a></td>

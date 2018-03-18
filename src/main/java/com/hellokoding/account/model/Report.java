@@ -11,14 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "report")
+@Where(clause="deleted=0")
 public class Report {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idReport")
 	private Long idReport;
 	
@@ -30,7 +32,8 @@ public class Report {
 	private Integer expectedHours;
 	private boolean locked;
 	private Integer userID;
-
+	private Integer deleted;
+	
 	@DateTimeFormat(pattern = "mm/DD/yyyy")
 	private Date forDate;
 
@@ -40,20 +43,27 @@ public class Report {
 	@ManyToMany(mappedBy = "reports")
 	private Set<User> users;
 
-	@ManyToMany
-	private Set<Project> projects;
-
-	/*
-	 * @OneToMany(mappedBy = " ") private List<DateTimeOfReport>
-	 * listOfDateTimeOfReport = new ArrayList<>();
-	 */
+//	@ManyToMany(mappedBy="reports")
+//	private Set<Project> projects;
 
 	public Report() {
 	}
 
+	public Integer getDeleted() {
+		return deleted;
+	}
+
+
+
+	public void setDeleted(Integer deleted) {
+		this.deleted = deleted;
+	}
+
+
+
 	public Report(String companyName, double hoursReported, Integer vab, Integer vacation, Integer totalHoursPerDay,
-			Integer expectedHours, boolean locked, Integer userID, Date forDate, Date dateModified,
-			Set<User> users, Set<Project> projects) {
+			Integer expectedHours, boolean locked, Integer userID, Integer deleted, Date forDate, Date dateModified,
+			Set<User> users) {
 		super();
 		this.companyName = companyName;
 		this.hoursReported = hoursReported;
@@ -63,11 +73,13 @@ public class Report {
 		this.expectedHours = expectedHours;
 		this.locked = locked;
 		this.userID = userID;
+		this.deleted = deleted;
 		this.forDate = forDate;
 		this.dateModified = dateModified;
 		this.users = users;
-		this.projects = projects;
 	}
+
+
 
 	public Integer getUserID() {
 		return userID;
@@ -79,6 +91,10 @@ public class Report {
 
 	public Long getIdReport() {
 		return idReport;
+	}
+
+	public void setIdReport(Long idReport) {
+		this.idReport = idReport;
 	}
 
 	public boolean getLocked() {
@@ -105,13 +121,13 @@ public class Report {
 		this.users = users;
 	}
 
-	public Set<Project> getProjects() {
+/*	public Set<Project> getProjects() {
 		return projects;
 	}
 
 	public void setProjects(Set<Project> projects) {
 		this.projects = projects;
-	}
+	}*/
 
 	public double getHoursReported() {
 		return hoursReported;
@@ -209,11 +225,11 @@ public class Report {
 
 	@Override
 	public String toString() {
-		return "Report [idReport=" + idReport + ", companyName=" + companyName + ", hoursReported=" + hoursReported
-				+ ", vab=" + vab + ", vacation=" + vacation + ", totalHoursPerDay=" + totalHoursPerDay
-				+ ", expectedHours=" + expectedHours + ", locked=" + locked + ", userID=" + userID
-				+ ", forDate=" + forDate + ", dateModified=" + dateModified + ", users=" + users + ", projects="
-				+ projects + "]";
+		return "Report [companyName=" + companyName + ", hoursReported=" + hoursReported + ", vab=" + vab
+				+ ", vacation=" + vacation + ", totalHoursPerDay=" + totalHoursPerDay + ", expectedHours="
+				+ expectedHours + ", locked=" + locked + ", userID=" + userID + ", deleted=" + deleted + ", forDate="
+				+ forDate + ", dateModified=" + dateModified + ", users=" + users + "]";
 	}
+
 
 }

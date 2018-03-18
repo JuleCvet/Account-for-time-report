@@ -48,6 +48,7 @@ public class ReportServiceImpl implements ReportService {
 		return true;
 	}
 
+
 	@Override
 	public void deleteReport(Report report) {
 		reportRepository.delete(report.getIdReport());
@@ -57,7 +58,17 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public List<Report> showAllREports() {
 		List<Report> allReports = reportRepository.findAll();
-
 		return allReports;
+	}
+
+	@Override
+	public boolean updateReportDel(Report report) {
+		Report oldReport = reportRepository.findOne(report.getIdReport());
+
+		oldReport.setDeleted(1);
+		
+		reportRepository.saveAndFlush(oldReport);
+
+		return true;
 	}
 }

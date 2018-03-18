@@ -15,4 +15,6 @@ public interface ReportService {
 	boolean updateReport(Report report);
 
 	void deleteReport(Report report);
+
+	boolean updateReportDel(Report report);
 }

@@ -31,7 +31,7 @@
 
 <div class="container">
 
-    <form:form method="DELETE" modelAttribute="deleteReport" class="form-signin">
+    <form:form method="POST" modelAttribute="updateReportDel" class="form-signin">
         <h2 class="form-signin-heading">Delete info about your report</h2>
         <spring:bind path="idReport">
             <div class="form-group ${status.error ? 'has-error' : ''}">
