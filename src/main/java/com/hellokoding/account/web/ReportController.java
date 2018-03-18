@@ -63,6 +63,7 @@ public class ReportController {
 	@RequestMapping(value = "/delete-report", method = RequestMethod.POST)
 	public String delete_report(@ModelAttribute("updateReportDel") Report report, BindingResult bindingResult,
 			Model model) {
+		
 		if (bindingResult.hasErrors()) {
 			return "delete-report";
 		}
