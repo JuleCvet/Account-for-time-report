@@ -8,15 +8,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Where;
+
 @Entity
 @Table(name = "customer")
+@Where(clause="deleted=0")
 public class Customer {
+
+	public void setCustomer_id(Long customer_id) {
+		this.customer_id = customer_id;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long customer_id;
 
 	private String companyName;
+	private Integer deleted;
 
 	/*
 	 * @OneToMany private Set<Project> projects;
@@ -43,15 +51,24 @@ public class Customer {
 	 * public void setProjects(Set<Project> projects) { this.projects = projects; }
 	 */
 
-	public Customer(String companyName, Set<Project> projects) {
+
+	public Customer(String companyName, Integer deleted) {
 		super();
 		this.companyName = companyName;
-		/* this.projects = projects; */
+		this.deleted = deleted;
+	}
+
+	public Integer getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Integer deleted) {
+		this.deleted = deleted;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Customer [customer_id=%s, companyName=%s]", customer_id, companyName);
+		return "Customer [companyName=" + companyName + ", deleted=" + deleted + "]";
 	}
 
 }

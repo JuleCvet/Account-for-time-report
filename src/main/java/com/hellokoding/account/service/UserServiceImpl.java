@@ -47,4 +47,21 @@ public class UserServiceImpl implements UserService {
 		return allUsers;
 
 	}
+
+	@Override
+	public boolean updateUser(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateUserDel(User user) {
+		
+		User oldUser = userRepository.findOne(user.getId());
+		oldUser.setDeleted(1);
+		
+		userRepository.saveAndFlush(oldUser);
+		
+		return true;
+	}
 }

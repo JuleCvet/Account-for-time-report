@@ -13,8 +13,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Where;
+
 @Entity
 @Table(name = "user")
+@Where(clause=("deleted=0"))
 public class User {
 
 	@Id
@@ -24,6 +27,7 @@ public class User {
 
 	private String username;
 	private String password;
+	private Integer deleted;
 
 	@Transient
 	private String passwordConfirm;
@@ -43,16 +47,19 @@ public class User {
 	public User() {
 	}
 
-	public User(String username, String password, String passwordConfirm, Set<Role> roles, Set<Project> projects,
-			Set<Report> reports) {
+
+	public User(String username, String password, Integer deleted, String passwordConfirm, Set<Role> roles,
+			Set<Project> projects, Set<Report> reports) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.deleted = deleted;
 		this.passwordConfirm = passwordConfirm;
 		this.roles = roles;
 		this.projects = projects;
 		this.reports = reports;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -110,9 +117,21 @@ public class User {
 		this.reports = reports;
 	}
 
+	public Integer getDeleted() {
+		return deleted;
+	}
+
+
+	public void setDeleted(Integer deleted) {
+		this.deleted = deleted;
+	}
+
+
 	@Override
 	public String toString() {
-		return String.format("User [id=%s, username=%s, passwordConfirm=%s, roles=%s, projects=%s, reports=%s]", id,
-				username, passwordConfirm, roles, projects, reports);
+		return "User [username=" + username + ", password=" + password + ", deleted=" + deleted + ", passwordConfirm="
+				+ passwordConfirm + ", roles=" + roles + ", projects=" + projects + ", reports=" + reports + "]";
 	}
+
+	
 }

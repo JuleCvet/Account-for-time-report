@@ -37,7 +37,8 @@
 			<tr>
 				<th>User Id</th>
 				<th>Username</th>
-
+				<th>Is deleted</th>
+				
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Delete user</th>
 				</security:authorize>
@@ -47,7 +48,7 @@
 				<tr>
 					<td>${user.id}</td>
 					<td>${user.username}</td>
-
+					<td>${user.deleted}</td>
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="delete-user">Delete user</a></td>
 					</security:authorize>

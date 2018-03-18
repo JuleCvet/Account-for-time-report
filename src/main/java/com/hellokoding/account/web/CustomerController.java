@@ -55,7 +55,7 @@ public class CustomerController {
 			return "delete-customer";
 		}
 
-		customerService.deleteCustomer(customer);
+		customerService.updateCustomerDel(customer);
 
 		return "redirect:/welcome";
 	}

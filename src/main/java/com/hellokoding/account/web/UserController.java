@@ -83,7 +83,7 @@ public class UserController {
 			return "delete-user";
 		}
 
-		userService.deleteUser(user);
+		userService.updateUserDel(user);
 
 		return "redirect:/welcome";
 	}

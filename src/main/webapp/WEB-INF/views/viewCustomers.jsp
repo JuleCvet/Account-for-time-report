@@ -36,7 +36,7 @@ crossorigin="anonymous"/>
 			<tr>
 				<th>Id</th>
 				<th>Name</th>
-				
+				<th>Is deleted</th>
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 				<th>Edit</th>
 				<th>Delete</th>
@@ -47,6 +47,7 @@ crossorigin="anonymous"/>
 				<tr>
 					<td>${customer.customer_id}</td>
 					<td>${customer.companyName}</td>
+					<td>${customer.deleted}</td>
 				
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 					<td><a href="update-customer">Update customer</a></td>

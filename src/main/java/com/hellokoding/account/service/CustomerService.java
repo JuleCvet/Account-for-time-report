@@ -15,4 +15,6 @@ public interface CustomerService {
 	boolean updateCustomer(Customer customer);
 
 	void deleteCustomer(Customer customer);
+	
+	boolean updateCustomerDel(Customer customer);
 }

@@ -44,4 +44,13 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteCustomer(Customer customer) {
 		customerRepository.delete(customer.getCustomer_id());
 	}
+
+	@Override
+	public boolean updateCustomerDel(Customer customer) {
+		Customer oldCustomer = customerRepository.findOne(customer.getCustomer_id());
+		oldCustomer.setDeleted(1);
+		
+		customerRepository.saveAndFlush(oldCustomer);
+		return true;
+	}
 }

@@ -31,7 +31,7 @@
 
 <div class="container">
 
-    <form:form method="DELETE" modelAttribute="userDelete" class="form-signin">
+    <form:form method="POST" modelAttribute="userDelete" class="form-signin">
         <h2 class="form-signin-heading">Delete info about your user</h2>
         <spring:bind path="id">
             <div class="form-group ${status.error ? 'has-error' : ''}">

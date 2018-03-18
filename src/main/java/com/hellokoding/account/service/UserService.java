@@ -13,5 +13,9 @@ public interface UserService {
 	void deleteUser(User user);
 
 	List<User> showAllUsers();
+	
+	boolean updateUser(User user);
+	
+	boolean updateUserDel(User user);
 
 }
