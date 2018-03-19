@@ -88,6 +88,7 @@ public class UserController {
 		return "redirect:/welcome";
 	}
 
+	//@PreAuthorize("HasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/viewUsers", method = RequestMethod.GET)
 	public String viewUsers(Model model) {
 		model.addAttribute("list", userService.showAllUsers());

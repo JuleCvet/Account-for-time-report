@@ -73,11 +73,27 @@ public class ReportController {
 		return "redirect:/welcome";
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/viewReports", method = RequestMethod.GET)
 	public String view_reports(Model model) {
 		model.addAttribute("list", reportService.showAllREports());
 
 		return "viewReports";
+	}
+	
+	@RequestMapping(value = "/allMyReports", method = RequestMethod.GET)
+	public String view_myreports(Model model) {
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails) {
+			String username = ((UserDetails)principal).getUsername();
+			
+			Integer userI = Integer.valueOf(userService.findByUsername(username).getId().intValue());
+	
+			model.addAttribute("list", reportService.showReportsByUserID(userI));
+		}
+		return "allMyReports";
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

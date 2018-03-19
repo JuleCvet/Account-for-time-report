@@ -28,8 +28,6 @@ public class Report {
 	private double hoursReported;
 	private Integer vab;
 	private Integer vacation;
-	private Integer totalHoursPerDay;
-	private Integer expectedHours;
 	private boolean locked;
 	private Integer userID;
 	private Integer deleted;
@@ -59,18 +57,13 @@ public class Report {
 		this.deleted = deleted;
 	}
 
-
-
-	public Report(String companyName, double hoursReported, Integer vab, Integer vacation, Integer totalHoursPerDay,
-			Integer expectedHours, boolean locked, Integer userID, Integer deleted, Date forDate, Date dateModified,
-			Set<User> users) {
+	public Report(String companyName, double hoursReported, Integer vab, Integer vacation, boolean locked,
+			Integer userID, Integer deleted, Date forDate, Date dateModified, Set<User> users) {
 		super();
 		this.companyName = companyName;
 		this.hoursReported = hoursReported;
 		this.vab = vab;
 		this.vacation = vacation;
-		this.totalHoursPerDay = totalHoursPerDay;
-		this.expectedHours = expectedHours;
 		this.locked = locked;
 		this.userID = userID;
 		this.deleted = deleted;
@@ -78,8 +71,6 @@ public class Report {
 		this.dateModified = dateModified;
 		this.users = users;
 	}
-
-
 
 	public Integer getUserID() {
 		return userID;
@@ -178,24 +169,6 @@ public class Report {
 		this.vacation = vacation;
 	}
 
-	public Integer getTotalHoursPerDay() {
-		return totalHoursPerDay;
-
-	}
-
-	public void setTotalHoursPerDay(Integer totalHoursPerDay) {
-		this.totalHoursPerDay = totalHoursPerDay;
-
-	}
-
-	public Integer getExpectedHours() {
-		return 40;
-	}
-
-	public void setExpectedHours(Integer expectedHours) {
-		this.expectedHours = expectedHours;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -221,15 +194,10 @@ public class Report {
 		return true;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Report [companyName=" + companyName + ", hoursReported=" + hoursReported + ", vab=" + vab
-				+ ", vacation=" + vacation + ", totalHoursPerDay=" + totalHoursPerDay + ", expectedHours="
-				+ expectedHours + ", locked=" + locked + ", userID=" + userID + ", deleted=" + deleted + ", forDate="
-				+ forDate + ", dateModified=" + dateModified + ", users=" + users + "]";
+				+ ", vacation=" + vacation + ", locked=" + locked + ", userID=" + userID + ", deleted=" + deleted
+				+ ", forDate=" + forDate + ", dateModified=" + dateModified + ", users=" + users + "]";
 	}
-
-
 }

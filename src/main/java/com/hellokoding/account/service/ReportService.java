@@ -17,4 +17,6 @@ public interface ReportService {
 	void deleteReport(Report report);
 
 	boolean updateReportDel(Report report);
+
+	List<Report> showReportsByUserID(Integer userID);
 }

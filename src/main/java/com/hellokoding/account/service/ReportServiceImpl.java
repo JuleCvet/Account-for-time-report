@@ -1,10 +1,8 @@
 package com.hellokoding.account.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import com.hellokoding.account.model.Report;
@@ -36,8 +34,6 @@ public class ReportServiceImpl implements ReportService {
 		oldReport.setHoursReported(report.getHoursReported());
 		oldReport.setVab(report.getVab());
 		oldReport.setVacation(report.getVacation());
-		oldReport.setTotalHoursPerDay(report.getTotalHoursPerDay());
-		oldReport.setExpectedHours(report.getExpectedHours());
 		oldReport.setIsLocked(report.getIsLocked());
 		oldReport.setUserID(report.getUserID());
 		oldReport.setForDate(report.getForDate());
@@ -58,6 +54,12 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public List<Report> showAllREports() {
 		List<Report> allReports = reportRepository.findAll();
+		return allReports;
+	}
+
+	@Override
+	public List<Report> showReportsByUserID(Integer userID) {
+		List<Report> allReports = reportRepository.findByuserID(userID);
 		return allReports;
 	}
 

@@ -12,7 +12,11 @@
 		xmlns:security="http://www.springframework.org/security/tags">
 
 <head>
-<title>Projects</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous" />
+<title>All My Reports</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet" />
@@ -23,62 +27,76 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<script type="text/javascript">
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  $( function() {
+	    $( "#datepicker1" ).datepicker();
+ } );
+  </script>
 </head>
 <body>
+
 	<div class="container">
-		<br/>
-	<table class="table table-striped table-bordered">
-			<tr>
-				<th><security:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="/project/create-project">Add New Project</a>
-					</security:authorize></th>
-				
-				<th><a href="/customer/viewCustomers">Show Customers</a></th>
-				<th><a href="/report/allMyReports">All My reports</a></th>
-				<th><a href="/welcome">Back</a></th>		
-			</tr>
-			<br />
-	</table>
-	
-		<h1>All Projects</h1>
-<!-- 		<table border="2" width="90%" cellpadding="2"> -->
+		<br />
 		<table class="table table-striped table-bordered">
 			<tr>
-				<th>Id</th>
+				<th><a href="create-report">Add New Report</a></th>
+				<th><a href="/project/viewProjects">Show Projects</a></th>
+				<th><a href="/customer/viewCustomers">Show Customers</a></th>
+				<th><a href="/welcome">Back</a></th>
+			</tr>
+		</table>
+
+		<h1>All Reports for user: ${pageContext.request.userPrincipal.name}</h1>
+		<!-- <table border="2" width="90%" cellpadding="2">  -->
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th>Report Id</th>
 				<th>Name</th>
-				<th>Description</th>
-				<th>Type</th>
+				<th>Working hours</th>
+				<th>Hours of VAB</th>
+				<th>Hours of Vacation</th>
+				<th>Type of report</th>
+				<th>Report for date:</th>
+				<th>Date when report is been modified:</th>
 				<th>Is deleted</th>
+
 				<security:authorize access="hasRole('ROLE_ADMIN')">
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>Update report</th>
+					<th>Delete report</th>
 				</security:authorize>
 			</tr>
-
-			<c:forEach var="project" items="${list}">
+			<c:forEach var="report" items="${list}">
 				<tr>
-					<td>${project.id}</td>
-					<td>${project.projectName}</td>
-					<td>${project.description}</td>
-					<td>${project.type}</td>
-					<td>${project.deleted}</td>
+					<td>${report.idReport}</td>
+					<td>${report.companyName}</td>
+					<td>${report.hoursReported}</td>
+					<td>${report.vab}</td>
+					<td>${report.vacation}</td>
+					<td>${report.locked}</td>
+					<td>${report.forDate}</td>
+					<td>${report.dateModified}</td>
+					<td>${report.deleted}</td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="update-project">Update project</a></td>
+						<td><a href="update-report">Update report</a></td>
 					</security:authorize>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="delete-project">Delete project</a></td>
+						<td><a href="delete-report">Delete report</a></td>
 					</security:authorize>
+
 				</tr>
 			</c:forEach>
 		</table>
-		<!-- <table border="2" width="90%" cellpadding="2"> -->
+		<br />
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous" type="text/javascript"></script>
+		crossorigin="anonymous" type="text/javascript">
+	</script>
 </body>
-	</html>
+</html>
 </jsp:root>

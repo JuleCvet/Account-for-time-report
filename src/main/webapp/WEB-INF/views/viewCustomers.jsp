@@ -30,6 +30,19 @@ crossorigin="anonymous"/>
 </head>
 <body>
 	<div class="container">
+	<br/>
+	<table class="table table-striped table-bordered">
+			<tr>
+				<th><security:authorize access="hasRole('ROLE_ADMIN')">
+			<a href="create-customer">Add New customer</a>
+		</security:authorize></th>
+				<th><a href="/project/viewProjects">Show Projects</a></th>	
+				<th><a href="/report/allMyReports">All My reports</a></th>
+				<th><a href="/welcome">Back</a></th>
+			</tr>
+	</table>
+	
+	
 		<h1>All Customers</h1>
 <!-- 		<table border="2" width="90%" cellpadding="2"> -->
 			<table class="table table-striped table-bordered">
@@ -61,24 +74,7 @@ crossorigin="anonymous"/>
 			</c:forEach>
 		</table>
 		<br />
-
 <!-- <table border="2" width="90%" cellpadding="2"> -->
-			<table class="table table-striped table-bordered">
-			<tr>
-				<th><security:authorize access="hasRole('ROLE_ADMIN')">
-			<a href="create-customer">Add New customer</a>
-		</security:authorize></th>
-				<th><a href="/project/viewProjects">Show Projects</a></th>	
-				<th><a href="/report/viewReports">Show Reports</a></th>
-				<th><a href="showHours">Show weekly hours</a></th>
-				<th><a href="/welcome">Back</a></th>
-			</tr>
-		</table>
-
-
-
-		
-
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

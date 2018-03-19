@@ -30,7 +30,18 @@
 
 </head>
 <body>
+
 	<div class="container">
+		<br/>
+	<table class="table table-striped table-bordered">
+			<tr>
+				<th><a href="create-report">Add New Report</a></th>
+				<th><a href="/project/viewProjects">Show Projects</a></th>
+				<th><a href="/customer/viewCustomers">Show Customers</a></th>
+				<th><a href="/welcome">Back</a></th>
+			</tr>
+	</table>
+	
 		<h1>All our Reports</h1>
 		<!-- <table border="2" width="90%" cellpadding="2">  -->
 		<table class="table table-striped table-bordered">
@@ -40,8 +51,6 @@
 				<th>Working hours</th>
 				<th>Hours of VAB</th>
 				<th>Hours of Vacation</th>
-				<th>Total hours per day:</th>
-				<th>Expected weekly hours</th>
 				<th>Type of report</th>
 				<th>User Id</th>
 				<th>Report for date:</th>
@@ -60,8 +69,6 @@
 					<td>${report.hoursReported}</td>
 					<td>${report.vab}</td>
 					<td>${report.vacation}</td>
-					<td>${report.totalHoursPerDay}</td>
-					<td>${report.expectedHours}</td>
 					<td>${report.locked}</td>
 					<td>${report.userID}</td>
 					<td>${report.forDate}</td>
@@ -80,15 +87,6 @@
 			</c:forEach>
 		</table>
 		<br />
-		<table class="table table-striped table-bordered">
-			<tr>
-				<th><a href="create-report">Add New Report</a></th>
-				<th><a href="/project/viewProjects">Show Projects</a></th>
-				<th><a href="/customer/viewCustomers">Show Customers</a></th>
-				<th><a href="showHours">Show weekly hours</a></th>
-				<th><a href="/welcome">Back</a></th>
-			</tr>
-		</table>
 
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

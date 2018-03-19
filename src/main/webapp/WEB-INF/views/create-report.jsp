@@ -14,14 +14,17 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <meta charset="utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Datepicker - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!--   <title>jQuery UI Datepicker - Default functionality</title>
+ -->  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
     $( "#datepicker" ).datepicker();
   } );
+  $( function() {
+	    $( "#datepicker1" ).datepicker();
+ } );
   </script>
  
     
@@ -79,6 +82,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
                 <form:errors path="forDate"></form:errors>
             </div>
         </spring:bind>
+       
         
          <spring:bind path="hoursReported">
             <div class="form-group ${status.error ? 'has-error' : ''}">
@@ -89,10 +93,11 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
         
   		<spring:bind path="dateModified">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="dateModified" class="form-control"
+                <form:input type="text" path="dateModified"  id="datepicker1" class="form-control"
                             placeholder="Date Modified:"></form:input>
                 <form:errors path="dateModified"></form:errors>
-            </div>
+            </div> 
+            
         </spring:bind>
         
          <spring:bind path="vab">
@@ -115,21 +120,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
                 <form:errors path="vacation"></form:errors>
             </div>
         </spring:bind>
-        
-        <spring:bind path="totalHoursPerDay">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="totalHoursPerDay" class="form-control" placeholder="Total Hours per day" autofocus="true"></form:input>
-                <form:errors path="totalHoursPerDay"></form:errors>
-            </div>
-        </spring:bind>
-        
-         <spring:bind path="expectedHours">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="expectedHours" class="form-control" placeholder="Expected Hours" autofocus="true"></form:input>
-                <form:errors path="expectedHours"></form:errors>
-            </div>
-        </spring:bind>
-
+   
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
  	</form:form>
   </div>

@@ -31,6 +31,17 @@
 </head>
 <body>
 	<div class="container">
+	
+		<br/>
+	<table class="table table-striped table-bordered">
+			<tr>
+				<th><a href="registration">Register</a></th>
+				<th><a href="/project/viewProjects">Show Projects</a></th>
+				<th><a href="/customer/viewCustomers">Show Customers</a></th>
+				<th><a href="/welcome">Back</a></th>
+			</tr>
+	</table>
+	
 		<h1>All Users</h1>
 <!-- 		<table border="2" width="90%" cellpadding="2"> -->
 			<table class="table table-striped table-bordered">
@@ -53,22 +64,11 @@
 						<td><a href="delete-user">Delete user</a></td>
 					</security:authorize>
 
-
 				</tr>
 			</c:forEach>
 		</table>
 		<br />
 <!-- 		<table border="2" width="90%" cellpadding="2"> -->
-			<table class="table table-striped table-bordered">
-			<tr>
-				<th><a href="registration">Register</a></th>
-				<th><a href="/project/viewProjects">Show Projects</a></th>
-				<th><a href="/customer/viewCustomers">Show Customers</a></th>
-				<th><a href="showHours">Show weekly hours</a></th>
-				<th><a href="/welcome">Back</a></th>
-			</tr>
-		</table>
-
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
