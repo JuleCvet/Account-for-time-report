@@ -30,7 +30,6 @@
 	<div class="alert alert-info" role="alert">
 	<h4 class="alert-heading">Well done!</h4>
 	</div>
-
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="POST" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

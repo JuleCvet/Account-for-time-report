@@ -31,6 +31,10 @@
 
 <div class="container">
 
+	<div class="alert alert-danger" role="alert">
+	<h4 class="alert-heading">Are you sure that you want to delete Info about this report?</h4>
+	</div>
+	
     <form:form method="POST" modelAttribute="updateReportDel" class="form-signin">
         <h2 class="form-signin-heading">Delete info about your report</h2>
         <spring:bind path="idReport">

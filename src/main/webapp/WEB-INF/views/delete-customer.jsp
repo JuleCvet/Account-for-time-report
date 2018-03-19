@@ -30,6 +30,11 @@
 
 <div class="container">
 
+	<div class="alert alert-danger" role="alert">
+	<h4 class="alert-heading">Are you sure that you want to delete Info about this customer?</h4>
+	</div>
+	
+
     <form:form method="POST" modelAttribute="deleteCustomer" class="form-signin">
         <h2 class="form-signin-heading">Delete info about your customer</h2>
         <spring:bind path="customer_id">

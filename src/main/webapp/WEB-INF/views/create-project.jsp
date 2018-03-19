@@ -27,6 +27,7 @@
 </head>
 <body>
 	<div class="container">
+	
 		<form:form method="POST" modelAttribute="projectForm"
 			class="form-signin">
 			<h2 class="form-signin-heading">Create your project</h2>

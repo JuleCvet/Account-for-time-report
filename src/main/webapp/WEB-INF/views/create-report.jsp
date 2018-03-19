@@ -46,6 +46,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <body>
 
  <div class="container">
+ 
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <%-- <h2>Welcome ${pageContext.request.userPrincipal.name} with user id: ${username.id}</h2> --%>
     </c:if>

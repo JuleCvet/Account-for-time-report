@@ -29,7 +29,11 @@
 <body>
 
 <div class="container">
-
+	
+	<div class="alert alert-danger" role="alert">
+	<h4 class="alert-heading">Are you sure that you want to delete Info about this project?</h4>
+	</div>
+	
     <form:form method="POST" modelAttribute="delete" class="form-signin">
         <h2 class="form-signin-heading">Delete info about your project</h2>
         <spring:bind path="id">

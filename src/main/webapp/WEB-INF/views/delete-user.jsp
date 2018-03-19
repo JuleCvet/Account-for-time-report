@@ -31,6 +31,10 @@
 
 <div class="container">
 
+	<div class="alert alert-danger" role="alert">
+	<h4 class="alert-heading">Are you sure that you want to delete Info about this user?</h4>
+	</div>
+
     <form:form method="POST" modelAttribute="userDelete" class="form-signin">
         <h2 class="form-signin-heading">Delete info about your user</h2>
         <spring:bind path="id">
