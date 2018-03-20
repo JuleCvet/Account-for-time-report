@@ -91,7 +91,7 @@ public class ReportServiceImpl implements ReportService {
 		List<Report> allFilteredReports = new ArrayList<Report>();
 		
 		for(Report report : allReports) {
-			java.sql.Date reportDate = report.getForDate();
+			java.sql.Date reportDate = (Date) report.getForDate();
 			if ((reportDate.after(fromDate) && reportDate.before(toDate)) || reportDate.equals(fromDate) || reportDate.equals(toDate)) {
 				allFilteredReports.add(report);
 			}
@@ -102,15 +102,18 @@ public class ReportServiceImpl implements ReportService {
 
 	@Override
 	public Double calculateHoursByUserIdAndDate(Integer userID, Date fromDate, Date toDate) {
+		
 		List<Report> allReports = reportRepository.findByuserID(userID);
+		List<Report> allFilteredReports = new ArrayList<Report>();
 		Double sum = 0.0;
 		
 		for(Report report : allReports) {
-			sum+= report.getHoursReported();
-			
+			java.sql.Date reportDate = (Date) report.getForDate();
+			if(((reportDate.after(fromDate) && reportDate.before(toDate)) || reportDate.equals(fromDate) || reportDate.equals(toDate))) {
+				allFilteredReports.add(report);
+				sum += report.getHoursReported();
 		}
-	
-	
+	 }
 	return sum;
-	}
+  }
 }
