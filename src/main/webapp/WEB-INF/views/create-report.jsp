@@ -14,8 +14,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <meta charset="utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--   <title>jQuery UI Datepicker - Default functionality</title>
- -->  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
@@ -26,8 +25,6 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 	    $( "#datepicker1" ).datepicker();
  } );
   </script>
- 
-    
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,13 +55,6 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
         <h2 class="form-signin-heading">Create your report</h2>
         
         <p>Today's date: <%= (new java.util.Date()).toLocaleString()%></p>
-        <%--  <spring:bind path="dateAdded">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="dateAdded" class="form-control" placeholder="Currant Date:"  
-                            autofocus="true"></form:input>
-                <form:errors path="dateAdded"></form:errors>
-           </div>
-        </spring:bind>  --%>
           
 		<spring:bind path="companyName">
             <div class="form-group ${status.error ? 'has-error' : ''}">
@@ -82,7 +72,6 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
                 <form:errors path="forDate"></form:errors>
             </div>
         </spring:bind>
-       
         
          <spring:bind path="hoursReported">
             <div class="form-group ${status.error ? 'has-error' : ''}">
@@ -124,7 +113,6 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
  	</form:form>
   </div>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -19,4 +19,6 @@ public interface ReportService {
 	boolean updateReportDel(Report report);
 
 	List<Report> showReportsByUserID(Integer userID);
+
+	Double calculateHoursByUserID(Integer userID);
 }

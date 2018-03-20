@@ -34,7 +34,6 @@ public class ReportServiceImpl implements ReportService {
 		oldReport.setHoursReported(report.getHoursReported());
 		oldReport.setVab(report.getVab());
 		oldReport.setVacation(report.getVacation());
-		oldReport.setIsLocked(report.getIsLocked());
 		oldReport.setUserID(report.getUserID());
 		oldReport.setForDate(report.getForDate());
 		oldReport.setDateModified(report.getDateModified());
@@ -72,5 +71,15 @@ public class ReportServiceImpl implements ReportService {
 		reportRepository.saveAndFlush(oldReport);
 
 		return true;
+	}
+
+	@Override
+	public Double calculateHoursByUserID(Integer userID) {
+		List<Report> allReports = reportRepository.findByuserID(userID);
+		Double sum = 0.0;
+		for (Report report : allReports) {
+			sum += report.getHoursReported();
+		}
+		return sum;
 	}
 }

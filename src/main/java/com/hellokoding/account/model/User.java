@@ -133,5 +133,4 @@ public class User {
 				+ passwordConfirm + ", roles=" + roles + ", projects=" + projects + ", reports=" + reports + "]";
 	}
 
-	
 }

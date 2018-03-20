@@ -47,10 +47,8 @@ public class UserController {
 
 		return "redirect:/welcome";
 	}
-	// General interface that represents binding results. Extends the interface for
-	// error registration capabilities,
-	// allowing for a Validator to be applied, and adds binding-specific analysis
-	// and model building.
+// General interface that represents binding results. Extends the interface for error registration capabilities,
+// allowing for a Validator to be applied, and adds binding-specific analysis and model building.
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model, String error, String logout) {

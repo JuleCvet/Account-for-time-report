@@ -32,12 +32,14 @@ public class Report {
 	private Integer userID;
 	private Integer deleted;
 	
+	
 	@DateTimeFormat(pattern = "mm/DD/yyyy")
 	private Date forDate;
 
 	@DateTimeFormat(pattern = "mm/DD/yyyy")
 	private Date dateModified;
 
+	
 	@ManyToMany(mappedBy = "reports")
 	private Set<User> users;
 
@@ -51,12 +53,11 @@ public class Report {
 		return deleted;
 	}
 
-
-
 	public void setDeleted(Integer deleted) {
 		this.deleted = deleted;
 	}
 
+	
 	public Report(String companyName, double hoursReported, Integer vab, Integer vacation, boolean locked,
 			Integer userID, Integer deleted, Date forDate, Date dateModified, Set<User> users) {
 		super();
@@ -71,6 +72,7 @@ public class Report {
 		this.dateModified = dateModified;
 		this.users = users;
 	}
+
 
 	public Integer getUserID() {
 		return userID;

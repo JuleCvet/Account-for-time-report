@@ -1,5 +1,7 @@
 package com.hellokoding.account.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -92,8 +94,18 @@ public class ReportController {
 			Integer userI = Integer.valueOf(userService.findByUsername(username).getId().intValue());
 	
 			model.addAttribute("list", reportService.showReportsByUserID(userI));
+			model.addAttribute("totalHours", reportService.calculateHoursByUserID(userI));
 		}
 		return "allMyReports";
+	}
+	
+	@RequestMapping(value = "/allMyReports", method = RequestMethod.POST)
+	public String allMyReports(HttpServletRequest request) {
+        // this way you get value of the input you want
+		String fromDate = request.getParameter("fromDate");
+		String toDate = request.getParameter("toDate");
+
+		return "redirect:/allMyReports";
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
