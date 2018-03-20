@@ -1,6 +1,6 @@
 package com.hellokoding.account.service;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,7 +91,7 @@ public class ReportServiceImpl implements ReportService {
 		List<Report> allFilteredReports = new ArrayList<Report>();
 		
 		for(Report report : allReports) {
-			java.sql.Date reportDate = (Date) report.getForDate();
+			Date reportDate = report.getForDate();
 			if ((reportDate.after(fromDate) && reportDate.before(toDate)) || reportDate.equals(fromDate) || reportDate.equals(toDate)) {
 				allFilteredReports.add(report);
 			}
@@ -108,7 +108,7 @@ public class ReportServiceImpl implements ReportService {
 		Double sum = 0.0;
 		
 		for(Report report : allReports) {
-			java.sql.Date reportDate = (Date) report.getForDate();
+			Date reportDate =  report.getForDate();
 			if(((reportDate.after(fromDate) && reportDate.before(toDate)) || reportDate.equals(fromDate) || reportDate.equals(toDate))) {
 				allFilteredReports.add(report);
 				sum += report.getHoursReported();

@@ -1,6 +1,6 @@
 package com.hellokoding.account.web;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Calendar;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -118,10 +118,10 @@ public class ReportController {
 	        
 	        String showFromDate= sdf.format(fromDate1);
 	        
-	        java.sql.Date fromDate = new java.sql.Date(fromDate1.getTime());
-	        java.sql.Date toDate = new java.sql.Date(toDate1.getTime());
-			model.addAttribute("list", reportService.showReportsByUserIDAndDate(userI, fromDate, toDate));
-			model.addAttribute("totalHours", reportService.calculateHoursByUserIdAndDate(userI, fromDate, toDate));
+	        //java.sql.Date fromDate = new java.sql.Date(fromDate1.getTime());
+	        //java.sql.Date toDate = new java.sql.Date(toDate1.getTime());
+			model.addAttribute("list", reportService.showReportsByUserIDAndDate(userI, fromDate1, toDate1));
+			model.addAttribute("totalHours", reportService.calculateHoursByUserIdAndDate(userI, fromDate1, toDate1));
 			model.addAttribute("fromDate", showFromDate);
 			model.addAttribute("toDate", showToDate);
 		}
@@ -148,11 +148,11 @@ public class ReportController {
 
 				java.util.Date toDate1 = dateFormat.parse(toDateReceived);
 				java.util.Date fromDate1 = dateFormat.parse(fromDateReceived);
-		        java.sql.Date fromDate = new java.sql.Date(fromDate1.getTime());
-		        java.sql.Date toDate = new java.sql.Date(toDate1.getTime());
+		        //java.sql.Date fromDate = new java.sql.Date(fromDate1.getTime());
+		        //java.sql.Date toDate = new java.sql.Date(toDate1.getTime());
 		        
-				model.addAttribute("list", reportService.showReportsByUserIDAndDate(userI, fromDate, toDate));
-				model.addAttribute("totalHours", reportService.calculateHoursByUserIdAndDate(userI, fromDate, toDate));
+				model.addAttribute("list", reportService.showReportsByUserIDAndDate(userI, fromDate1, toDate1));
+				model.addAttribute("totalHours", reportService.calculateHoursByUserIdAndDate(userI, fromDate1, toDate1));
 				model.addAttribute("fromDate", fromDateReceived);
 				model.addAttribute("toDate", toDateReceived);
 			} else {
@@ -168,11 +168,11 @@ public class ReportController {
 		        java.util.Date fromDate1 = cal.getTime();
 		        
 		        String showFromDate= sdf.format(fromDate1);
-		        java.sql.Date fromDate = new java.sql.Date(fromDate1.getTime());
-		        java.sql.Date toDate = new java.sql.Date(toDate1.getTime());
+		        //java.sql.Date fromDate = new java.sql.Date(fromDate1.getTime());
+		        //java.sql.Date toDate = new java.sql.Date(toDate1.getTime());
 		        
-				model.addAttribute("list", reportService.showReportsByUserIDAndDate(userI, fromDate, toDate));
-				model.addAttribute("totalHours", reportService.calculateHoursByUserIdAndDate(userI, fromDate, toDate));
+				model.addAttribute("list", reportService.showReportsByUserIDAndDate(userI, fromDate1, toDate1));
+				model.addAttribute("totalHours", reportService.calculateHoursByUserIdAndDate(userI, fromDate1, toDate1));
 				model.addAttribute("fromDate", showFromDate);
 				model.addAttribute("toDate", showToDate);
 			}

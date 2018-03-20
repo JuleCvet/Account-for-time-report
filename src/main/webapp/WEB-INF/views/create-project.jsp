@@ -52,12 +52,15 @@
 				</div>
 			</spring:bind>
 
-
+			 <spring:bind path="deleted">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="hidden" path="deleted" class="form-control" value="0"></form:input>
+                <form:errors path="deleted"></form:errors>
+            </div>
+       		 </spring:bind>
 
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				 <form:input type="text" path="type" class="form-control" placeholder="Type:"></form:input>
-                <form:errors path="type"></form:errors><br>
-				<form:select path="type" name="type">
+				<form:select path="type" name="type" class="form-control" >
 					<c:forEach items="<%=ProjectTypeEnum.values()%>" var="typeType">
 						<option>${typeType}</option>
 					</c:forEach>

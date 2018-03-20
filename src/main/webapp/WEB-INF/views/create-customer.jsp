@@ -41,6 +41,13 @@
                 <form:errors path="companyName"></form:errors>
             </div>
         </spring:bind>
+        
+         <spring:bind path="deleted">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="hidden" path="deleted" class="form-control" value="0"></form:input>
+                <form:errors path="deleted"></form:errors>
+            </div>
+        </spring:bind>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form:form>
