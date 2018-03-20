@@ -17,6 +17,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 
   <script>
   $( function() {
     $( "#datepicker" ).datepicker();
@@ -28,7 +29,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -37,11 +38,6 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 	<div class="container">
@@ -66,10 +62,11 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 		    <label for="datepicker1">To Date:</label>
 		    <input type="text" class="form-control" path="toDate" name="datepicker1" id="datepicker1"></input>
 		  </div>
-		  <button type="submit" class="btn btn-primary">Filter Dates</button>
+		  <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+		  <button type="submit" class="btn btn-primary" >Filter Dates</button>
 		</form>
 
-		<table class="table table-striped table-bordered">
+		<table class="table table-striped table-bordered" >
 			<tr>
 				<th>Report Id</th>
 				<th>Name</th>
@@ -85,6 +82,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 					<th>Update report</th>
 					<th>Delete report</th>
 				</security:authorize>
+			
 			</tr>
 			<c:forEach var="report" items="${list}">
 				<tr>
@@ -111,7 +109,6 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 		</table>
 		<h3>Sum of all working hours: ${totalHours}</h3>
 		<br />
-
 		<form action=""></form>
 	</div>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>

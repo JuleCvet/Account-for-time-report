@@ -1,5 +1,12 @@
 package com.hellokoding.account.web;
 
+import java.sql.Date;
+import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +19,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hellokoding.account.model.Report;
 import com.hellokoding.account.service.ReportService;
@@ -84,7 +92,7 @@ public class ReportController {
 	}
 	
 	@RequestMapping(value = "/allMyReports", method = RequestMethod.GET)
-	public String view_myreports(Model model) {
+	public String view_myreports(Model model) throws ParseException {
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -92,9 +100,21 @@ public class ReportController {
 			String username = ((UserDetails)principal).getUsername();
 			
 			Integer userI = Integer.valueOf(userService.findByUsername(username).getId().intValue());
-	
-			model.addAttribute("list", reportService.showReportsByUserID(userI));
+			
+			java.util.Date toDate1 = Calendar.getInstance().getTime();
+	        
+	        Calendar cal = Calendar.getInstance();
+	        cal.setTime(toDate1);
+	        cal.add(Calendar.DATE, -30);
+	        java.util.Date fromDate1 = cal.getTime();
+	        
+	        java.sql.Date fromDate = new java.sql.Date(fromDate1.getTime());
+	        java.sql.Date toDate = new java.sql.Date(toDate1.getTime());
+	        
+			// model.addAttribute("list", reportService.showReportsByUserID(userI));
+			model.addAttribute("list", reportService.showReportsByUserIDAndDate(userI, fromDate, toDate));
 			model.addAttribute("totalHours", reportService.calculateHoursByUserID(userI));
+			
 		}
 		return "allMyReports";
 	}
@@ -105,7 +125,7 @@ public class ReportController {
 		String fromDate = request.getParameter("fromDate");
 		String toDate = request.getParameter("toDate");
 
-		return "redirect:/allMyReports";
+		return "redirect:/report/allMyReports";
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

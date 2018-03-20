@@ -1,5 +1,6 @@
 package com.hellokoding.account.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.hellokoding.account.model.Report;
@@ -19,6 +20,11 @@ public interface ReportService {
 	boolean updateReportDel(Report report);
 
 	List<Report> showReportsByUserID(Integer userID);
+	
+	List<Report> showReportsByUserIDAndDate(Integer userID, Date fromDate, Date toDate);
 
 	Double calculateHoursByUserID(Integer userID);
+	
+	Double calculateHoursByUserIdAndDate(Integer userID, Date fromDate, Date toDate);
+	
 }

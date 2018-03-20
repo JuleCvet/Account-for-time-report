@@ -1,5 +1,7 @@
 package com.hellokoding.account.service;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,5 +83,34 @@ public class ReportServiceImpl implements ReportService {
 			sum += report.getHoursReported();
 		}
 		return sum;
+	}
+
+	@Override
+	public List<Report> showReportsByUserIDAndDate(Integer userID, Date fromDate, Date toDate) {
+		List<Report> allReports = reportRepository.findByuserID(userID);
+		List<Report> allFilteredReports = new ArrayList<Report>();
+		
+		for(Report report : allReports) {
+			java.sql.Date reportDate = report.getForDate();
+			if ((reportDate.after(fromDate) && reportDate.before(toDate)) || reportDate.equals(fromDate) || reportDate.equals(toDate)) {
+				allFilteredReports.add(report);
+			}
+		}
+		
+		return allFilteredReports;
+	}
+
+	@Override
+	public Double calculateHoursByUserIdAndDate(Integer userID, Date fromDate, Date toDate) {
+		List<Report> allReports = reportRepository.findByuserID(userID);
+		Double sum = 0.0;
+		
+		for(Report report : allReports) {
+			sum+= report.getHoursReported();
+			
+		}
+	
+	
+	return sum;
 	}
 }
