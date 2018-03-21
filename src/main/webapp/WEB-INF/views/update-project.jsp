@@ -35,10 +35,11 @@
         <spring:bind path="id">
             <div class="form-group ${status.error ? 'has-error' : ''}">
                 <form:input type="text" path="id" class="form-control" placeholder="Project id:"
-                            autofocus="true"></form:input>
+                            value="${project.id}"></form:input>
                 <form:errors path="id"></form:errors>
             </div>
         </spring:bind>
+   
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form:form>

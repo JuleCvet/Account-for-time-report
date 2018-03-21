@@ -8,6 +8,6 @@ import com.hellokoding.account.model.Report;
 
 public interface ReportRepository extends JpaRepository<Report, Long> {
 	public Report findByCompanyName(String projectName);
-	
+
 	public List<Report> findByuserID(Integer userID);
 }

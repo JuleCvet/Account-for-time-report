@@ -28,11 +28,6 @@ import com.hellokoding.account.service.UserService;
 @Controller
 @RequestMapping("/report")
 public class ReportController {
-
-	public boolean isValidDate(String inputStringDate){
-		
-	    return inputStringDate.matches("^(0?[1-9]|1[0-2])\\/(0?[1-9]|1\\d|2\\d|3[01])\\/(19|20)\\d{2}$");
-	}
 	
 	@Autowired
 	private ReportService reportService;
@@ -40,6 +35,10 @@ public class ReportController {
 	@Autowired
 	private UserService userService;
 
+	public boolean isValidDate(String inputStringDate){
+	    return inputStringDate.matches("^(0?[1-9]|1[0-2])\\/(0?[1-9]|1\\d|2\\d|3[01])\\/(19|20)\\d{2}$");
+	}
+	
 	@RequestMapping(value = "/create-report", method = RequestMethod.GET)
 	public String create_report(Model model) {
 		model.addAttribute("reportForm", new Report());

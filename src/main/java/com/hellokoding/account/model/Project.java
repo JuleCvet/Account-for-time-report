@@ -25,7 +25,7 @@ public class Project {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "idProject")
 	private Long id;
 
 	private String projectName;
@@ -105,8 +105,8 @@ public class Project {
 		this.deleted = deleted;
 	}
 
-	public Project(String projectName, String description, Integer deleted, List<Project> projects_allprojects,
-			ProjectTypeEnum type, Set<User> users, Set<Customer> customers) {
+	public Project(String projectName, String description, Integer deleted,
+			List<Project> projects_allprojects, ProjectTypeEnum type, Set<User> users, Set<Customer> customers) {
 		super();
 		this.projectName = projectName;
 		this.description = description;
@@ -136,9 +136,7 @@ public class Project {
 	@Override
 	public String toString() {
 		return "Project [projectName=" + projectName + ", description=" + description + ", deleted=" + deleted
-				+ ", projects_allprojects=" + projects_allprojects + ", type=" + type + ", users=" + users
-				+ ", customers=" + customers + "]";
+				+ ", projects_allprojects=" + projects_allprojects + ", type="
+				+ type + ", users=" + users + ", customers=" + customers + "]";
 	}
-
-	
 }

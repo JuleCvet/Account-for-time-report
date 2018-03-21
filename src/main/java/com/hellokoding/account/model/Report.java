@@ -202,4 +202,5 @@ public class Report {
 				+ ", vacation=" + vacation + ", locked=" + locked + ", userID=" + userID + ", deleted=" + deleted
 				+ ", forDate=" + forDate + ", dateModified=" + dateModified + ", users=" + users + "]";
 	}
+
 }

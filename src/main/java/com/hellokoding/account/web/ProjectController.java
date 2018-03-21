@@ -3,6 +3,8 @@ package com.hellokoding.account.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +20,8 @@ import com.hellokoding.account.service.UserService;
 @Controller
 @RequestMapping("/project")
 public class ProjectController {
+
+	private static final String projectName = null;
 
 	@Autowired
 	private ProjectService projectService;
@@ -113,11 +117,12 @@ public class ProjectController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "update-project", method = RequestMethod.GET)
 	public String update_project(Model model) {
+
 		model.addAttribute("projectUpdate", new Project());
+		model.addAttribute("list", projectService.findByProjectName(projectName));
 
 		return "update-project";
-	}
-
+}
 	@RequestMapping(value = "update-project", method = RequestMethod.POST)
 	public String update_project(@ModelAttribute("projectUpdate") Project project, BindingResult bindingResult,
 			Model model) {

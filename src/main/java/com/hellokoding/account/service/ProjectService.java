@@ -3,6 +3,7 @@ package com.hellokoding.account.service;
 import java.util.List;
 
 import com.hellokoding.account.model.Project;
+import com.hellokoding.account.model.Report;
 
 public interface ProjectService {
 
