@@ -9,6 +9,8 @@ public interface CustomerService {
 	void save(Customer customer);
 
 	Customer findByCompanyName(String companyName);
+	
+	Customer findByCustomerId(Long customerId);
 
 	public List<Customer> showAllCustomers();
 

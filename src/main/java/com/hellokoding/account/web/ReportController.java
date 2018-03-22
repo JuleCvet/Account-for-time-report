@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -180,15 +181,16 @@ public class ReportController {
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "update-report", method = RequestMethod.GET)
-	public String update_report(Model model) {
-		model.addAttribute("reportUpdate", new Report());
+	@RequestMapping(value = "update-report/{idReport}", method = RequestMethod.GET)
+	public String update_report(Model model, @PathVariable Long idReport) {
+		
+		model.addAttribute("update", reportService.findByIdReport(idReport));
 
 		return "update-report";
 	}
 
-	@RequestMapping(value = "update-report", method = RequestMethod.POST)
-	public String update_report(@ModelAttribute("reportUpdate") Report report, BindingResult bindingResult,
+	@RequestMapping(value = "update-report/{idReport}", method = RequestMethod.POST)
+	public String update_report(@ModelAttribute("update") Report report, BindingResult bindingResult,
 			Model model) {
 		if (bindingResult.hasErrors()) {
 			return "update-report";

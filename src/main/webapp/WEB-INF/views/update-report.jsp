@@ -14,38 +14,93 @@
     <meta name="author" content="">
 
     <title>Update your report</title>
-
+  	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+ <script>
+ $( function() {
+   $( "#forDate" ).datepicker();
+ } );
+ </script>
 </head>
-
 
 <body>
 
 <div class="container">
 
-    <form:form method="PUT" modelAttribute="reportUpdate" class="form-signin">
-        <h2 class="form-signin-heading">Update your report</h2>
+    <form:form modelAttribute="update" class="form-signin">
+        <h2 class="form-signin-heading">Update your report with Id: ${idReport}</h2>
+        
         <spring:bind path="idReport">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="idReport" class="form-control" placeholder="Id of the Report:"
-                            autofocus="true"></form:input>
+                <form:input type="hidden" value="${report.idReport}" path="idReport" class="form-control"></form:input>
                 <form:errors path="idReport"></form:errors>
-            </div>
+      		</div>
         </spring:bind>
+        
+        <spring:bind path="companyName">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" path="companyName" class="form-control"
+						placeholder="Company name:" value="${report.companyName}"></form:input>
+					<form:errors path="companyName"></form:errors>
+				</div>
+			</spring:bind>
+			
+			<spring:bind path="hoursReported">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" path="hoursReported" class="form-control"
+						placeholder="Hours Reported:" value="${report.hoursReported}"></form:input>
+					<form:errors path="hoursReported"></form:errors>
+				</div>
+			</spring:bind>
+			
+			<spring:bind path="vab">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" path="vab" class="form-control"
+						placeholder="Hours for VAB:" value="${report.vab}"></form:input>
+					<form:errors path="vab"></form:errors>
+				</div>
+			</spring:bind>
+			
+			<spring:bind path="vacation">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" path="vacation" class="form-control"
+						placeholder="Hours for vacation:" value="${report.vacation}"></form:input>
+					<form:errors path="vacation"></form:errors>
+				</div>
+			</spring:bind>
+			
+			<spring:bind path="locked">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" path="locked" class="form-control"
+						placeholder="Locked report:" value="${report.locked}"></form:input>
+					<form:errors path="locked"></form:errors>
+				</div>
+			</spring:bind>
+			
+			<spring:bind path="userID">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" path="userID" class="form-control"
+						placeholder="User ID of the report:" value="${report.userID}"></form:input>
+					<form:errors path="userID"></form:errors>
+				</div>
+			</spring:bind>
+			
+			<spring:bind path="forDate">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" id="forDate" name="forDate" path="forDate" class="form-control"
+						placeholder="For Date:" value="${forDate}"></form:input>
+					<form:errors path="forDate"></form:errors>
+				</div>
+			</spring:bind>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form:form>
 
 </div>
-<!-- /container -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

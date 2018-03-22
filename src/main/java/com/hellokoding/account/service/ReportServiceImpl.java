@@ -116,4 +116,11 @@ public class ReportServiceImpl implements ReportService {
 	 }
 	return sum;
   }
+
+	@Override
+	public Report findByIdReport(Long idReport) {
+		Report oldReport = reportRepository.findByIdReport(idReport);
+		
+		return oldReport;
+	}
 }

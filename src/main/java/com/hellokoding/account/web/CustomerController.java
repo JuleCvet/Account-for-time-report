@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -69,16 +70,18 @@ public class CustomerController {
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "update-customer", method = RequestMethod.GET)
-	public String update_customer(Model model) {
-		model.addAttribute("customerUpdate", new Customer());
+	@RequestMapping(value = "update-customer/{customerId}", method = RequestMethod.GET)
+	public String update_customer(Model model, @PathVariable Long customerId) {
+		
+		model.addAttribute("update", customerService.findByCustomerId(customerId));
 
 		return "update-customer";
 	}
 
-	@RequestMapping(value = "update-customer", method = RequestMethod.POST)
-	public String update_customer(@ModelAttribute("customerUpdate") Customer customer, BindingResult bindingResult,
+	@RequestMapping(value = "update-customer/{customerId}", method = RequestMethod.POST)
+	public String update_customer(@ModelAttribute("update") Customer customer, BindingResult bindingResult,
 			Model model) {
+		
 		if (bindingResult.hasErrors()) {
 			return "update-customer";
 		}

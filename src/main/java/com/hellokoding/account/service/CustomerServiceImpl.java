@@ -33,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public boolean updateCustomer(Customer customer) {
-		Customer oldCustomer = customerRepository.findOne(customer.getCustomer_id());
+		Customer oldCustomer = customerRepository.findOne(customer.getcustomerId());
 		oldCustomer.setCompanyName(customer.getCompanyName());
 		customerRepository.saveAndFlush(oldCustomer);
 
@@ -42,15 +42,22 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void deleteCustomer(Customer customer) {
-		customerRepository.delete(customer.getCustomer_id());
+		customerRepository.delete(customer.getcustomerId());
 	}
 
 	@Override
 	public boolean updateCustomerDel(Customer customer) {
-		Customer oldCustomer = customerRepository.findOne(customer.getCustomer_id());
+		Customer oldCustomer = customerRepository.findOne(customer.getcustomerId());
 		oldCustomer.setDeleted(1);
 		
 		customerRepository.saveAndFlush(oldCustomer);
 		return true;
+	}
+
+	@Override
+	public Customer findByCustomerId(Long customerId) {
+		Customer oldCustomer = customerRepository.findByCustomerId(customerId);
+		 
+		return oldCustomer;
 	}
 }

@@ -58,12 +58,12 @@ crossorigin="anonymous"/>
 
 			<c:forEach var="customer" items="${list}">
 				<tr>
-					<td>${customer.customer_id}</td>
+					<td>${customer.customerId}</td>
 					<td>${customer.companyName}</td>
 					<td>${customer.deleted}</td>
 				
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-					<td><a href="update-customer">Update customer</a></td>
+					<td><a href="update-customer/${customer.customerId}">Update customer</a></td>
 					</security:authorize>
 					
 					<security:authorize access="hasRole('ROLE_ADMIN')">

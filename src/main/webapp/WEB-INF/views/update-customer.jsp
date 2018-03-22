@@ -30,15 +30,24 @@
 
 <div class="container">
 
-    <form:form method="PUT" modelAttribute="customerUpdate" class="form-signin">
-        <h2 class="form-signin-heading">Update your customer</h2>
-        <spring:bind path="customer_id">
+    <form:form  modelAttribute="update" class="form-signin">
+        <h2 class="form-signin-heading">Update your customer with Id: ${customerId}</h2>
+        
+        <spring:bind path="customerId">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="customer_id" class="form-control" placeholder="Customer Id:"
-                            autofocus="true"></form:input>
-                <form:errors path="customer_id"></form:errors>
+                <form:input type="hidden" path="customerId" class="form-control" value="${customer.customerId}"></form:input>
+                <form:errors path="customerId"></form:errors>
             </div>
         </spring:bind>
+        
+
+	<spring:bind path="companyName">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" path="companyName" class="form-control"
+						placeholder="Company Name:" value="${customer.companyName}"></form:input>
+					<form:errors path="companyName"></form:errors>
+				</div>
+			</spring:bind>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form:form>

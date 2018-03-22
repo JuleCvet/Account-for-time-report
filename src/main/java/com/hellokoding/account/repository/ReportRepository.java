@@ -10,4 +10,6 @@ public interface ReportRepository extends JpaRepository<Report, Long> {
 	public Report findByCompanyName(String projectName);
 
 	public List<Report> findByuserID(Integer userID);
+	
+	Report findByIdReport(Long idReport);
 }

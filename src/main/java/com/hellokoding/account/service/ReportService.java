@@ -13,6 +13,8 @@ public interface ReportService {
 
 	List<Report> showAllREports();
 
+	Report findByIdReport (Long idReport);
+	
 	boolean updateReport(Report report);
 
 	void deleteReport(Report report);

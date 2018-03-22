@@ -15,13 +15,9 @@ import org.hibernate.annotations.Where;
 @Where(clause="deleted=0")
 public class Customer {
 
-	public void setCustomer_id(Long customer_id) {
-		this.customer_id = customer_id;
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long customer_id;
+	private Long customerId;
 
 	private String companyName;
 	private Integer deleted;
@@ -33,8 +29,12 @@ public class Customer {
 	public Customer() {
 	}
 
-	public Long getCustomer_id() {
-		return customer_id;
+	public Long getcustomerId() {
+		return customerId;
+	}
+	
+	public void setcustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getCompanyName() {

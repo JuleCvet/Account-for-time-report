@@ -6,5 +6,7 @@ import com.hellokoding.account.model.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	Customer findByCompanyName(String companyName);
+	
+	Customer findByCustomerId(Long customerId);
 
 }

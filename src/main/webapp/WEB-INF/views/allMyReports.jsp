@@ -97,7 +97,7 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 					<td>${report.deleted}</td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="update-report">Update report</a></td>
+						<td><a href="update-report/${report.idReport}">Update report</a></td>
 					</security:authorize>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
