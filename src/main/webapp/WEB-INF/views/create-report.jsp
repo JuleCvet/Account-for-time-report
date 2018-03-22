@@ -27,7 +27,7 @@
   $( function() {
 	    $( "#datepicker1" ).datepicker();
  } );
-  </script>
+</script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,11 +41,6 @@
 	rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
@@ -59,9 +54,7 @@
 
 			<h2 class="form-signin-heading">Create your report</h2>
 
-			<p>
-				Today's date:
-				<%= (new java.util.Date()).toLocaleString()%></p>
+			<p>Today's date:<%= (new java.util.Date()).toLocaleString()%></p>
 
 			<spring:bind path="companyName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -70,7 +63,6 @@
 					<form:errors path="companyName"></form:errors>
 				</div>
 			</spring:bind>
-
 
 			<spring:bind path="forDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}">

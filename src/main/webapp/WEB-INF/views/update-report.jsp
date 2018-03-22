@@ -36,8 +36,7 @@
 	<div class="container">
 
 		<form:form modelAttribute="update" class="form-signin">
-			<h2 class="form-signin-heading">Update your report with Id:
-				${idReport}</h2>
+			<h2 class="form-signin-heading">Update your report with Id: ${idReport}</h2>
 
 			<spring:bind path="idReport">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -105,7 +104,6 @@
 
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 		</form:form>
-
 	</div>
 	<script src="${contextPath}/resources/js/bootstrap.min.js"
 		type="text/javascript"></script>

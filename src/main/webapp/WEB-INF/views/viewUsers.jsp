@@ -22,16 +22,10 @@
 	rel="stylesheet" />
 
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 <body>
 	<div class="container">
-
 		<br />
 		<table class="table table-striped table-bordered">
 			<tr>
@@ -63,16 +57,14 @@
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="delete-user">Delete user</a></td>
 					</security:authorize>
-
 				</tr>
 			</c:forEach>
 		</table>
 		<br />
-		<!-- 		<table border="2" width="90%" cellpadding="2"> -->
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous" type="text/javascript"></script>
 </body>
-	</html>
+</html>
 </jsp:root>
