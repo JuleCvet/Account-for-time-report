@@ -65,4 +65,10 @@ public class ProjectServiceImpl implements ProjectService {
 		
 		return true;
 	}
+
+	@Override
+	public Project findByProjectId(Long id) {
+	Project oldProject = projectRepository.findByid(id);
+		return oldProject;
+	}
 }

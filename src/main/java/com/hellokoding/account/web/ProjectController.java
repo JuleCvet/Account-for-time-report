@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -106,25 +107,16 @@ public class ProjectController {
 		return "viewProjects";
 	}
 
-	@RequestMapping(value = "/showOneProject", method = RequestMethod.GET)
-	public String show_project(Model model) {
-
-		// model.addAttribute("list", projectService.findByProjectName(projectname));
-
-		return "showOneProject";
-	}
-
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "update-project", method = RequestMethod.GET)
-	public String update_project(Model model) {
+	@RequestMapping(value = "update-project/{id}", method = RequestMethod.GET)
+	public String update_project(Model model, @PathVariable Long id) {
 
-		model.addAttribute("projectUpdate", new Project());
-		model.addAttribute("list", projectService.findByProjectName(projectName));
+		model.addAttribute("project", projectService.findByProjectId(id));
 
 		return "update-project";
 }
-	@RequestMapping(value = "update-project", method = RequestMethod.POST)
-	public String update_project(@ModelAttribute("projectUpdate") Project project, BindingResult bindingResult,
+	@RequestMapping(value = "update-project/{id}", method = RequestMethod.POST)
+	public String update_project(@ModelAttribute("project") Project project, BindingResult bindingResult,
 			Model model) {
 		if (bindingResult.hasErrors()) {
 			return "update-project";

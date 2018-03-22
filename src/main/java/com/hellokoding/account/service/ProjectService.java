@@ -10,6 +10,8 @@ public interface ProjectService {
 	void save(Project project);
 
 	Project findByProjectName(String projectname);
+	
+	Project findByProjectId (Long id);
 
 	boolean updateProject(Project project);
 

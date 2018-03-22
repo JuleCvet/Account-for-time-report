@@ -66,7 +66,7 @@
 					<td>${project.deleted}</td>
 					
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="update-project">Update project</a></td>
+						<td><a href="update-project/${project.id}">Update project</a></td>
 					</security:authorize>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
