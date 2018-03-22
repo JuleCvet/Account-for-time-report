@@ -27,14 +27,14 @@
 </head>
 <body>
 	<div class="container">
-	
+
 		<form:form method="POST" modelAttribute="projectForm"
 			class="form-signin">
 			<h2 class="form-signin-heading">Create your project</h2>
 			<p>
 				Today's date:
 				<%= (new java.util.Date()).toLocaleString()%></p>
-				
+
 			<spring:bind path="projectName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="projectName" class="form-control"
@@ -52,15 +52,16 @@
 				</div>
 			</spring:bind>
 
-			 <spring:bind path="deleted">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="hidden" path="deleted" class="form-control" value="0"></form:input>
-                <form:errors path="deleted"></form:errors>
-            </div>
-       		 </spring:bind>
+			<spring:bind path="deleted">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="hidden" path="deleted" class="form-control"
+						value="0"></form:input>
+					<form:errors path="deleted"></form:errors>
+				</div>
+			</spring:bind>
 
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<form:select path="type" name="type" class="form-control" >
+				<form:select path="type" name="type" class="form-control">
 					<c:forEach items="<%=ProjectTypeEnum.values()%>" var="typeType">
 						<option>${typeType}</option>
 					</c:forEach>

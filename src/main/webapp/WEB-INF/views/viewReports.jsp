@@ -32,16 +32,16 @@
 <body>
 
 	<div class="container">
-		<br/>
-	<table class="table table-striped table-bordered">
+		<br />
+		<table class="table table-striped table-bordered">
 			<tr>
 				<th><a href="create-report">Add New Report</a></th>
 				<th><a href="/project/viewProjects">Show Projects</a></th>
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
 				<th><a href="/welcome">Back</a></th>
 			</tr>
-	</table>
-	
+		</table>
+
 		<h1>All our Reports</h1>
 		<!-- <table border="2" width="90%" cellpadding="2">  -->
 		<table class="table table-striped table-bordered">
@@ -75,13 +75,14 @@
 					<td>${report.dateModified}</td>
 					<td>${report.deleted}</td>
 
-			<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="update-report/${report.idReport}">Update report</a></td>
-			</security:authorize>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+						<td><a href="update-report/${report.idReport}">Update
+								report</a></td>
+					</security:authorize>
 
-			<security:authorize access="hasRole('ROLE_ADMIN')">
+					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="delete-report">Delete report</a></td>
-			</security:authorize>
+					</security:authorize>
 
 				</tr>
 			</c:forEach>

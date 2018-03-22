@@ -27,22 +27,22 @@
 </head>
 <body>
 	<div class="container">
-		<br/>
-	<table class="table table-striped table-bordered">
+		<br />
+		<table class="table table-striped table-bordered">
 			<tr>
 				<th><security:authorize access="hasRole('ROLE_ADMIN')">
 						<a href="/project/create-project">Add New Project</a>
 					</security:authorize></th>
-				
+
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
 				<th><a href="/report/allMyReports">All My reports</a></th>
-				<th><a href="/welcome">Back</a></th>		
+				<th><a href="/welcome">Back</a></th>
 			</tr>
 			<br />
-	</table>
-	
+		</table>
+
 		<h1>All Projects</h1>
-<!-- 		<table border="2" width="90%" cellpadding="2"> -->
+		<!-- 		<table border="2" width="90%" cellpadding="2"> -->
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th>Id</th>
@@ -50,7 +50,7 @@
 				<th>Description</th>
 				<th>Type</th>
 				<th>Is deleted</th>
-		
+
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Edit</th>
 					<th>Delete</th>
@@ -64,7 +64,7 @@
 					<td>${project.description}</td>
 					<td>${project.type}</td>
 					<td>${project.deleted}</td>
-					
+
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-project/${project.id}">Update project</a></td>
 					</security:authorize>

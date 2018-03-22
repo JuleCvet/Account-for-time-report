@@ -32,15 +32,17 @@
 	<div class="container">
 
 		<form:form method="POST" modelAttribute="project" class="form-signin">
-			<h2 class="form-signin-heading">Update the project with id: ${project.id}</h2>
-			
+			<h2 class="form-signin-heading">Update the project with id:
+				${project.id}</h2>
+
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="hidden" path="id" class="form-control" value="${project.id}"></form:input>
+					<form:input type="hidden" path="id" class="form-control"
+						value="${project.id}"></form:input>
 					<form:errors path="id"></form:errors>
 				</div>
 			</spring:bind>
-			
+
 			<spring:bind path="projectName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="projectName" class="form-control"
