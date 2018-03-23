@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hellokoding.account.model.Customer;
 import com.hellokoding.account.model.Project;
 import com.hellokoding.account.repository.ProjectRepository;
 
@@ -15,9 +16,8 @@ public class ProjectServiceImpl implements ProjectService {
 	private ProjectRepository projectRepository;
 
 	@Override
-	public void save(Project project) {
+	public void save(Project project){
 		projectRepository.saveAndFlush(project);
-
 	}
 
 	@Override

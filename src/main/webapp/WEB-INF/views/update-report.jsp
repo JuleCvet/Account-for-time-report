@@ -32,6 +32,7 @@
 </head>
 
 <body>
+
 	<div class="container">
 
 		<form:form modelAttribute="update" class="form-signin">
@@ -45,6 +46,7 @@
 				</div>
 			</spring:bind>
 
+<label id="companyName">companyName:</label>
 			<spring:bind path="companyName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="companyName" class="form-control"
@@ -53,6 +55,7 @@
 				</div>
 			</spring:bind>
 
+ 
 			<spring:bind path="hoursReported">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="hoursReported" class="form-control"

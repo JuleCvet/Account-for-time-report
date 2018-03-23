@@ -25,7 +25,9 @@
 
 </head>
 <body>
+
 	<div class="container">
+
 		<br />
 		<table class="table table-striped table-bordered">
 			<tr>

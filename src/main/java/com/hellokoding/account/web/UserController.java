@@ -1,5 +1,7 @@
 package com.hellokoding.account.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hellokoding.account.model.User;
+import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.service.SecurityService;
 import com.hellokoding.account.service.UserService;
 import com.hellokoding.account.validator.UserValidator;
@@ -20,6 +23,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private ProjectService projectService;
+	
 	@Autowired
 	private SecurityService securityService;
 
@@ -92,5 +98,26 @@ public class UserController {
 		model.addAttribute("list", userService.showAllUsers());
 
 		return "viewUsers";
+	}
+	
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String admin(Model model) {
+		model.addAttribute("list", userService.showAllUsers());
+		model.addAttribute("listProjects", projectService.showAllProjects());
+		return "admin";
+	}
+	
+	@RequestMapping(value = "/admin", method = RequestMethod.POST)
+	public String admin(Model model, HttpServletRequest request) {
+		String userID = request.getParameter("userSelection");
+		String projectID = request.getParameter("projectSelection");
+		
+	/*	if (bindingResult.hasErrors()) {
+			return "admin";
+		}
+
+		reportService.save(reportForm);*/
+		
+		return "admin";
 	}
 }
