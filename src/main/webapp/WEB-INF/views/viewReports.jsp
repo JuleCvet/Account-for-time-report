@@ -68,7 +68,7 @@
 					<td>${report.userID}</td>
 					<td>${report.forDate}</td>
 					<td>${report.dateModified}</td>
-					<td>${report.deleted}</td>
+					<td><input type="checkbox" name="deleted" value="${reports.deleted}" /></td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-report/${report.idReport}">Update

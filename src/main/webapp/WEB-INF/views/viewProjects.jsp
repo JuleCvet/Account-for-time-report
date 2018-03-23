@@ -57,7 +57,7 @@
 					<td>${project.projectName}</td>
 					<td>${project.description}</td>
 					<td>${project.type}</td>
-					<td>${project.deleted}</td>
+					<td><input type="checkbox" name="deleted" value="${project.deleted}" /></td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-project/${project.id}">Update project</a></td>

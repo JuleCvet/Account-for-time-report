@@ -46,6 +46,7 @@
 				<th>Id</th>
 				<th>Name</th>
 				<th>Is deleted</th>
+				
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Edit</th>
 					<th>Delete</th>
@@ -56,7 +57,7 @@
 				<tr>
 					<td>${customer.customerId}</td>
 					<td>${customer.companyName}</td>
-					<td>${customer.deleted}</td>
+					<td><input type="checkbox" name="deleted" value="${customer.deleted}" /></td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-customer/${customer.customerId}">Update
