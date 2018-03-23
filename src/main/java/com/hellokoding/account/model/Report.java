@@ -33,10 +33,10 @@ public class Report {
 	private Integer deleted;
 	
 	
-	@DateTimeFormat(pattern = "mm/DD/yyyy")
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date forDate;
 
-	@DateTimeFormat(pattern = "mm/DD/yyyy")
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date dateModified;
 
 	
