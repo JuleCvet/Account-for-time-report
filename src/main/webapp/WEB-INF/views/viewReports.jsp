@@ -37,7 +37,6 @@
 		</table>
 
 		<h1>All our Reports</h1>
-		<!-- <table border="2" width="90%" cellpadding="2">  -->
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th>Report Id</th>

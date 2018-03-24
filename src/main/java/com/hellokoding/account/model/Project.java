@@ -20,7 +20,6 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name = "project")
-@Where(clause="deleted=0")
 public class Project {
 
 	@Id

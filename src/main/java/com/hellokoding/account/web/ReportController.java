@@ -1,11 +1,9 @@
 package com.hellokoding.account.web;
 
-import java.util.Date;
 import java.util.Calendar;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hellokoding.account.model.Report;
 import com.hellokoding.account.service.ReportService;

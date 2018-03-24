@@ -99,25 +99,4 @@ public class UserController {
 
 		return "viewUsers";
 	}
-	
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String admin(Model model) {
-		model.addAttribute("list", userService.showAllUsers());
-		model.addAttribute("listProjects", projectService.showAllProjects());
-		return "admin";
-	}
-	
-	@RequestMapping(value = "/admin", method = RequestMethod.POST)
-	public String admin(Model model, HttpServletRequest request) {
-		String userID = request.getParameter("userSelection");
-		String projectID = request.getParameter("projectSelection");
-		
-	/*	if (bindingResult.hasErrors()) {
-			return "admin";
-		}
-
-		reportService.save(reportForm);*/
-		
-		return "admin";
-	}
 }
