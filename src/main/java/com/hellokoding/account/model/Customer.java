@@ -12,7 +12,6 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name = "customer")
-@Where(clause="deleted=0")
 public class Customer {
 
 	@Id

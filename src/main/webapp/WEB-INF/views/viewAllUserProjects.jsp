@@ -22,7 +22,26 @@
 <body>
 	<div class="container">
 		<br />
-		<h1>Users Projects Combination</h1>
+		
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th><security:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="/project/create-project">Add New Project</a></security:authorize></th>
+					
+				<th><security:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="/customer/create-customer">Add New Customer</a></security:authorize></th>
+					
+				<th><a href="/viewUsers">Show Users</a></th>	
+				<th><a href="/project/viewProjects">Show Projects</a></th>
+				<th><a href="/customer/viewCustomers">Show Customers</a></th>
+				<th><a href="/report/allMyReports">All My reports</a></th>
+				<th><a href="/report/viewReports">Show reports</a></th>
+				<th><a href="/welcome">Back</a></th>
+			</tr>
+			<br />
+		</table>
+		
+		<h1>Users - Projects Combinations</h1>
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th>User Project Id</th>
@@ -33,10 +52,13 @@
 
 			<c:forEach var="userproject" items="${list}">
 				<tr>
-					<td>${userproject.userProjectID}</td>
+					<td>${userproject.id}</td>
 					<td>${userproject.userID}</td>
 					<td>${userproject.projectID}</td>
-					<td>${userproject.deleted}</td>
+					<td><c:choose>
+				    <c:when test="${userproject.deleted=='1'}">TRUE<br /></c:when>    
+				    <c:otherwise>FALSE<br /></c:otherwise>
+					</c:choose></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -38,9 +38,7 @@
 			</tr>
 		</table>
 
-
 		<h1>All Customers</h1>
-		<!-- 		<table border="2" width="90%" cellpadding="2"> -->
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th>Id</th>
@@ -57,7 +55,8 @@
 				<tr>
 					<td>${customer.customerId}</td>
 					<td>${customer.companyName}</td>
-					<td><input type="checkbox" name="deleted" value="${customer.deleted}" /></td>
+					<td><c:choose><c:when test="${customer.deleted=='1'}">TRUE<br /></c:when>    
+				    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-customer/${customer.customerId}">Update

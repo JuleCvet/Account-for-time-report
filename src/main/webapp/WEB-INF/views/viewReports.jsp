@@ -44,7 +44,6 @@
 				<th>Working hours</th>
 				<th>Hours of VAB</th>
 				<th>Hours of Vacation</th>
-				<th>Type of report</th>
 				<th>User Id</th>
 				<th>Report for date:</th>
 				<th>Date when report is been modified:</th>
@@ -63,11 +62,13 @@
 					<td>${report.hoursReported}</td>
 					<td>${report.vab}</td>
 					<td>${report.vacation}</td>
-					<td>${report.locked}</td>
 					<td>${report.userID}</td>
 					<td>${report.forDate}</td>
 					<td>${report.dateModified}</td>
-					<td><input type="checkbox" name="deleted" value="${reports.deleted}" /></td>
+					<td><c:choose>
+				    <c:when test="${report.deleted=='1'}">TRUE<br /></c:when>    
+				    <c:otherwise>FALSE<br /></c:otherwise>
+					</c:choose></td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-report/${report.idReport}">Update

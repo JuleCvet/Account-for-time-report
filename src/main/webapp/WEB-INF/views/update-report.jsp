@@ -80,14 +80,6 @@
 				</div>
 			</spring:bind>
 
-			<spring:bind path="locked">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="locked" class="form-control"
-						placeholder="Locked report:" value="${report.locked}"></form:input>
-					<form:errors path="locked"></form:errors>
-				</div>
-			</spring:bind>
-
 			<spring:bind path="userID">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="userID" class="form-control"

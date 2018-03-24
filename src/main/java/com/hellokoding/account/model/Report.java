@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "report")
-@Where(clause="deleted=0")
+//@Where(clause="deleted=0")
 public class Report {
 
 	@Id
@@ -28,8 +28,9 @@ public class Report {
 	private double hoursReported;
 	private Integer vab;
 	private Integer vacation;
-	private boolean locked;
 	private Integer userID;
+	
+	@Column(name = "deleted")
 	private Integer deleted;
 	
 	
@@ -58,14 +59,13 @@ public class Report {
 	}
 
 	
-	public Report(String companyName, double hoursReported, Integer vab, Integer vacation, boolean locked,
+	public Report(String companyName, double hoursReported, Integer vab, Integer vacation,
 			Integer userID, Integer deleted, Date forDate, Date dateModified, Set<User> users) {
 		super();
 		this.companyName = companyName;
 		this.hoursReported = hoursReported;
 		this.vab = vab;
 		this.vacation = vacation;
-		this.locked = locked;
 		this.userID = userID;
 		this.deleted = deleted;
 		this.forDate = forDate;
@@ -88,14 +88,6 @@ public class Report {
 
 	public void setIdReport(Long idReport) {
 		this.idReport = idReport;
-	}
-
-	public boolean getLocked() {
-		return locked;
-	}
-
-	public void setLocked(boolean locked) {
-		this.locked = locked;
 	}
 
 	public String getCompanyName() {
@@ -136,14 +128,6 @@ public class Report {
 
 	public void setForDate(Date forDate) {
 		this.forDate = forDate;
-	}
-
-	public boolean getIsLocked() {
-		return locked;
-	}
-
-	public void setIsLocked(boolean locked) {
-		this.locked = locked;
 	}
 
 	public Date getDateModified() {
@@ -199,7 +183,7 @@ public class Report {
 	@Override
 	public String toString() {
 		return "Report [companyName=" + companyName + ", hoursReported=" + hoursReported + ", vab=" + vab
-				+ ", vacation=" + vacation + ", locked=" + locked + ", userID=" + userID + ", deleted=" + deleted
+				+ ", vacation=" + vacation + ", userID=" + userID + ", deleted=" + deleted
 				+ ", forDate=" + forDate + ", dateModified=" + dateModified + ", users=" + users + "]";
 	}
 
