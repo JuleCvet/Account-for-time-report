@@ -42,7 +42,7 @@
 						<option value="${project.id}">${project.projectName}</option>
 					</c:forEach>
 				</form:select>
-			</spring:bind>
+			</spring:bind>	
 			
 			<spring:bind path="deleted">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
