@@ -11,13 +11,13 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name="userproject")
-@Where(clause="deleted=0")
+//@Where(clause="deleted=0")
 public class UserProject {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="userProjectID")
-	private Long userProjectID;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private Long id;
 	
 	@Column(name="userID")
 	private Integer userID;
@@ -47,8 +47,12 @@ public class UserProject {
 		this.deleted = deleted;
 	}
 
-	public Long getUserProjectID() {
-		return userProjectID;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Integer getUserID() {
@@ -76,7 +80,7 @@ public class UserProject {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((userProjectID == null) ? 0 : userProjectID.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -89,10 +93,10 @@ public class UserProject {
 		if (getClass() != obj.getClass())
 			return false;
 		UserProject other = (UserProject) obj;
-		if (userProjectID == null) {
-			if (other.userProjectID != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!userProjectID.equals(other.userProjectID))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}

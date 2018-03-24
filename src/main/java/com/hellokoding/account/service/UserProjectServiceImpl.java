@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.UserProject;
 import com.hellokoding.account.repository.UserProjectRepository;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
 
 @Component
 public class UserProjectServiceImpl implements UserProjectService{
@@ -22,8 +25,9 @@ public class UserProjectServiceImpl implements UserProjectService{
 	
 	@Override
 	public boolean updateUserProjectDelete(UserProject userProject) {
-		UserProject newUserProject = userProjectRepository.findOne(userProject.getUserProjectID());
-		
+		UserProject newUserProject = userProjectRepository.findOne(userProject.getId());
+		System.out.printf("Trying to delete a userProject", userProject);
+	
 		newUserProject.setDeleted(1);
 		userProjectRepository.saveAndFlush(newUserProject);
 		
