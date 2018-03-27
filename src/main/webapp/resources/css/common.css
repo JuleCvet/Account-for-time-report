@@ -4,6 +4,23 @@ body {
     background-color: #eee;
 }
 
+@media (max-width: @screen-xs) {
+    .form-group label{font-size: 10px;}
+}
+
+@media (max-width: @screen-sm) {
+    .form-group label{font-size: 10px;}
+}
+
+.form-group label{
+    font-size: 1.1em;
+}
+
+#search {
+    width: 11.5em;  height: 2.5em;
+    margin-left: 197px;
+}
+
 .form-signin {
     max-width: 330px;
     padding: 15px;
