@@ -25,53 +25,61 @@
 	type="text/javascript"></script>
 
 <script type="text/javascript">
- $( function() {
-   $( "#forDate" ).datepicker();
- } );
- </script>
+	$(function() {
+		$("#forDate").datepicker();
+	});
+</script>
 </head>
 
 <body>
 
 	<div class="container">
 
-		<form:form modelAttribute="update" class="form-signin">
-			<h2 class="form-signin-heading">Update your report with Id: ${idReport}</h2>
+		<form:form modelAttribute="update" class="form-horizontal">
+			<h2 class="form-signin-heading">Update your report with Id:
+				${idReport}</h2>
 
-			<spring:bind path="idReport">
+			<%-- 	<spring:bind path="idReport">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
+					
 					<form:input type="hidden" value="${report.idReport}"
 						path="idReport" class="form-control"></form:input>
 					<form:errors path="idReport"></form:errors>
 				</div>
-			</spring:bind>
+			</spring:bind> --%>
 
-<label id="companyName">companyName:</label>
 			<spring:bind path="companyName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="companyName" class="form-control"
-						placeholder="Company name:" value="${report.companyName}"></form:input>
+
+					<label class="control-label col-sm-2">companyName:</label>
+					<div class="col-sm-10">
+						<form:input type="text" path="companyName"
+							class="form-control" placeholder="Company name:"
+							value="${report.companyName}"></form:input>
+					</div>
 					<form:errors path="companyName"></form:errors>
 				</div>
 			</spring:bind>
 
- 
+			<%--
 			<spring:bind path="hoursReported">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<label>Hourses:</label>
 					<form:input type="text" path="hoursReported" class="form-control"
 						placeholder="Hours Reported:" value="${report.hoursReported}"></form:input>
 					<form:errors path="hoursReported"></form:errors>
 				</div>
 			</spring:bind>
-
+<br/>
 			<spring:bind path="vab">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<label>VAB:</label>
 					<form:input type="text" path="vab" class="form-control"
 						placeholder="Hours for VAB:" value="${report.vab}"></form:input>
 					<form:errors path="vab"></form:errors>
 				</div>
 			</spring:bind>
-
+<br/>
 			<spring:bind path="vacation">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="vacation" class="form-control"
@@ -94,7 +102,7 @@
 						class="form-control" placeholder="For Date:" value="${forDate}"></form:input>
 					<form:errors path="forDate"></form:errors>
 				</div>
-			</spring:bind>
+			</spring:bind> --%>
 
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 		</form:form>
