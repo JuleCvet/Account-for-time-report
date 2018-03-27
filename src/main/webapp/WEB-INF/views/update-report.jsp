@@ -90,22 +90,17 @@
 					<form:input type="text" path="vacation" class="form-control"
 						placeholder="Hours for vacation:" value="${report.vacation}"></form:input>
 					<form:errors path="vacation"></form:errors>
-				</div>
-			</spring:bind>
-		</div>
-		
-		<div class="form-group">
-			<spring:bind path="userID">
-				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
-				<label class="control-label col-sm-2">User ID of the report:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="userID" class="form-control"
-						placeholder="User ID of the report:" value="${report.userID}"></form:input>	
-					<form:errors path="userID"></form:errors>
 					</div>
 			</spring:bind>
 		</div>
 		
+			<spring:bind path="userID">
+<%-- 				<div class="form-group ${status.error ? 'has-error' : ''}"></div> --%>
+					<form:input type="hidden" path="userID" class="form-control"
+						placeholder="User ID of the report:" value="${report.userID}"></form:input>	
+					<form:errors path="userID"></form:errors>
+			</spring:bind>
+	
 		<div class="form-group">
 			<spring:bind path="forDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>

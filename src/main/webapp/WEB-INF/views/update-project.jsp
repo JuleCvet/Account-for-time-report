@@ -24,8 +24,8 @@
 
 	<div class="container">
 
-		<form:form method="POST" modelAttribute="project" class="form-signin">
-			<h2 class="form-signin-heading">Update the project with id: ${project.id}</h2>
+		<form:form method="POST" modelAttribute="project" class="form-horizontal">
+			<h2 class="form-signin-heading">Update Project ${companyName}</h2>
 
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -37,29 +37,38 @@
 
 			<spring:bind path="projectName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
+				<label class="control-label col-sm-2">Project name:</label>
+				<div class="col-sm-2">
 					<form:input type="text" path="projectName" class="form-control"
 						placeholder="Project name:" value="${project.projectName}"></form:input>
 					<form:errors path="projectName"></form:errors>
+				</div>
 				</div>
 			</spring:bind>
 
 			<spring:bind path="description">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
+				<label class="control-label col-sm-2">Project description</label>
+				<div class="col-sm-2">
 					<form:input type="text" path="description" class="form-control"
 						placeholder="Project description:" value="${project.description}"></form:input>
 					<form:errors path="description"></form:errors>
+				</div>
 				</div>
 			</spring:bind>
 
 			<spring:bind path="type">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
+				<label class="control-label col-sm-2">Project type:</label>
+				<div class="col-sm-2">
 					<form:input type="text" path="type" class="form-control"
 						placeholder="Project type:" value="${project.type}"></form:input>
 					<form:errors path="type"></form:errors>
 				</div>
+				</div>
 			</spring:bind>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-primary" type="submit" id="search" >Submit</button>
 		</form:form>
 
 	</div>
