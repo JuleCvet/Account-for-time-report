@@ -18,15 +18,15 @@
 <link href="${contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-   
+
 </head>
 
 <body>
 
 	<div class="container">
-
-		<form:form modelAttribute="update" class="form-signin">
-			<h2 class="form-signin-heading">Update your customer with Id: ${customerId}</h2>
+	
+		<form:form modelAttribute="update" class="form-horizontal">
+			<h2 class="form-signin-heading">Update your customer ${companyName}</h2>
 
 			<spring:bind path="customerId">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -35,20 +35,28 @@
 					<form:errors path="customerId"></form:errors>
 				</div>
 			</spring:bind>
-
+			
+			
+			<div class="form-group">
 			<spring:bind path="companyName">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="companyName" class="form-control"
-						placeholder="Company Name:" value="${customer.companyName}"></form:input>
+				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
+					<label class="control-label col-sm-2">Company Name:</label>
+					<div class="col-sm-2">
+						<form:input type="text" path="companyName" class="form-control" 
+						placeholder="Company name:" value="${customer.companyName}"></form:input>
 					<form:errors path="companyName"></form:errors>
 				</div>
 			</spring:bind>
+		</div>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-			
-		</form:form>
+			<button class="btn btn-primary" type="submit" id="search">Submit</button>
+
+	</form:form>
 	</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="${contextPath}/resources/js/bootstrap.min.js"
+		type="text/javascript"></script>
 </body>
 </html>

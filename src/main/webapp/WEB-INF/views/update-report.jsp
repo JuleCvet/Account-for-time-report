@@ -36,7 +36,7 @@
 	<div class="container">
 
 		<form:form modelAttribute="update" class="form-horizontal">
-			<h2 class="form-signin-heading">Update your report with Id: ${idReport}</h2>
+			<h2 class="form-signin-heading">Update your report ${report.idReport}</h2>
 
 			<spring:bind path="idReport">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
