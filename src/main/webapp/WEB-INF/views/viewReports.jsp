@@ -45,6 +45,7 @@
 				<th>Hours of VAB</th>
 				<th>Hours of Vacation</th>
 				<th>User Id</th>
+				<th>Locked</th>
 				<th>Report for date:</th>
 				<th>Date when report is been modified:</th>
 				<th>Is deleted</th>
@@ -63,6 +64,7 @@
 					<td>${report.vab}</td>
 					<td>${report.vacation}</td>
 					<td>${report.userID}</td>
+					<td>${report.locked}</td>
 					<td>${report.forDate}</td>
 					<td>${report.dateModified}</td>
 					

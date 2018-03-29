@@ -97,7 +97,11 @@
 					<td>${report.vacation}</td>
 					<td>${report.forDate}</td>
 					<td>${report.dateModified}</td>
-					<td>${report.deleted}</td>
+					
+					<td><c:choose>
+				    <c:when test="${report.deleted=='1'}">TRUE<br /></c:when>    
+				    <c:otherwise>FALSE<br /></c:otherwise>
+					</c:choose></td>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-report/${report.idReport}">Update

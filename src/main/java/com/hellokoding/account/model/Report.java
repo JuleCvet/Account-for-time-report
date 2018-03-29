@@ -29,6 +29,7 @@ public class Report {
 	private Integer vab;
 	private Integer vacation;
 	private Integer userID;
+	private Boolean locked;
 	
 	@Column(name = "deleted")
 	private Integer deleted;
@@ -58,21 +59,20 @@ public class Report {
 		this.deleted = deleted;
 	}
 
-	
-	public Report(String companyName, double hoursReported, Integer vab, Integer vacation,
-			Integer userID, Integer deleted, Date forDate, Date dateModified, Set<User> users) {
+	public Report(String companyName, double hoursReported, Integer vab, Integer vacation, Integer userID,
+			Boolean locked, Integer deleted, Date forDate, Date dateModified, Set<User> users) {
 		super();
 		this.companyName = companyName;
 		this.hoursReported = hoursReported;
 		this.vab = vab;
 		this.vacation = vacation;
 		this.userID = userID;
+		this.locked = locked;
 		this.deleted = deleted;
 		this.forDate = forDate;
 		this.dateModified = dateModified;
 		this.users = users;
 	}
-
 
 	public Integer getUserID() {
 		return userID;
@@ -178,6 +178,14 @@ public class Report {
 		} else if (!idReport.equals(other.idReport))
 			return false;
 		return true;
+	}
+
+	public Boolean getLocked() {
+		return locked;
+	}
+
+	public void setLocked(Boolean locked) {
+		this.locked = locked;
 	}
 
 	@Override
