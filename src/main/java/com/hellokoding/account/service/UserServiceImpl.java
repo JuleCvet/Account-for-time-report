@@ -50,8 +50,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean updateUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		User oldUser = userRepository.findOne(user.getId());
+		oldUser.setUsername(user.getUsername());
+		
+		userRepository.saveAndFlush(oldUser);
+		
+		return true;
 	}
 
 	@Override
@@ -64,4 +68,10 @@ public class UserServiceImpl implements UserService {
 		
 		return true;
 	}
+
+	/*@Override
+	public User findByIdUser(Long id) {
+		User oldUser = userRepository.findByuserID(id);
+		return oldUser;
+	}*/
 }

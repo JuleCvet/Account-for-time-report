@@ -42,16 +42,16 @@
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th>User Id</th>
-				<th>Username</th>
+				<th>User Name</th>
 				<th>Is deleted</th>
 				
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Delete User</th>
 				</security:authorize>
 				
-				<security:authorize access="hasRole('ROLE_ADMIN')">
+				<!-- <security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Update User</th>
-				</security:authorize>
+				</security:authorize> -->
 			</tr>	
 
 			<c:forEach var="user" items="${list}">
@@ -68,9 +68,9 @@
 					<td><a href="delete-user">Delete info for User</a></td>
 				</security:authorize>
 				
-				<security:authorize access="hasRole('ROLE_ADMIN')">
+			<!-- 	<security:authorize access="hasRole('ROLE_ADMIN')">
 					<td><a href="update-user">Update User</a></td>
-				</security:authorize>
+				</security:authorize> -->
 				</tr>
 			</c:forEach>
 		</table>

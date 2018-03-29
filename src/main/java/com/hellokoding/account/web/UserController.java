@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.User;
 import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.service.SecurityService;
@@ -98,5 +100,24 @@ public class UserController {
 		model.addAttribute("list", userService.showAllUsers());
 
 		return "viewUsers";
+	}
+	
+	@RequestMapping(value = "update-user/{id}", method = RequestMethod.GET)
+	public String update_user(Model model, @PathVariable Long id) {
+
+		//model.addAttribute("userUpdate", userService.findByIdUser(id));
+	
+		return "update-user";
+}
+	@RequestMapping(value = "update-user/{id}", method = RequestMethod.POST)
+	public String update_user(@ModelAttribute("userUpdate") User user, BindingResult bindingResult,
+			Model model) {
+		if (bindingResult.hasErrors()) {
+			return "update-user";
+		}
+
+		userService.updateUser(user);
+
+		return "redirect:/welcome";
 	}
 }
