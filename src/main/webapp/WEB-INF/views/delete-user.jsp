@@ -31,9 +31,9 @@
 				Info about this user?</h4>
 		</div>
 
-		<form:form method="POST" modelAttribute="userDelete"
-			class="form-signin">
+		<form:form method="POST" modelAttribute="userDelete" class="form-signin">
 			<h2 class="form-signin-heading">Delete info about your user</h2>
+			
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="id" class="form-control"

@@ -39,26 +39,38 @@
 		</table>
 
 		<h1>All Users</h1>
-		<!-- 		<table border="2" width="90%" cellpadding="2"> -->
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th>User Id</th>
 				<th>Username</th>
 				<th>Is deleted</th>
-
+				
 				<security:authorize access="hasRole('ROLE_ADMIN')">
-					<th>Delete user</th>
+					<th>Delete User</th>
 				</security:authorize>
-			</tr>
+				
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+					<th>Update User</th>
+				</security:authorize>
+			</tr>	
 
 			<c:forEach var="user" items="${list}">
 				<tr>
 					<td>${user.id}</td>
 					<td>${user.username}</td>
-					<td><input type="checkbox" name="deleted" value="${user.deleted}" /></td>
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="delete-user">Delete user</a></td>
-					</security:authorize>
+					
+					<td><c:choose>
+				    <c:when test="${user.deleted=='1'}">TRUE<br /></c:when>    
+				    <c:otherwise>FALSE<br /></c:otherwise>
+					</c:choose></td>
+					
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+					<td><a href="delete-user">Delete info for User</a></td>
+				</security:authorize>
+				
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+					<td><a href="update-user">Update User</a></td>
+				</security:authorize>
 				</tr>
 			</c:forEach>
 		</table>

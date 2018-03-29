@@ -65,6 +65,7 @@
 					<td>${report.userID}</td>
 					<td>${report.forDate}</td>
 					<td>${report.dateModified}</td>
+					
 					<td><c:choose>
 				    <c:when test="${report.deleted=='1'}">TRUE<br /></c:when>    
 				    <c:otherwise>FALSE<br /></c:otherwise>

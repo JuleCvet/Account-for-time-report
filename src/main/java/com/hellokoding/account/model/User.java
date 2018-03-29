@@ -17,7 +17,7 @@ import org.hibernate.annotations.Where;
 
 @Entity
 @Table(name = "user")
-@Where(clause=("deleted=0"))
+//@Where(clause=("deleted=0"))
 public class User {
 
 	@Id
