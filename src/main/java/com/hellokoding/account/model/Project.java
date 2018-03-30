@@ -26,6 +26,10 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "idProject")
 	private Long id;
+	private void sys() {
+		// TODO Auto-generated method stub
+
+	}
 
 	private String projectName;
 	private String description;
