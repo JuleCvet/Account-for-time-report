@@ -11,13 +11,9 @@ import com.hellokoding.account.service.UserService;
 
 @Component
 public class UserValidator implements Validator {
-	// Validator interface can be used to validate all fields of a form.
-	// If any validation violations have been detected, it will automatically be
-	// exposed
-	// as errors in the BindingResult, which is accessible as an argument in handler
-	// method.
-	// define the error codes and their corresponding values in
-	// validation.properties
+//Validator interface can be used to validate all fields of a form.If any validation violations have
+//been detected, it will automatically be exposed as errors in the BindingResult, which is accessible 
+//as an argument in handler method.Define the error codes and their corresponding values in validation.properties
 
 	@Autowired
 	private UserService userService;

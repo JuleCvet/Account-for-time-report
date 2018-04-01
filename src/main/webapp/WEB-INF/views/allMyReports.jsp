@@ -86,8 +86,8 @@
 					<th>Update report</th>
 					<th>Delete report</th>
 				</security:authorize>
-
 			</tr>
+			
 			<c:forEach var="report" items="${list}">
 				<tr>
 					<td>${report.idReport}</td>
@@ -111,10 +111,10 @@
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="delete-report">Delete report</a></td>
 					</security:authorize>
-
 				</tr>
 			</c:forEach>
 		</table>
+		
 		<h3>Sum of all working hours: ${totalHours}</h3>
 		<br />
 		<form action=""></form>
