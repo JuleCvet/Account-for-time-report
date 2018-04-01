@@ -1,4 +1,4 @@
-package com.hellokoding.account.repository;
+  package com.hellokoding.account.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
