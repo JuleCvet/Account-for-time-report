@@ -86,12 +86,41 @@ public class ReportController {
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value = "/locked-report", method = RequestMethod.GET)
+	public String locked_report(Model model) {
+		model.addAttribute("updateReportLocked", new Report());
+
+		return "locked-report";
+	}
+	
+	@RequestMapping(value = "/locked-report", method = RequestMethod.POST)
+	public String locked_report(@ModelAttribute ("updateReportLocked")Report report, BindingResult bindingResult, Model model) {
+		if(bindingResult.hasErrors()) {
+			return "locked-report";
+		}
+		reportService.updateReportLocked(report);
+		
+		return "redirect:/welcome";
+	}
+	
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/viewReports", method = RequestMethod.GET)
 	public String view_reports(Model model) {
 		model.addAttribute("list", reportService.showAllREports());
 
 		return "viewReports";
 	}
+	
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value = "/viewLockedReports", method = RequestMethod.GET)
+	public String view_lockedReports(Model model) {
+		model.addAttribute("list1", reportService.showAllREports());
+
+		return "viewLockedReports";
+	}
+	
 	
 	@RequestMapping(value = "/allMyReports", method = RequestMethod.GET)
 	public String view_myreports(Model model) throws ParseException {

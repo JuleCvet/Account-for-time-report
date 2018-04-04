@@ -1,4 +1,4 @@
-    package com.hellokoding.account.service;
+package com.hellokoding.account.service;
 
 import java.util.Date;
 import java.util.ArrayList;
@@ -123,4 +123,42 @@ public class ReportServiceImpl implements ReportService {
 		
 		return oldReport;
 	}
+
+	@Override
+	public Report findByLocked(Boolean locked) {
+		Report oldReport = reportRepository.findByLocked(locked);
+		
+		return oldReport;
+	}
+
+	@Override
+	public Boolean updateReportLocked(Report report) {
+		Report oldReport = reportRepository.findByIdReport(report.getIdReport());
+
+		oldReport.setLocked(1);
+			
+		reportRepository.saveAndFlush(oldReport);
+			
+		return true;
+	}
+
+	
+
+
+
+
+/*	@Override
+	public List<Report> findAllLockedReportsByUserId(Long idReport) {
+		
+		List<Report> allReports = reportRepository.findAll();
+		List<Report> allLockedReports = new ArrayList<Report>();
+		
+		for(Report lockedReport : allReports) {
+			if(lockedReport.equals(reportRepository.findByIdReport(idReport))&&(reportRepository.)){
+				allLockedReports.add(lockedReport);
+			}	
+		}
+		
+		return allLockedReports;
+	}*/
 }

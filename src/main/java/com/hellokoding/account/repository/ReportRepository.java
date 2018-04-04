@@ -7,9 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.hellokoding.account.model.Report;
 
 public interface ReportRepository extends JpaRepository<Report, Long> {
+	
 	public Report findByCompanyName(String projectName);
 
 	public List<Report> findByuserID(Integer userID);
+	
+	//public List<Report> findAllLockedReportsByUserId();
+	public Report findByLocked(Boolean locked);
 	
 	Report findByIdReport(Long idReport);
 }

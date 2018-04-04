@@ -57,7 +57,9 @@
 					<td>${project.projectName}</td>
 					<td>${project.description}</td>
 					<td>${project.type}</td>
-					<td>${project.deleted}</td>
+					
+					<td><c:choose><c:when test="${project.deleted=='1'}">TRUE<br /></c:when>    
+				    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
 					
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-project/${project.id}">Update project</a></td>

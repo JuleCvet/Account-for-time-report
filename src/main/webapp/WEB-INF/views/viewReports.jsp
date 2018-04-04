@@ -64,12 +64,15 @@
 					<td>${report.vab}</td>
 					<td>${report.vacation}</td>
 					<td>${report.userID}</td>
-					<td>${report.locked}</td>
+					
+					<td><c:choose><c:when test="${report.locked=='1'}">TRUE<br/></c:when>
+					<c:otherwise>FALSE<br/></c:otherwise></c:choose></td>
+					
 					<td>${report.forDate}</td>
 					<td>${report.dateModified}</td>
 					
 					<td><c:choose>
-				    <c:when test="${report.deleted=='1'}">TRUE<br /></c:when>    
+				    <c:when test="${report.locked=='1'}">TRUE<br/></c:when>    
 				    <c:otherwise>FALSE<br /></c:otherwise>
 					</c:choose></td>
 

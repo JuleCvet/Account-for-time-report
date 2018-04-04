@@ -15,6 +15,11 @@ public interface ReportService {
 
 	Report findByIdReport (Long idReport);
 	
+	//List<Report> findAllLockedReportsByUserId(Long idReport);
+	Report findByLocked(Boolean locked);
+	
+	Boolean updateReportLocked(Report report);
+	
 	boolean updateReport(Report report);
 
 	void deleteReport(Report report);
