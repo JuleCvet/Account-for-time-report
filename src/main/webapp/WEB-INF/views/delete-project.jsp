@@ -26,22 +26,54 @@
 
 	<div class="container">
 
-		<div class="alert alert-danger" role="alert">
+		<div class="alert alert-danger" role="alert" style = "width: 45%">
 			<h4 class="alert-heading">Are you sure that you want to delete Info about this project?</h4>
 		</div>
 
-		<form:form method="POST" modelAttribute="delete" class="form-signin">
-			<h2 class="form-signin-heading">Delete info about your project</h2>
+		<form:form method="POST" modelAttribute="delete" class="form-horizontal">
+			<h2 class="form-signin-heading">Delete info about your project  ${project.id}</h2>
 			
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="id" class="form-control"
-						placeholder="ID of Project you want to delete:" autofocus="true"></form:input>
+					<form:input type="hidden" path="id" class="form-control" value="${project.id}"></form:input>
 					<form:errors path="id"></form:errors>
 				</div>
 			</spring:bind>
+		
+			<spring:bind path="projectName">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+				<label class="control-label col-sm-2">Project name:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="projectName" class="form-control"
+						placeholder="Project name:" value="${project.projectName}"></form:input>
+					<form:errors path="projectName"></form:errors>
+				</div>
+				</div>
+			</spring:bind>
+
+			<spring:bind path="description">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+				<label class="control-label col-sm-2">Project description</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="description" class="form-control"
+						placeholder="Project description:" value="${project.description}"></form:input>
+					<form:errors path="description"></form:errors>
+				</div>
+				</div>
+			</spring:bind>
+
+			<spring:bind path="type">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+				<label class="control-label col-sm-2">Project type:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="type" class="form-control"
+						placeholder="Project type:" value="${project.type}"></form:input>
+					<form:errors path="type"></form:errors>
+				</div>
+				</div>
+			</spring:bind>
 			
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-primary" type="submit" id="search">Submit</button>
 			
 		</form:form>
 	</div>

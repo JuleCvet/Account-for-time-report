@@ -71,7 +71,7 @@ public class ProjectController {
 
 		return "redirect:/welcome";
 	}
-
+			
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/delete-project", method = RequestMethod.GET)
 	public String delete_project(Model model) {

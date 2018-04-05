@@ -25,7 +25,7 @@
 
 <div class="container">
 
-	<div class="alert alert-danger" role="alert">
+	<div class="alert alert-danger" role="alert" style = "width: 80%">
 	<h4 class="alert-heading">Are you sure that you want to delete Info about this report?</h4>
 	</div>
 	

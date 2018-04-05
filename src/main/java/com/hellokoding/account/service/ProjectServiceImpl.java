@@ -59,7 +59,7 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public boolean updateProjectDel(Project project) {
 		Project oldProject = projectRepository.findOne(project.getId());
-		
+	
 		oldProject.setDeleted(1);
 		projectRepository.saveAndFlush(oldProject);
 		

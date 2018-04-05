@@ -22,8 +22,7 @@
 <body>
 	<div class="container">
 
-		<form:form method="POST" modelAttribute="projectForm"
-			class="form-signin">
+		<form:form method="POST" modelAttribute="projectForm" class="form-signin">
 			<h2 class="form-signin-heading">Create your project</h2>
 			<p>Today's date:<%= (new java.util.Date()).toLocaleString()%></p>
 

@@ -29,9 +29,9 @@
 		<br />
 		<table class="table table-striped table-bordered">
 			<tr>
-				<th><security:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="create-customer">Add New customer</a>
-					</security:authorize></th>
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+				<th><a href="/customer/create-customer">Add New customer</a></th>
+				</security:authorize>
 				<th><a href="/project/viewProjects">Show Projects</a></th>
 				<th><a href="/report/allMyReports">All My reports</a></th>
 				<th><a href="/welcome">Back</a></th>
