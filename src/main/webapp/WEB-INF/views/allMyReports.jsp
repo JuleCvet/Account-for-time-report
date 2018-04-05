@@ -58,16 +58,19 @@
 		<h1>All Reports for user:
 			${pageContext.request.userPrincipal.name}</h1>
 
-		<form method="POST" class="form-inline" action="/report/allMyReports" style="padding-bottom: 10px;">
+		<form method="POST" class="form-inline" action="/report/allMyReports"
+			style="padding-bottom: 10px;">
 			<div class="form-group">
-				<label for="datepicker">From Date:</label> 
-				<input type="text" class="form-control" name="fromDate" id="fromDate" value="${fromDate}"></input>
+				<label for="datepicker">From Date:</label> <input type="text"
+					class="form-control" name="fromDate" id="fromDate"
+					value="${fromDate}"></input>
 			</div>
 			<div class="form-group">
-				<label for="datepicker1">To Date:</label>
-				<input type="text" class="form-control" name="toDate" id="toDate" value="${toDate}"></input>
+				<label for="datepicker1">To Date:</label> <input type="text"
+					class="form-control" name="toDate" id="toDate" value="${toDate}"></input>
 			</div>
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 			<button type="submit" class="btn btn-primary">Filter Dates</button>
 		</form>
 
@@ -78,47 +81,100 @@
 				<th>Working hours</th>
 				<th>Hours of VAB</th>
 				<th>Hours of Vacation</th>
+				<th>Locked</th>
 				<th>Report for date:</th>
 				<th>Date when report is been modified:</th>
 				<th>Is deleted</th>
 
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Update report</th>
+					<th>Lock Report</th>
 					<th>Delete report</th>
 				</security:authorize>
 			</tr>
-			
+
 			<c:forEach var="report" items="${list}">
 				<tr>
-					<td>${report.idReport}</td>
-					<td>${report.companyName}</td>
-					<td>${report.hoursReported}</td>
-					<td>${report.vab}</td>
-					<td>${report.vacation}</td>
-					<td>${report.forDate}</td>
-					<td>${report.dateModified}</td>
+					<c:choose>
+						<c:when test="${report.locked=='1'}">
+
+							<td><i>${report.idReport}</i></td>
+							<td><i>${report.companyName}</i></td>
+							<td><i>${report.hoursReported}</i></td>
+							<td><i>${report.vab}</i></td>
+							<td><i>${report.vacation}</i></td>
+
+							<td><i><b><c:choose>
+									<c:when test="${report.locked=='1'}">TRUE<br/></c:when>
+									<c:otherwise>FALSE<br/></c:otherwise>
+								</c:choose></b></i></td>
+
+							<td><i>${report.forDate}</i></td>
+							<td><i>${report.dateModified}</i></td>
+
+							<td><i><c:choose>
+									<c:when test="${report.deleted=='1'}">TRUE<br /></c:when>
+									<c:otherwise>FALSE<br /></c:otherwise>
+								</c:choose></i></td>
+
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><i><a href="update-report/${report.idReport}">Update report</a></i></td>
+							</security:authorize>
+
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<th><i><a href="/report/locked-report">Lock Report</a></i></th>
+							</security:authorize>
+
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><i><a href="delete-report">Delete report</a></i></td>
+							</security:authorize>
+							
+						</c:when>
+						
+						<c:otherwise>
+							<td>${report.idReport}</td>
+							<td>${report.companyName}</td>
+							<td>${report.hoursReported}</td>
+							<td>${report.vab}</td>
+							<td>${report.vacation}</td>
 					
-					<td><c:choose>
-				    <c:when test="${report.deleted=='1'}">TRUE<br /></c:when>    
-				    <c:otherwise>FALSE<br /></c:otherwise>
-					</c:choose></td>
+							<td><c:choose>
+									<c:when test="${report.locked=='1'}">TRUE<br /></c:when>
+									<c:otherwise>FALSE<br /></c:otherwise>
+								</c:choose></td>
 
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="update-report/${report.idReport}">Update
-								report</a></td>
-					</security:authorize>
+							<td>${report.forDate}</td>
+							<td>${report.dateModified}</td>
 
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="delete-report">Delete report</a></td>
-					</security:authorize>
+							<td><c:choose>
+									<c:when test="${report.deleted=='1'}">TRUE<br /></c:when>
+									<c:otherwise>FALSE<br /></c:otherwise>
+								</c:choose></td>
+								
+								
+								<security:authorize access="hasRole('ROLE_ADMIN')">
+									<td><a href="update-report/${report.idReport}">Update report</a></td>
+								</security:authorize>
+
+								<security:authorize access="hasRole('ROLE_ADMIN')">
+									<th><a href="/report/locked-report">Lock Report</a></th>
+								</security:authorize>
+
+								<security:authorize access="hasRole('ROLE_ADMIN')">
+									<td><a href="delete-report">Delete report</a></td>
+								</security:authorize>
+								
+						</c:otherwise>
+					</c:choose>
 				</tr>
 			</c:forEach>
 		</table>
-		
+
 		<h3>Sum of all working hours: ${totalHours}</h3>
 		<br />
 		<form action=""></form>
 	</div>
-	<script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="${contextPath}/resources/js/bootstrap.min.js"
+		type="text/javascript"></script>
 </body>
 </html>
