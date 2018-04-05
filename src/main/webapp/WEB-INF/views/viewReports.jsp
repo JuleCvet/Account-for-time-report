@@ -60,12 +60,26 @@
 				<tr>
 					<c:choose>
 						<c:when test="${report.locked=='1'}">
-						
-						
 
-				
-								
-										
+							<td><i>${report.idReport}</i></td>
+							<td><i>${report.companyName}</i></td>
+							<td><i>${report.hoursReported}</i></td>
+							<td><i>${report.vab}</i></td>
+							<td><i>${report.vacation}</i></td>
+							<td><i>${report.userID}</i></td>
+							
+							<td><i><b><c:choose>
+									<c:when test="${report.locked=='1'}">TRUE<br /></c:when><c:otherwise>FALSE<br /></c:otherwise>
+								</c:choose></b></i></td>
+							<td><i>${report.forDate}</i></td>
+							<td><i>${report.dateModified}</i></td>
+
+							<td><i><c:choose>
+									<c:when test="${report.deleted=='1'}">TRUE<br /></c:when><c:otherwise>FALSE<br /></c:otherwise>
+								</c:choose></i></td>
+							<br />
+						</c:when>
+						<c:otherwise>
 							<td>${report.idReport}</td>
 							<td>${report.companyName}</td>
 							<td>${report.hoursReported}</td>
@@ -89,31 +103,8 @@
 									<c:otherwise>FALSE<br />
 									</c:otherwise>
 								</c:choose></td>
-
-							<br />
-						</c:when>
-						 <c:otherwise>
-            					<td>${report.idReport}</td>
-					<td>${report.companyName}</td>
-					<td>${report.hoursReported}</td>
-					<td>${report.vab}</td>
-					<td>${report.vacation}</td>
-					<td>${report.userID}</td>
-					
-					<td><c:choose><c:when test="${report.locked=='1'}">TRUE<br/></c:when>
-					<c:otherwise>FALSE<br/></c:otherwise></c:choose></td>
-					
-					<td>${report.forDate}</td>
-					<td>${report.dateModified}</td>
-					
-					<td><c:choose>
-				    <c:when test="${report.deleted=='1'}">TRUE<br/></c:when>    
-				    <c:otherwise>FALSE<br /></c:otherwise>
-					</c:choose></td>
-     					 </c:otherwise>
+						</c:otherwise>
 					</c:choose>
-
-
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-report/${report.idReport}">Update
@@ -128,7 +119,6 @@
 			</c:forEach>
 		</table>
 		<br />
-
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
