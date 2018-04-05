@@ -49,7 +49,7 @@
 				<th>Report for date:</th>
 				<th>Date when report is been modified:</th>
 				<th>Is deleted</th>
-				
+
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Update report</th>
 					<th>Delete report</th>
@@ -58,7 +58,42 @@
 
 			<c:forEach var="report" items="${list}">
 				<tr>
-					<td>${report.idReport}</td>
+					<c:choose>
+						<c:when test="${report.locked=='1'}">
+						
+						
+
+				
+								
+										
+							<td>${report.idReport}</td>
+							<td>${report.companyName}</td>
+							<td>${report.hoursReported}</td>
+							<td>${report.vab}</td>
+							<td>${report.vacation}</td>
+							<td>${report.userID}</td>
+
+							<td><c:choose>
+									<c:when test="${report.locked=='1'}">TRUE<br />
+									</c:when>
+									<c:otherwise>FALSE<br />
+									</c:otherwise>
+								</c:choose></td>
+
+							<td>${report.forDate}</td>
+							<td>${report.dateModified}</td>
+
+							<td><c:choose>
+									<c:when test="${report.deleted=='1'}">TRUE<br />
+									</c:when>
+									<c:otherwise>FALSE<br />
+									</c:otherwise>
+								</c:choose></td>
+
+							<br />
+						</c:when>
+						 <c:otherwise>
+            					<td>${report.idReport}</td>
 					<td>${report.companyName}</td>
 					<td>${report.hoursReported}</td>
 					<td>${report.vab}</td>
@@ -72,9 +107,13 @@
 					<td>${report.dateModified}</td>
 					
 					<td><c:choose>
-				    <c:when test="${report.locked=='1'}">TRUE<br/></c:when>    
+				    <c:when test="${report.deleted=='1'}">TRUE<br/></c:when>    
 				    <c:otherwise>FALSE<br /></c:otherwise>
 					</c:choose></td>
+     					 </c:otherwise>
+					</c:choose>
+
+
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<td><a href="update-report/${report.idReport}">Update
