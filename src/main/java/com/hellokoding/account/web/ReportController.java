@@ -72,7 +72,7 @@ public class ReportController {
 		return "delete-report";
 	}
 
-	@RequestMapping(value = "/delete-report", method = RequestMethod.POST)
+	@RequestMapping(value = "delete-report/{idReport}", method = RequestMethod.POST)
 	public String delete_report(@ModelAttribute("updateReportDel") Report report, BindingResult bindingResult,
 			Model model) {
 		
