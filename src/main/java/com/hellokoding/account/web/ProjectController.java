@@ -1,4 +1,3 @@
-
 package com.hellokoding.account.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,7 +76,6 @@ public class ProjectController {
 	public String delete_project(Model model,  @PathVariable Long id) {
 		
 		model.addAttribute("delete", projectService.findByProjectId(id));
-		//model.addAttribute("delete", id);
 		//model.addAttribute("delete", new Project());
 		
 		return "delete-project";
@@ -85,6 +83,7 @@ public class ProjectController {
 
 	@RequestMapping(value = "delete-project/{id}", method = RequestMethod.POST)
 	public String delete_project(@ModelAttribute("delete") Project project, BindingResult bindingResult, Model model) {
+		
 		if (bindingResult.hasErrors()) {
 			return "delete-project";
 		}
@@ -104,7 +103,6 @@ public class ProjectController {
 		 * boolean admin = false; for (Role role : user.getRoles()) { admin |=
 		 * role.getName().equals("admin"); }
 		 */
-
 		model.addAttribute("list", projectService.showAllProjects());
 
 		return "viewProjects";
@@ -129,5 +127,4 @@ public class ProjectController {
 
 		return "redirect:/welcome";
 	}
-
 }

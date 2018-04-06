@@ -42,7 +42,6 @@ public class Report {
 
 	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date dateModified;
-
 	
 	@ManyToMany(mappedBy = "reports")
 	private Set<User> users;

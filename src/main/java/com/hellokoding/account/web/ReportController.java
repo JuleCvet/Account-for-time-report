@@ -107,6 +107,7 @@ public class ReportController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/viewReports", method = RequestMethod.GET)
 	public String view_reports(Model model) {
+		
 		model.addAttribute("list", reportService.showAllREports());
 
 		return "viewReports";
@@ -172,6 +173,7 @@ public class ReportController {
 				model.addAttribute("totalHours", reportService.calculateHoursByUserIdAndDate(userI, fromDate1, toDate1));
 				model.addAttribute("fromDate", fromDateReceived);
 				model.addAttribute("toDate", toDateReceived);
+				
 			} else {
 				
 				java.util.Date toDate1 = Calendar.getInstance().getTime();
@@ -209,6 +211,7 @@ public class ReportController {
 	@RequestMapping(value = "update-report/{idReport}", method = RequestMethod.POST)
 	public String update_report(@ModelAttribute("update") Report report, BindingResult bindingResult,
 			Model model) {
+		
 		if (bindingResult.hasErrors()) {
 			return "update-report";
 		}
