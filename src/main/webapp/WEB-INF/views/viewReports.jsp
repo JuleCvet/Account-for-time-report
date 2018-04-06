@@ -68,31 +68,38 @@
 							<td><i>${report.vab}</i></td>
 							<td><i>${report.vacation}</i></td>
 							<td><i>${report.userID}</i></td>
-							
+
 							<td><i><b><c:choose>
-									<c:when test="${report.locked=='1'}">TRUE<br /></c:when><c:otherwise>FALSE<br /></c:otherwise>
-								</c:choose></b></i></td>
+											<c:when test="${report.locked=='1'}">TRUE<br/>
+											</c:when>
+											<c:otherwise>FALSE<br/>
+											</c:otherwise>
+										</c:choose></b></i></td>
 							<td><i>${report.forDate}</i></td>
 							<td><i>${report.dateModified}</i></td>
 
 							<td><i><c:choose>
-									<c:when test="${report.deleted=='1'}">TRUE<br /></c:when><c:otherwise>FALSE<br /></c:otherwise>
-								</c:choose></i></td>	
-						
-						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<td><i><a href="update-report/${report.idReport}">Update report</a></i></td>
-						</security:authorize>
-					
-						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<th><i><a href="/report/locked-report">Lock Report</a></i></th>
-						</security:authorize>
-					
-						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<td><i><a href="delete-report">Delete report</a></i></td>
-						</security:authorize>
-						
+										<c:when test="${report.deleted=='1'}">TRUE<br />
+										</c:when>
+										<c:otherwise>FALSE<br />
+										</c:otherwise>
+									</c:choose></i></td>
+
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><i><a href="update-report/${report.idReport}">Update
+											report</a></i></td>
+							</security:authorize>
+
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<th><i><a href="/report/locked-report">Lock Report</a></i></th>
+							</security:authorize>
+
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><i><a href="delete-report/${report.idReport}">Delete report</a></i></td>
+							</security:authorize>
+
 						</c:when>
-						
+
 						<c:otherwise>
 							<td>${report.idReport}</td>
 							<td>${report.companyName}</td>
@@ -101,37 +108,38 @@
 							<td>${report.vacation}</td>
 							<td>${report.userID}</td>
 
-							<c:choose>
-								<c:when test="${report.locked=='1'}">TRUE<br/></c:when>
+							<td><c:choose>
+								<c:when test="${report.locked=='1'}">TRUE<br /></c:when>
 								<c:otherwise>FALSE<br/></c:otherwise>
 							</c:choose></td>
+							
 
 							<td>${report.forDate}</td>
 							<td>${report.dateModified}</td>
 
 							<td><c:choose>
-									<c:when test="${report.deleted=='1'}">TRUE<br /></c:when>
-									<c:otherwise>FALSE<br /></c:otherwise>
+									<c:when test="${report.deleted=='1'}">TRUE<br/></c:when>
+									<c:otherwise>FALSE<br/></c:otherwise>
 								</c:choose></td>
 
-						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<td><a href="update-report/${report.idReport}">Update report</a></td>
-						</security:authorize>
-					
-						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><a href="update-report/${report.idReport}">Update report</a></td>
+							</security:authorize>
+
+							<security:authorize access="hasRole('ROLE_ADMIN')">
 								<th><a href="/report/locked-report">Lock Report</a></th>
-						</security:authorize>
-					
-						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<td><a href="delete-report">Delete report</a></td>
-						</security:authorize>
-					
+							</security:authorize>
+
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><a href="delete-report/${report.idReport}">Delete report</a></td>
+							</security:authorize>
+
 						</c:otherwise>
-					</c:choose>	
+					</c:choose>
 				</tr>
 			</c:forEach>
 		</table>
-		<br />
+		<br/>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

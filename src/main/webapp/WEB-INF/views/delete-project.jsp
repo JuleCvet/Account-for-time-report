@@ -45,7 +45,7 @@
 				<label class="control-label col-sm-2">Project name:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="projectName" class="form-control"
-						placeholder="Project name:" value="${project.projectName}"></form:input>
+						 value="${project.projectName}"></form:input>
 					<form:errors path="projectName"></form:errors>
 				</div>
 				</div>
@@ -56,7 +56,7 @@
 				<label class="control-label col-sm-2">Project description</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="description" class="form-control"
-						placeholder="Project description:" value="${project.description}"></form:input>
+						value="${project.description}"></form:input>
 					<form:errors path="description"></form:errors>
 				</div>
 				</div>
@@ -67,7 +67,7 @@
 				<label class="control-label col-sm-2">Project type:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="type" class="form-control"
-						placeholder="Project type:" value="${project.type}"></form:input>
+						value="${project.type}"></form:input>
 					<form:errors path="type"></form:errors>
 				</div>
 				</div>

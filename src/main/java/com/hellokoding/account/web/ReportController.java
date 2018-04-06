@@ -65,9 +65,9 @@ public class ReportController {
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/delete-report", method = RequestMethod.GET)
-	public String delete_report(Model model) {
-		model.addAttribute("updateReportDel", new Report());
+	@RequestMapping(value = "delete-report/{idReport}", method = RequestMethod.GET)
+	public String delete_report(Model model, @PathVariable Long idReport) {
+		model.addAttribute("updateReportDel", reportService.findByIdReport(idReport));
 
 		return "delete-report";
 	}
@@ -110,15 +110,6 @@ public class ReportController {
 		model.addAttribute("list", reportService.showAllREports());
 
 		return "viewReports";
-	}
-	
-	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/viewLockedReports", method = RequestMethod.GET)
-	public String view_lockedReports(Model model) {
-		model.addAttribute("list1", reportService.showAllREports());
-
-		return "viewLockedReports";
 	}
 	
 	
