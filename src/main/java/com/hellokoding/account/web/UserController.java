@@ -3,6 +3,7 @@ package com.hellokoding.account.web;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,7 +20,7 @@ import com.hellokoding.account.service.UserService;
 import com.hellokoding.account.validator.UserValidator;
 
 @Controller
-// @RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
@@ -55,6 +56,7 @@ public class UserController {
 
 		return "redirect:/welcome";
 	}
+	
 // General interface that represents binding results. Extends the interface for error registration capabilities,
 // allowing for a Validator to be applied, and adds binding-specific analysis and model building.
 
@@ -75,7 +77,7 @@ public class UserController {
 		return "welcome";
 	}
 
-	// @PreAuthorize("HasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = ("/delete-user"), method = RequestMethod.GET)
 	public String user_delete(Model model) {
 		model.addAttribute("userDelete", new User());
@@ -94,7 +96,7 @@ public class UserController {
 		return "redirect:/welcome";
 	}
 
-	//@PreAuthorize("HasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/viewUsers", method = RequestMethod.GET)
 	public String viewUsers(Model model) {
 		model.addAttribute("list", userService.showAllUsers());
@@ -102,6 +104,8 @@ public class UserController {
 		return "viewUsers";
 	}
 	
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "update-user/{id}", method = RequestMethod.GET)
 	public String update_user(Model model, @PathVariable Long id) {
 

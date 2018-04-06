@@ -41,11 +41,12 @@ public class UserProjectServiceImpl implements UserProjectService{
 		return newList;
 	}
 
-	/*@Override
-	public UserProject findByUserProjectId(Long userProjectID) {
-		return userProjectRepository.findOne(userProjectID);
+	@Override
+	public UserProject findByUserProjectId(Long id) {
+		return userProjectRepository.findOne(id);
 	}
 
+	/*
 	@Override
 	public boolean updateUserProject(UserProject userProject) {
 		UserProject newUserProject = userProjectRepository.findOne(userProject.getUserProjectID());
@@ -55,11 +56,5 @@ public class UserProjectServiceImpl implements UserProjectService{
 		userProjectRepository.saveAndFlush(newUserProject);
 		
 		return false;
-	}
-		
-
-	@Override
-	public void deleteUserProject(UserProject userProject) {
-		userProjectRepository.delete(userProject.getUserProjectID());
 	}*/
 }

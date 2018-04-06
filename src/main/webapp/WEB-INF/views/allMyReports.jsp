@@ -49,6 +49,7 @@
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th><a href="create-report">Add New Report</a></th>
+				<th><a href="viewReports">Show all Reports</a></th>
 				<th><a href="/project/viewProjects">Show Projects</a></th>
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
 				<th><a href="/welcome">Back</a></th>

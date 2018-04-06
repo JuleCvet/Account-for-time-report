@@ -6,15 +6,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.UserProject;
+import com.hellokoding.account.repository.UserProjectRepository;
 import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.service.UserProjectService;
 import com.hellokoding.account.service.UserService;
-
 
 @Controller
 @RequestMapping("/userproject")
@@ -22,20 +23,24 @@ public class UserProjectController {
 
 	@Autowired 
 	private UserProjectService userProjectService;
+	
 	@Autowired
 	private UserService userService;
+	
 	@Autowired
 	private ProjectService projectService;
 	
 	@PreAuthorize(value="hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/create-userProject", method = RequestMethod.GET)
 	public String create_userProject(Model model) {
+		
 		model.addAttribute("createUserProject", new UserProject());
 		model.addAttribute("listUsers", userService.showAllUsers());
 		model.addAttribute("listProjects", projectService.showAllProjects());
 
 		return "create-userProject";
 	}
+	
 	
 	@RequestMapping(value = "/create-userProject", method = RequestMethod.POST)
 	public String create_userProject(@ModelAttribute ("createUserProject") UserProject userProject,BindingResult bindingResult, Model model) {
@@ -50,14 +55,15 @@ public class UserProjectController {
 	}
 	
 	@PreAuthorize(value="hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/delete-userProject", method = RequestMethod.GET)
-	public String delete_userProject(Model model) {
-		model.addAttribute("deleteUserProject", new UserProject());
+	@RequestMapping(value = "delete-userProject/{id}", method = RequestMethod.GET)
+	public String delete_userProject(Model model, @PathVariable Long id) {
+		
+		model.addAttribute("deleteUserProject", userProjectService.findByUserProjectId(id));
 
 		return "delete-userProject";
 	}
 
-	@RequestMapping(value = "/delete-userProject", method = RequestMethod.POST)
+	@RequestMapping(value = "delete-userProject/{id}", method = RequestMethod.POST)
 	public String delete_userProject(@ModelAttribute("deleteUserProject") UserProject userProject, BindingResult bindingResult, Model model) {
 		
 		if (bindingResult.hasErrors()) {
@@ -70,6 +76,7 @@ public class UserProjectController {
 	}
 	
 	
+	@PreAuthorize(value="hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/viewAllUserProjects", method=RequestMethod.GET)
 	public String showAllUsersAndProjects(Model model) {
 		

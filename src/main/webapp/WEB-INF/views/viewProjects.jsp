@@ -21,18 +21,14 @@
 </head>
 <body>
 	<div class="container">
-		<br />
+		<br/><br/>
 		<table class="table table-striped table-bordered">
 			<tr>
-				<th><security:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="/project/create-project">Add New Project</a>
-					</security:authorize></th>
-
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
 				<th><a href="/report/allMyReports">All My reports</a></th>
+				<th><a href="/report/viewReports">Show all Reports</a></th>
 				<th><a href="/welcome">Back</a></th>
 			</tr>
-			<br />
 		</table>
 
 		<h1>All Projects</h1>

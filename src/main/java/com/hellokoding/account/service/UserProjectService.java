@@ -12,13 +12,10 @@ public interface UserProjectService {
 	
 	public List<UserProject> showAllUsersAndProjects();
 	
-	/*UserProject findByUserProjectId(Long userProjectID);
+	UserProject findByUserProjectId(Long id);
 	
-	boolean updateUserProject(UserProject userProject);
+	//boolean updateUserProject(UserProject userProject);
 	
-	void deleteUserProject(UserProject userProject);
-	
-	*/
 
 }
 

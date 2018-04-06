@@ -33,6 +33,7 @@
 			<tr>
 				<th><a href="registration">Register</a></th>
 				<th><a href="/project/viewProjects">Show Projects</a></th>
+				<th><a href="/report/viewReports">Show Reports</a></th>
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
 				<th><a href="/welcome">Back</a></th>
 			</tr>

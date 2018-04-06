@@ -32,8 +32,10 @@
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 				<th><a href="/customer/create-customer">Add New customer</a></th>
 				</security:authorize>
+				
 				<th><a href="/project/viewProjects">Show Projects</a></th>
-				<th><a href="/report/allMyReports">All My reports</a></th>
+				<th><a href="/report/viewReports">Show Reports</a></th>
+				<th><a href="/report/allMyReports">All My Reports</a></th>
 				<th><a href="/welcome">Back</a></th>
 			</tr>
 		</table>

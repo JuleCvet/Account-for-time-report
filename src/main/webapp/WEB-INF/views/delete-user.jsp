@@ -26,7 +26,7 @@
 
 	<div class="container">
 
-		<div class="alert alert-danger" role="alert" style = "width: 80%">
+		<div class="alert alert-danger" role="alert" style = "width: 65%">
 			<h4 class="alert-heading">Are you sure that you want to delete
 				Info about this user?</h4>
 		</div>
@@ -42,7 +42,7 @@
 				</div>
 			</spring:bind>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button>
 		</form:form>
 
 	</div>

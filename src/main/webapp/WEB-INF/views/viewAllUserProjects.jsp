@@ -48,6 +48,8 @@
 				<th>User Id</th>
 				<th>Project Id</th>
 				<th>Is deleted</th>
+				<th>Create new combination</th>
+				<th>Delete combination</th>
 			</tr>
 
 			<c:forEach var="userproject" items="${list}">
@@ -59,6 +61,13 @@
 				    <c:when test="${userproject.deleted=='1'}">TRUE<br /></c:when>    
 				    <c:otherwise>FALSE<br /></c:otherwise>
 					</c:choose></td>
+					
+					<th><security:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="/userproject/create-userProject">Create new combination</a></security:authorize></th>
+					
+					<th><security:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="/userproject/delete-userProject/${userproject.id}">Delete combination</a></security:authorize></th>
+					
 				</tr>
 			</c:forEach>
 		</table>
