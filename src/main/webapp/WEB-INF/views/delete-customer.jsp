@@ -26,24 +26,33 @@
 
 	<div class="container">
 
-		<div class="alert alert-danger" role="alert" style="width: 80%">
+		<div class="alert alert-danger" role="alert" style="width: 47%">
 			<h4 class="alert-heading">Are you sure that you want to delete
 				Info about this customer?</h4>
 		</div>
 
-		<form:form method="POST" modelAttribute="deleteCustomer" class="form-signin">
-			<h2 class="form-signin-heading">Delete info about your customer</h2>
+		<form:form method="POST" modelAttribute="deleteCustomer" class="form-horizontal">
+			<h2 class="form-signin-heading">Delete info about this customer:</h2>
 			
 			<spring:bind path="customerId">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="customerId" class="form-control"
-						placeholder="ID of customer you want to delete info:"
-						autofocus="true"></form:input>
+					<form:input type="hidden" path="customerId" class="form-control"></form:input>
 					<form:errors path="customerId"></form:errors>
 				</div>
 			</spring:bind>
+			
+			<spring:bind path="companyName">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+			<label class="control-label col-sm-2">Company name:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="companyName" class="form-control"
+						value="${customer.companyName}"></form:input>
+					<form:errors path="companyName"></form:errors>
+				</div>
+			</div>
+			</spring:bind>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-primary " type="submit" id ="search">Delete</button>
 		</form:form>
 
 	</div>

@@ -42,16 +42,17 @@ public class CustomerController {
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/delete-customer", method = RequestMethod.GET)
-	public String delete_customer(Model model) {
-		model.addAttribute("deleteCustomer", new Customer());
+	@RequestMapping(value = "delete-customer/{customerId}", method = RequestMethod.GET)
+	public String delete_customer(Model model, @PathVariable Long customerId) {
+		model.addAttribute("deleteCustomer", customerService.findByCustomerId(customerId));
 
 		return "delete-customer";
 	}
 
-	@RequestMapping(value = "/delete-customer", method = RequestMethod.POST)
+	@RequestMapping(value = "delete-customer/{customerId}", method = RequestMethod.POST)
 	public String delete_customer(@ModelAttribute("deleteCustomer") Customer customer, BindingResult bindingResult,
 			Model model) {
+		
 		if (bindingResult.hasErrors()) {
 			return "delete-customer";
 		}

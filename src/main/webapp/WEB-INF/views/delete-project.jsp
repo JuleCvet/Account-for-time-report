@@ -73,7 +73,7 @@
 				</div>
 			</spring:bind>
 			
-			<button class="btn btn-primary" type="submit" id="search">Submit</button>
+			<button class="btn btn-primary" type="submit" id="search">Delete</button>
 			
 		</form:form>
 	</div>

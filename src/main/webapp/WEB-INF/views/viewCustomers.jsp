@@ -65,7 +65,7 @@
 					</security:authorize>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="delete-customer">Delete customer</a></td>
+						<td><a href="delete-customer/${customer.customerId}">Delete customer</a></td>
 					</security:authorize>
 
 				</tr>
