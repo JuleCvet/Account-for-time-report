@@ -101,10 +101,10 @@
 							<td>${report.vacation}</td>
 							<td>${report.userID}</td>
 
-							<td><c:choose>
+							<c:choose>
 								<c:when test="${report.locked=='1'}">TRUE<br/></c:when>
 								<c:otherwise>FALSE<br/></c:otherwise>
-								</c:choose></td>
+							</c:choose></td>
 
 							<td>${report.forDate}</td>
 							<td>${report.dateModified}</td>

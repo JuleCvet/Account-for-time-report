@@ -66,7 +66,7 @@
 					</security:authorize>
 
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="delete-project">Delete project</a></td>
+						<td><a href="delete-project/${project.id}">Delete project</a></td>
 					</security:authorize>
 				</tr>
 			</c:forEach>

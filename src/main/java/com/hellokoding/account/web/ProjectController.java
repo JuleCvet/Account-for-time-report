@@ -71,16 +71,19 @@ public class ProjectController {
 
 		return "redirect:/welcome";
 	}
-			
+	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/delete-project", method = RequestMethod.GET)
-	public String delete_project(Model model) {
-		model.addAttribute("delete", new Project());
-
+	@RequestMapping(value = "delete-project/{id}", method = RequestMethod.GET)
+	public String delete_project(Model model,  @PathVariable Long id) {
+		
+		model.addAttribute("delete", projectService.findByProjectId(id));
+		//model.addAttribute("delete", id);
+		//model.addAttribute("delete", new Project());
+		
 		return "delete-project";
 	}
 
-	@RequestMapping(value = "/delete-project", method = RequestMethod.POST)
+	@RequestMapping(value = "delete-project/{id}", method = RequestMethod.POST)
 	public String delete_project(@ModelAttribute("delete") Project project, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "delete-project";

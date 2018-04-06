@@ -31,7 +31,7 @@
 		</div>
 
 		<form:form method="POST" modelAttribute="delete" class="form-horizontal">
-			<h2 class="form-signin-heading">Delete info about your project  ${project.id}</h2>
+			<h2 class="form-signin-heading">Delete info for this project: ${project.id}</h2>
 			
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
