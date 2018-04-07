@@ -46,15 +46,15 @@ public class UserProjectServiceImpl implements UserProjectService{
 		return userProjectRepository.findOne(id);
 	}
 
-	/*
 	@Override
 	public boolean updateUserProject(UserProject userProject) {
-		UserProject newUserProject = userProjectRepository.findOne(userProject.getUserProjectID());
+		UserProject newUserProject = userProjectRepository.findOne(userProject.getId());
 		
 		newUserProject.setUserID(userProject.getUserID());
 		newUserProject.setProjectID(userProject.getProjectID());
+		newUserProject.setDeleted(userProject.getDeleted());
 		userProjectRepository.saveAndFlush(newUserProject);
 		
-		return false;
-	}*/
+		return true;
+	}
 }

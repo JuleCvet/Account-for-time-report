@@ -32,7 +32,7 @@
 		</div>
 
 		<form:form method="POST" modelAttribute="deleteUserProject" class="form-horizontal">
-			<h2 class="form-signin-heading">Delete info about combination of user - project:</h2>
+			<h2 class="form-signin-heading">Delete info about combination of user - project with Id's:</h2>
 
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">

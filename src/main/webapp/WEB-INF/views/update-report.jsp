@@ -36,6 +36,14 @@
 	<div class="container">
 
 		<form:form modelAttribute="update" class="form-horizontal">
+		
+			<spring:bind path="userID">
+					<form:input type="hidden" path="userID" class="form-control"
+						value="${report.userID}"></form:input>	
+					<form:errors path="userID"></form:errors>
+			</spring:bind>
+			
+		
 			<h2 class="form-signin-heading">Update your report ${report.idReport}</h2>
 
 			<spring:bind path="idReport">
@@ -43,7 +51,7 @@
 					<form:input type="hidden" value="${report.idReport}"
 						path="idReport" class="form-control"></form:input>
 					<form:errors path="idReport"></form:errors>
-				</div>
+					</div>
 			</spring:bind>
 			
 		<div class="form-group">
@@ -52,9 +60,9 @@
 					<label class="control-label col-sm-2">Company Name:</label>
 					<div class="col-sm-2">
 						<form:input type="text" path="companyName" class="form-control" 
-						placeholder="Company name:" value="${report.companyName}"></form:input>
-					<form:errors path="companyName"></form:errors>
-				</div>
+							 value="${report.companyName}"></form:input>
+						<form:errors path="companyName"></form:errors>
+					</div>
 			</spring:bind>
 		</div>
 	
@@ -62,11 +70,11 @@
 			<spring:bind path="hoursReported">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
 					<label class="control-label col-sm-2">Hours Reported:</label>
-					<div class="col-sm-2">
-					<form:input type="text" path="hoursReported" class="form-control"
-						placeholder="Hours Reported:" value="${report.hoursReported}"></form:input>
-					<form:errors path="hoursReported"></form:errors>
-					</div>
+						<div class="col-sm-2">
+							<form:input type="text" path="hoursReported" class="form-control"
+								value="${report.hoursReported}"></form:input>
+							<form:errors path="hoursReported"></form:errors>
+						</div>
 			</spring:bind>
 		</div>
 		
@@ -74,11 +82,10 @@
 			<spring:bind path="vab">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
 					<label class="control-label col-sm-2">VAB:</label>
-					<div class="col-sm-2">
-					<form:input type="text" path="vab" class="form-control"
-						placeholder="Hours for VAB:" value="${report.vab}"></form:input>
-					<form:errors path="vab"></form:errors>
-					</div>
+						<div class="col-sm-2">
+						<form:input type="text" path="vab" class="form-control" value="${report.vab}"></form:input>
+						<form:errors path="vab"></form:errors>
+						</div>
 			</spring:bind>
 		</div>
 		
@@ -86,30 +93,34 @@
 			<spring:bind path="vacation">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
 				<label class="control-label col-sm-2">Hours for Vacation</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="vacation" class="form-control"
-						placeholder="Hours for vacation:" value="${report.vacation}"></form:input>
-					<form:errors path="vacation"></form:errors>
+					<div class="col-sm-2">
+						<form:input type="text" path="vacation" class="form-control" value="${report.vacation}"></form:input>
+						<form:errors path="vacation"></form:errors>
 					</div>
 			</spring:bind>
 		</div>
 		
-			<spring:bind path="userID">
-<%-- 				<div class="form-group ${status.error ? 'has-error' : ''}"></div> --%>
-					<form:input type="hidden" path="userID" class="form-control"
-						placeholder="User ID of the report:" value="${report.userID}"></form:input>	
-					<form:errors path="userID"></form:errors>
-			</spring:bind>
-	
 		<div class="form-group">
 			<spring:bind path="forDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
 				<label class="control-label col-sm-2">For Date:</label>
-				<div class="col-sm-2">
-					<form:input type="text" id="forDate" name="forDate" path="forDate"
-						class="form-control" placeholder="For Date:" value="${forDate}"></form:input>
-					<form:errors path="forDate"></form:errors>
-				</div>
+					<div class="col-sm-2">
+						<form:input type="text" id="forDate" name="forDate" path="forDate"
+							class="form-control" value="${forDate}"></form:input>
+						<form:errors path="forDate"></form:errors>
+					</div>
+			</spring:bind>
+		</div>
+		
+		<div class="form-group">
+			<spring:bind path="deleted">
+				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
+				<label class="control-label col-sm-2">Deleted:</label>
+					<div class="col-sm-2">
+						<form:input type="text" id="deleted" name="deleted" path="deleted"
+							class="form-control" value="${deleted}"></form:input>
+						<form:errors path="deleted"></form:errors>
+					</div>
 			</spring:bind>
 		</div>
 		

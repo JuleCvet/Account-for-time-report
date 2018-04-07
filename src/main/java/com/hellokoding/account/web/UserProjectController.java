@@ -85,5 +85,26 @@ public class UserProjectController {
 		return "viewAllUserProjects";
 	}
 	
+	@PreAuthorize(value="hasRole('ROLE_ADMIN')")
+	@RequestMapping(value="update-userProject/{id}", method=RequestMethod.GET)
+	public String update_userProject(Model model, @PathVariable Long id) {
+		
+		model.addAttribute("updateUserProject", userProjectService.findByUserProjectId(id));
+		
+		return "update-userProject";
+	}
+	
+	@RequestMapping(value="update-userProject/{id}", method=RequestMethod.POST)
+	public String update_userProject(@ModelAttribute("updateUserProject")UserProject userProject, BindingResult bindingResult,
+			Model model) {
+		
+		if(bindingResult.hasErrors()) {
+			
+			return "update-userProject";
+		}
+		userProjectService.updateUserProject(userProject);
+		
+		return "redirect:/welcome";
+	}	
 }
 

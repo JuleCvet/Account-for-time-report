@@ -30,7 +30,7 @@
 					
 				<th><security:authorize access="hasRole('ROLE_ADMIN')">
 						<a href="/customer/create-customer">Add New Customer</a></security:authorize></th>
-					
+						
 				<th><a href="/viewUsers">Show Users</a></th>	
 				<th><a href="/project/viewProjects">Show Projects</a></th>
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
@@ -50,6 +50,7 @@
 				<th>Is deleted</th>
 				<th>Create new combination</th>
 				<th>Delete combination</th>
+				<th>Update combination</th>
 			</tr>
 
 			<c:forEach var="userproject" items="${list}">
@@ -67,6 +68,9 @@
 					
 					<th><security:authorize access="hasRole('ROLE_ADMIN')">
 						<a href="/userproject/delete-userProject/${userproject.id}">Delete combination</a></security:authorize></th>
+					
+					<th><security:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="/userproject/update-userProject/${userproject.id}">Update Combination</a></security:authorize></th>
 					
 				</tr>
 			</c:forEach>

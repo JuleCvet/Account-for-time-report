@@ -14,7 +14,7 @@ public interface UserProjectService {
 	
 	UserProject findByUserProjectId(Long id);
 	
-	//boolean updateUserProject(UserProject userProject);
+	boolean updateUserProject(UserProject userProject);
 	
 
 }

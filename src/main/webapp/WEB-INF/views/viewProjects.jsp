@@ -27,6 +27,7 @@
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
 				<th><a href="/report/allMyReports">All My reports</a></th>
 				<th><a href="/report/viewReports">Show all Reports</a></th>
+				<th><a href="/project/create-project">Create new Project</a></th>
 				<th><a href="/welcome">Back</a></th>
 			</tr>
 		</table>
