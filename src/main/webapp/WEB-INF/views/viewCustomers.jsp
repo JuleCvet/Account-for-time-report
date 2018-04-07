@@ -56,7 +56,7 @@
 			<c:forEach var="customer" items="${list}">
 				<tr>
 					<td>${customer.customerId}</td>
-					<td>${customer.companyName}</td>
+					<td>${customer.customerName}</td>
 					
 					<td><c:choose><c:when test="${customer.deleted=='1'}">TRUE<br /></c:when>    
 				    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>

@@ -41,13 +41,13 @@
 				</div>
 			</spring:bind>
 			
-			<spring:bind path="companyName">
+			<spring:bind path="customerName">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 			<label class="control-label col-sm-2">Company name:</label>
 				<div class="col-sm-2">
-					<form:input type="text" path="companyName" class="form-control"
-						value="${customer.companyName}"></form:input>
-					<form:errors path="companyName"></form:errors>
+					<form:input type="text" path="customerName" class="form-control"
+						value="${customer.customerName}"></form:input>
+					<form:errors path="customerName"></form:errors>
 				</div>
 			</div>
 			</spring:bind>

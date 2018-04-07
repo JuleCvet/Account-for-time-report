@@ -14,7 +14,7 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long customerId;
 
-	private String companyName;
+	private String customerName;
 	private Integer deleted;
 
 	/*
@@ -31,25 +31,24 @@ public class Customer {
 	public void setcustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
+	
 	/*
 	 * public Set<Project> getProjects() { return projects; }
 	 * 
 	 * public void setProjects(Set<Project> projects) { this.projects = projects; }
 	 */
+	
+	public String getCustomerName() {
+		return customerName;
+	}
 
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 
-	public Customer(String companyName, Integer deleted) {
+	public Customer(String customerName, Integer deleted) {
 		super();
-		this.companyName = companyName;
+		this.customerName = customerName;
 		this.deleted = deleted;
 	}
 
@@ -63,7 +62,6 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [companyName=" + companyName + ", deleted=" + deleted + "]";
+		return "Customer [customerName=" + customerName + ", deleted=" + deleted + "]";
 	}
-
 }

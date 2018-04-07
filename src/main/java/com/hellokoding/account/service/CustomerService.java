@@ -8,7 +8,7 @@ public interface CustomerService {
 
 	void save(Customer customer);
 
-	Customer findByCompanyName(String companyName);
+	Customer findByCustomerName(String customerName);
 	
 	Customer findByCustomerId(Long customerId);
 

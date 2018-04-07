@@ -31,11 +31,11 @@
 			<h2 class="form-signin-heading">Create customer</h2>
 			<p>Today's date:<%= (new java.util.Date()).toLocaleString()%></p>
 
-			<spring:bind path="companyName">
+			<spring:bind path="customerName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="companyName" class="form-control"
+					<form:input type="text" path="customerName" class="form-control"
 						placeholder="Customer name:" autofocus="true"></form:input>
-					<form:errors path="companyName"></form:errors>
+					<form:errors path="customerName"></form:errors>
 				</div>
 			</spring:bind>
 

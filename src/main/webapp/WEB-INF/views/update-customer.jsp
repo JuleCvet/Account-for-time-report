@@ -26,7 +26,7 @@
 	<div class="container">
 	
 		<form:form modelAttribute="update" class="form-horizontal">
-			<h2 class="form-signin-heading">Update your customer ${companyName}</h2>
+			<h2 class="form-signin-heading">Update your customer ${customerName}</h2>
 
 			<spring:bind path="customerId">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -38,16 +38,28 @@
 			
 			
 			<div class="form-group">
-			<spring:bind path="companyName">
+			<spring:bind path="customerName">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
 					<label class="control-label col-sm-2">Company Name:</label>
 					<div class="col-sm-2">
-						<form:input type="text" path="companyName" class="form-control" 
-						placeholder="Company name:" value="${customer.companyName}"></form:input>
-					<form:errors path="companyName"></form:errors>
+						<form:input type="text" path="customerName" class="form-control" 
+							value="${customer.customerName}"></form:input>
+					<form:errors path="customerName"></form:errors>
 				</div>
 			</spring:bind>
-		</div>
+			</div>
+		
+			<div class="form-group">
+				<spring:bind path="deleted">
+					<div class="form-group ${status.error ? 'has-error' : ''}"></div>
+						<label class="control-label col-sm-2">Deleted:</label>
+						<div class="col-sm-2">
+							<form:input type="text" path="deleted" class="form-control" 
+								value="${customer.deleted}"></form:input>
+						<form:errors path="deleted"></form:errors>
+					</div>
+				</spring:bind>
+			</div>
 
 			<button class="btn btn-primary" type="submit" id="search">Submit</button>
 

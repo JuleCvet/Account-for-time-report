@@ -39,6 +39,7 @@ public class ReportServiceImpl implements ReportService {
 		oldReport.setUserID(report.getUserID());
 		oldReport.setForDate(report.getForDate());
 		oldReport.setDateModified(report.getDateModified());
+		oldReport.setDeleted(report.getDeleted());
 		
 		reportRepository.saveAndFlush(oldReport);
 

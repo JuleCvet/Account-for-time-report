@@ -75,7 +75,6 @@ public class CustomerController {
 	public String update_customer(Model model, @PathVariable Long customerId) {
 		
 		model.addAttribute("update", customerService.findByCustomerId(customerId));
-		//model.addAttribute("update", customerService.findByCompanyName(companyName));
 
 		return "update-customer";
 	}

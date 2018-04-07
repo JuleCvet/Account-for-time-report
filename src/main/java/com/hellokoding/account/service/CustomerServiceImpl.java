@@ -20,8 +20,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer findByCompanyName(String companyName) {
-		return customerRepository.findByCompanyName(companyName);
+	public Customer findByCustomerName(String customerName) {
+		return customerRepository.findByCustomerName(customerName);
 	}
 
 	@Override
@@ -34,7 +34,10 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public boolean updateCustomer(Customer customer) {
 		Customer oldCustomer = customerRepository.findOne(customer.getcustomerId());
-		oldCustomer.setCompanyName(customer.getCompanyName());
+		
+		oldCustomer.setCustomerName(customer.getCustomerName());
+		oldCustomer.setDeleted(customer.getDeleted());
+		
 		customerRepository.saveAndFlush(oldCustomer);
 
 		return true;
