@@ -106,8 +106,14 @@
 							<td><i>${report.vacation}</i></td>
 
 							<td><i><b><c:choose>
-									<c:when test="${report.locked=='1'}">TRUE<br/></c:when>
-									<c:otherwise>FALSE<br/></c:otherwise>
+									<c:when test="${report.locked=='1'}">
+										<input type="checkbox" id="locked" name="locked" value="1" checked disabled>
+									    <label for="locked">TRUE</label>
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox" id="locked" name="locked" value="0" disabled>
+									    <label for="locked">FALSE</label>
+									</c:otherwise>
 								</c:choose></b></i></td>
 
 							<td><i>${report.forDate}</i></td>
@@ -123,7 +129,7 @@
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<th><i><a href="/report/locked-report">Lock Report</a></i></th>
+								<th></th>
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
@@ -139,11 +145,19 @@
 							<td>${report.vab}</td>
 							<td>${report.vacation}</td>
 					
-							<td><c:choose>
-									<c:when test="${report.locked=='1'}">TRUE<br /></c:when>
-									<c:otherwise>FALSE<br /></c:otherwise>
-								</c:choose></td>
-
+							<td>
+								<c:choose>
+									<c:when test="${report.locked=='1'}">
+										<input type="checkbox" id="locked" name="locked" value="1" checked disabled>
+									    <label for="locked">TRUE</label>
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox" id="locked" name="locked" value="0" disabled>
+									    <label for="locked">FALSE</label>
+									</c:otherwise>
+								</c:choose>
+							</td>
+								
 							<td>${report.forDate}</td>
 							<td>${report.dateModified}</td>
 
