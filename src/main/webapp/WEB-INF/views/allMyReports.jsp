@@ -1,3 +1,4 @@
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -107,11 +108,11 @@
 
 							<td><i><b><c:choose>
 									<c:when test="${report.locked=='1'}">
-										<input type="checkbox" id="locked" name="locked" value="1" checked disabled>
+										<input type="checkbox"  value="1" checked disabled>
 									    <label for="locked">TRUE</label>
 									</c:when>
 									<c:otherwise>
-										<input type="checkbox" id="locked" name="locked" value="0" disabled>
+										<input type="checkbox" value="0" disabled>
 									    <label for="locked">FALSE</label>
 									</c:otherwise>
 								</c:choose></b></i></td>
@@ -148,11 +149,11 @@
 							<td>
 								<c:choose>
 									<c:when test="${report.locked=='1'}">
-										<input type="checkbox" id="locked" name="locked" value="1" checked disabled>
+										<input type="checkbox"  value="1" checked disabled>
 									    <label for="locked">TRUE</label>
 									</c:when>
 									<c:otherwise>
-										<input type="checkbox" id="locked" name="locked" value="0" disabled>
+										<input type="checkbox" value="0" disabled>
 									    <label for="locked">FALSE</label>
 									</c:otherwise>
 								</c:choose>

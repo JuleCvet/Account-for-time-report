@@ -71,11 +71,14 @@
 							<td><i>${report.userID}</i></td>
 
 							<td><i><b><c:choose>
-											<c:when test="${report.locked=='1'}">TRUE<br/>
-											</c:when>
-											<c:otherwise>FALSE<br/>
-											</c:otherwise>
-										</c:choose></b></i></td>
+								<c:when test="${report.locked=='1'}">TRUE<br/>
+								</c:when>
+								<c:otherwise>FALSE<br/>
+								
+								</c:otherwise>
+							</c:choose></b></i>
+							</td>
+				
 							<td><i>${report.forDate}</i></td>
 							<td><i>${report.dateModified}</i></td>
 
@@ -92,7 +95,7 @@
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<th><i><a href="/report/locked-report">Lock Report</a></i></th>
+								<th></th>
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
@@ -112,7 +115,8 @@
 							<td><c:choose>
 								<c:when test="${report.locked=='1'}">TRUE<br /></c:when>
 								<c:otherwise>FALSE<br/></c:otherwise>
-							</c:choose></td>
+							</c:choose>
+							</td>
 							
 
 							<td>${report.forDate}</td>
@@ -128,7 +132,7 @@
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<th><a href="/report/locked-report">Lock Report</a></th>
+								<th><a href="/report/locked-report/${report.idReport}">Lock Report</a></th>
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">

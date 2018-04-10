@@ -86,15 +86,15 @@ public class ReportController {
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "/locked-report", method = RequestMethod.GET)
-	public String locked_report(Model model) {
+	@RequestMapping(value = "locked-report/{idReport}", method = RequestMethod.GET)
+	public String locked_report(Model model, @PathVariable Long idReport) {
 		
-		model.addAttribute("updateReportLocked", new Report());
+		model.addAttribute("updateReportLocked", reportService.findByIdReport(idReport));
 
 		return "locked-report";
 	}
 	
-	@RequestMapping(value = "/locked-report", method = RequestMethod.POST)
+	@RequestMapping(value = "locked-report/{idReport}", method = RequestMethod.POST)
 	public String locked_report(@ModelAttribute ("updateReportLocked")Report report, BindingResult bindingResult, Model model) {
 		
 		if(bindingResult.hasErrors()) {

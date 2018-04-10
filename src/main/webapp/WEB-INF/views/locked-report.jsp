@@ -25,22 +25,89 @@
 
 <div class="container">
 
-	<div class="alert alert-danger" role="alert" style = "width: 80%">
-	<h4 class="alert-heading">Are you sure that you want to lock this report?</h4>
+	<div class="alert alert-danger" role="alert" style = "width: 35%">
+	<h4 class="alert-heading">Are you sure that you want to lock this report? ${report.idReport}</h4>
 	</div>
 	
-    <form:form method="POST" modelAttribute="updateReportLocked" class="form-signin">
-        <h2 class="form-signin-heading">Lock this report</h2>
-        
-        <spring:bind path="idReport">
+    <form:form method="POST" modelAttribute="updateReportLocked" class="form-horizontal">
+        <h2 class="form-signin-heading">Lock this report ${report.idReport}</h2>
+     
+         <spring:bind path="idReport">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="idReport" class="form-control" placeholder="ID of report you want to lock:"
-                            autofocus="true"></form:input>
+            	<div class="col-sm-2">
+                <form:input type="hidden" path="idReport" class="form-control"></form:input>
                 <form:errors path="idReport"></form:errors>
             </div>
+            </div>
         </spring:bind>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        
+        <spring:bind path="companyName">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+			<label class="control-label col-sm-2">Company name:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="companyName" class="form-control"
+						value="${report.companyName}"></form:input>
+					<form:errors path="companyName"></form:errors>
+				</div>
+			</div>
+		</spring:bind>
+		
+		<spring:bind path="hoursReported">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+			<label class="control-label col-sm-2">Reported hours:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="hoursReported" class="form-control"
+						value="${report.hoursReported}"></form:input>
+					<form:errors path="hoursReported"></form:errors>
+				</div>
+			</div>
+		</spring:bind>
+		
+		<spring:bind path="vab">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+			<label class="control-label col-sm-2">VAB:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="vab" class="form-control"
+						value="${report.vab}"></form:input>
+					<form:errors path="vab"></form:errors>
+				</div>
+			</div>
+		</spring:bind>
+		
+		<spring:bind path="vacation">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+			<label class="control-label col-sm-2">Hours for Vacation:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="vacation" class="form-control"
+						value="${report.vacation}"></form:input>
+					<form:errors path="vacation"></form:errors>
+				</div>
+			</div>
+		</spring:bind>
+		
+		<spring:bind path="forDate">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+			<label class="control-label col-sm-2">Hours for Date:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="forDate" class="form-control"
+						value="${report.forDate}"></form:input>
+					<form:errors path="forDate"></form:errors>
+				</div>
+			</div>
+		</spring:bind>
+		
+		<spring:bind path="dateModified">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+			<label class="control-label col-sm-2">Modified date:</label>
+				<div class="col-sm-2">
+					<form:input type="text" path="dateModified" class="form-control"
+						value="${report.dateModified}"></form:input>
+					<form:errors path="dateModified"></form:errors>
+				</div>
+			</div>
+		</spring:bind>
+        
+        <button class="btn btn-primary" type="submit" id="search" >Lock</button>
         
     </form:form>
 </div>
