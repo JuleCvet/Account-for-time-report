@@ -78,14 +78,14 @@ public class UserController {
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = ("/delete-user"), method = RequestMethod.GET)
-	public String user_delete(Model model) {
-		model.addAttribute("userDelete", new User());
+	@RequestMapping(value = ("delete-user/{id}"), method = RequestMethod.GET)
+	public String user_delete(Model model, @PathVariable Long id) {
+		model.addAttribute("userDelete", userService.findByid(id));
 
 		return "delete-user";
 	}
 
-	@RequestMapping(value = "/delete-user", method = RequestMethod.POST)
+	@RequestMapping(value = "delete-user/{id}", method = RequestMethod.POST)
 	public String user_delete(@ModelAttribute("userDelete") User user, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "delete-user";

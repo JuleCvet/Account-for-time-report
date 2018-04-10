@@ -71,10 +71,10 @@ public class UserServiceImpl implements UserService {
 		return true;
 	}
 
-/*	@Override
-	public User findByIdUser(Long id) {
-		User oldUser = userRepository.findByuserID(id);
+	@Override
+	public User findByid(Long id) {
+		User oldUser = userRepository.findByid(id);
 		
 		return oldUser;
-	}*/
+	}
 }

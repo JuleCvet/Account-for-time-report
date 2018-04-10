@@ -66,7 +66,7 @@
 					</c:choose></td>
 					
 				<security:authorize access="hasRole('ROLE_ADMIN')">
-					<td><a href="delete-user">Delete info for User</a></td>
+					<td><a href="delete-user/${user.id}">Delete info for User</a></td>
 				</security:authorize>
 				
 			<!-- 	<security:authorize access="hasRole('ROLE_ADMIN')">
