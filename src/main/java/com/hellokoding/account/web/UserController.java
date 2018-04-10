@@ -109,13 +109,14 @@ public class UserController {
 	@RequestMapping(value = "update-user/{id}", method = RequestMethod.GET)
 	public String update_user(Model model, @PathVariable Long id) {
 
-		//model.addAttribute("userUpdate", userService.findByIdUser(id));
+		model.addAttribute("userUpdate", userService.findByid(id));
 	
 		return "update-user";
 }
 	@RequestMapping(value = "update-user/{id}", method = RequestMethod.POST)
 	public String update_user(@ModelAttribute("userUpdate") User user, BindingResult bindingResult,
 			Model model) {
+		
 		if (bindingResult.hasErrors()) {
 			return "update-user";
 		}

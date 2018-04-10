@@ -36,9 +36,16 @@
 			
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="id" class="form-control"
+					<form:input type="hidden" path="id" class="form-control"
 						placeholder="ID of user you want to delete info:" autofocus="true"></form:input>
 					<form:errors path="id"></form:errors>
+				</div>
+			</spring:bind>
+			
+			<spring:bind path="username">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="text" path="username" class="form-control"></form:input>
+					<form:errors path="username"></form:errors>
 				</div>
 			</spring:bind>
 

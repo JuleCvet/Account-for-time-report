@@ -76,7 +76,7 @@
 								<c:otherwise>FALSE<br/>
 								
 								</c:otherwise>
-							</c:choose></b></i>
+								</c:choose></b></i>
 							</td>
 				
 							<td><i>${report.forDate}</i></td>
@@ -101,7 +101,7 @@
 							<security:authorize access="hasRole('ROLE_ADMIN')">
 								<td><i><a href="delete-report/${report.idReport}">Delete report</a></i></td>
 							</security:authorize>
-
+					
 						</c:when>
 
 						<c:otherwise>
@@ -146,9 +146,8 @@
 		</table>
 		<br/>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous" type="text/javascript"></script>
 </body>
 	</html>
 </jsp:root>

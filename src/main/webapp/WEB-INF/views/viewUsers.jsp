@@ -50,9 +50,9 @@
 					<th>Delete User</th>
 				</security:authorize>
 				
-				<!-- <security:authorize access="hasRole('ROLE_ADMIN')">
+				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Update User</th>
-				</security:authorize> -->
+				</security:authorize>
 			</tr>	
 
 			<c:forEach var="user" items="${list}">
@@ -71,9 +71,9 @@
 								<td></td>
 							</security:authorize>
 				
-			<!-- 	<security:authorize access="hasRole('ROLE_ADMIN')">
-					<td><a href="update-user">Update User</a></td>
-				</security:authorize> -->	
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+					<td></td>
+				</security:authorize>	
 			
 						</c:when>
 						<c:otherwise>
@@ -89,9 +89,9 @@
 							<td><a href="delete-user/${user.id}">Delete User</a></td>
 						</security:authorize>
 						
-					<!-- 	<security:authorize access="hasRole('ROLE_ADMIN')">
-							<td><a href="update-user">Update User</a></td>
-						</security:authorize> -->
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<td><a href="update-user/${user.id}">Update User</a></td>
+						</security:authorize>
 								
 					</c:otherwise></c:choose>
 				</tr>
