@@ -1,7 +1,5 @@
 package com.hellokoding.account.web;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.User;
 import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.service.SecurityService;

@@ -65,8 +65,7 @@
 						    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
 		
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<td><a href="update-customer/${customer.customerId}">Update
-										customer</a></td>
+								<td></td>
 							</security:authorize>
 		
 							<security:authorize access="hasRole('ROLE_ADMIN')">

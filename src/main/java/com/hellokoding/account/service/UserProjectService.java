@@ -12,7 +12,7 @@ public interface UserProjectService {
 	
 	public List<UserProject> showAllUsersAndProjects();
 	
-	UserProject findByUserProjectId(Long id);
+	UserProject findByUserProjectid(Long id);
 	
 	boolean updateUserProject(UserProject userProject);
 	

@@ -5,11 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.UserProject;
 import com.hellokoding.account.repository.UserProjectRepository;
-
-import ch.qos.logback.core.net.SyslogOutputStream;
 
 @Component
 public class UserProjectServiceImpl implements UserProjectService{
@@ -42,7 +39,7 @@ public class UserProjectServiceImpl implements UserProjectService{
 	}
 
 	@Override
-	public UserProject findByUserProjectId(Long id) {
+	public UserProject findByUserProjectid(Long id) {
 		return userProjectRepository.findOne(id);
 	}
 

@@ -61,7 +61,7 @@
 						    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
 							
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<td><a href="update-project/${project.id}">Update project</a></td>
+								<td></td>
 							</security:authorize>
 		
 							<security:authorize access="hasRole('ROLE_ADMIN')">
@@ -70,6 +70,7 @@
 					</c:when>
 					
 					<c:otherwise>
+					
 						<td>${project.id}</td>
 						<td>${project.projectName}</td>
 						<td>${project.description}</td>
@@ -85,6 +86,7 @@
 						<security:authorize access="hasRole('ROLE_ADMIN')">
 							<td><a href="delete-project/${project.id}">Delete project</a></td>
 						</security:authorize>
+						
 					</c:otherwise>
 				</c:choose>	
 				</tr>

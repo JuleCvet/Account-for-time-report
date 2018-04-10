@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.UserProject;
-import com.hellokoding.account.repository.UserProjectRepository;
 import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.service.UserProjectService;
 import com.hellokoding.account.service.UserService;
@@ -58,7 +56,7 @@ public class UserProjectController {
 	@RequestMapping(value = "delete-userProject/{id}", method = RequestMethod.GET)
 	public String delete_userProject(Model model, @PathVariable Long id) {
 		
-		model.addAttribute("deleteUserProject", userProjectService.findByUserProjectId(id));
+		model.addAttribute("deleteUserProject", userProjectService.findByUserProjectid(id));
 
 		return "delete-userProject";
 	}
@@ -89,7 +87,7 @@ public class UserProjectController {
 	@RequestMapping(value="update-userProject/{id}", method=RequestMethod.GET)
 	public String update_userProject(Model model, @PathVariable Long id) {
 		
-		model.addAttribute("updateUserProject", userProjectService.findByUserProjectId(id));
+		model.addAttribute("updateUserProject", userProjectService.findByUserProjectid(id));
 		
 		return "update-userProject";
 	}

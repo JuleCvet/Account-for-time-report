@@ -13,8 +13,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.Where;
-
 @Entity
 @Table(name = "user")
 //@Where(clause=("deleted=0"))
@@ -132,5 +130,4 @@ public class User {
 		return "User [username=" + username + ", password=" + password + ", deleted=" + deleted + ", passwordConfirm="
 				+ passwordConfirm + ", roles=" + roles + ", projects=" + projects + ", reports=" + reports + "]";
 	}
-
 }
