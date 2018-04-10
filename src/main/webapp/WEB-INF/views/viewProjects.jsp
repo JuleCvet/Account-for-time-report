@@ -50,21 +50,43 @@
 
 			<c:forEach var="project" items="${list}">
 				<tr>
-					<td>${project.id}</td>
-					<td>${project.projectName}</td>
-					<td>${project.description}</td>
-					<td>${project.type}</td>
+				<c:choose>
+						<c:when test="${project.deleted=='1'}">
+							<td>${project.id}</td>
+							<td>${project.projectName}</td>
+							<td>${project.description}</td>
+							<td>${project.type}</td>
+							
+							<td><c:choose><c:when test="${project.deleted=='1'}">TRUE<br /></c:when>    
+						    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
+							
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><a href="update-project/${project.id}">Update project</a></td>
+							</security:authorize>
+		
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td></td>
+							</security:authorize>
+					</c:when>
 					
-					<td><c:choose><c:when test="${project.deleted=='1'}">TRUE<br /></c:when>    
-				    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
-					
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="update-project/${project.id}">Update project</a></td>
-					</security:authorize>
-
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="delete-project/${project.id}">Delete project</a></td>
-					</security:authorize>
+					<c:otherwise>
+						<td>${project.id}</td>
+						<td>${project.projectName}</td>
+						<td>${project.description}</td>
+						<td>${project.type}</td>
+						
+						<td><c:choose><c:when test="${project.deleted=='1'}">TRUE<br /></c:when>    
+					    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
+						
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<td><a href="update-project/${project.id}">Update project</a></td>
+						</security:authorize>
+	
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<td><a href="delete-project/${project.id}">Delete project</a></td>
+						</security:authorize>
+					</c:otherwise>
+				</c:choose>	
 				</tr>
 			</c:forEach>
 		</table>

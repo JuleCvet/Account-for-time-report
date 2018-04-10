@@ -57,21 +57,43 @@
 
 			<c:forEach var="user" items="${list}">
 				<tr>
-					<td>${user.id}</td>
-					<td>${user.username}</td>
+				<c:choose>
+						<c:when test="${user.deleted=='1'}">
+							<td>${user.id}</td>
+							<td>${user.username}</td>
+							
+							<td><c:choose>
+						    <c:when test="${user.deleted=='1'}">TRUE<br /></c:when>    
+						    <c:otherwise>FALSE<br /></c:otherwise>
+							</c:choose></td>
 					
-					<td><c:choose>
-				    <c:when test="${user.deleted=='1'}">TRUE<br /></c:when>    
-				    <c:otherwise>FALSE<br /></c:otherwise>
-					</c:choose></td>
-					
-				<security:authorize access="hasRole('ROLE_ADMIN')">
-					<td><a href="delete-user/${user.id}">Delete info for User</a></td>
-				</security:authorize>
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td></td>
+							</security:authorize>
 				
 			<!-- 	<security:authorize access="hasRole('ROLE_ADMIN')">
 					<td><a href="update-user">Update User</a></td>
-				</security:authorize> -->
+				</security:authorize> -->	
+			
+						</c:when>
+						<c:otherwise>
+							<td>${user.id}</td>
+							<td>${user.username}</td>
+							
+							<td><c:choose>
+						    <c:when test="${user.deleted=='0'}">FALSE<br/></c:when>    
+						    <c:otherwise>TRUE<br /></c:otherwise>
+							</c:choose></td>
+							
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<td><a href="delete-user/${user.id}">Delete User</a></td>
+						</security:authorize>
+						
+					<!-- 	<security:authorize access="hasRole('ROLE_ADMIN')">
+							<td><a href="update-user">Update User</a></td>
+						</security:authorize> -->
+								
+					</c:otherwise></c:choose>
 				</tr>
 			</c:forEach>
 		</table>

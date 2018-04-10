@@ -60,19 +60,21 @@
 		<h1>All Reports for user:
 			${pageContext.request.userPrincipal.name}</h1>
 
-		<form method="POST" class="form-inline" action="/report/allMyReports"
-			style="padding-bottom: 10px;">
+		<form method="POST" class="form-inline" action="/report/allMyReports" style="padding-bottom: 10px;">
+		
 			<div class="form-group">
 				<label for="datepicker">From Date:</label> <input type="text"
 					class="form-control" name="fromDate" id="fromDate"
 					value="${fromDate}"></input>
 			</div>
+			
 			<div class="form-group">
 				<label for="datepicker1">To Date:</label> <input type="text"
 					class="form-control" name="toDate" id="toDate" value="${toDate}"></input>
 			</div>
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" />
+			
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			
 			<button type="submit" class="btn btn-primary">Filter Dates</button>
 		</form>
 
@@ -173,7 +175,7 @@
 								</security:authorize>
 
 								<security:authorize access="hasRole('ROLE_ADMIN')">
-									<th><a href="/report/locked-report">Lock Report</a></th>
+									<th><a href="/report/locked-report/${report.idReport}">Lock Report</a></th>
 								</security:authorize>
 
 								<security:authorize access="hasRole('ROLE_ADMIN')">

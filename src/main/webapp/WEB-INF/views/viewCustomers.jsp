@@ -55,21 +55,45 @@
 
 			<c:forEach var="customer" items="${list}">
 				<tr>
-					<td>${customer.customerId}</td>
-					<td>${customer.customerName}</td>
+					<c:choose>
+						<c:when test="${customer.deleted=='1'}">
+				
+							<td>${customer.customerId}</td>
+							<td>${customer.customerName}</td>
+							
+							<td><c:choose><c:when test="${customer.deleted=='1'}">TRUE<br /></c:when>    
+						    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
+		
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><a href="update-customer/${customer.customerId}">Update
+										customer</a></td>
+							</security:authorize>
+		
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td></td>
+							</security:authorize>
 					
-					<td><c:choose><c:when test="${customer.deleted=='1'}">TRUE<br /></c:when>    
-				    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
-
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="update-customer/${customer.customerId}">Update
-								customer</a></td>
-					</security:authorize>
-
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="delete-customer/${customer.customerId}">Delete customer</a></td>
-					</security:authorize>
-
+						</c:when>
+						
+						<c:otherwise>
+						
+							<td>${customer.customerId}</td>
+							<td>${customer.customerName}</td>
+							
+							<td><c:choose><c:when test="${customer.deleted=='1'}">TRUE<br /></c:when>    
+						    <c:otherwise>FALSE<br /></c:otherwise></c:choose></td>
+		
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><a href="update-customer/${customer.customerId}">Update
+										customer</a></td>
+							</security:authorize>
+		
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+								<td><a href="delete-customer/${customer.customerId}">Delete customer</a></td>
+							</security:authorize>
+							
+						</c:otherwise>
+					</c:choose>
 				</tr>
 			</c:forEach>
 		</table>
