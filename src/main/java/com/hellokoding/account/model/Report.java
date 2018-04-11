@@ -26,8 +26,8 @@ public class Report {
 	
 	private String companyName;
 	private Double hoursReported;
-	private Integer vab;
-	private Integer vacation;
+	private Double vab;
+	private Double vacation;
 	private Integer userID;
 	
 	@Column(name = "locked")
@@ -60,7 +60,7 @@ public class Report {
 		this.deleted = deleted;
 	}
 
-	public Report(String companyName, double hoursReported, Integer vab, Integer vacation, Integer userID,
+	public Report(String companyName, Double hoursReported, Double vab, Double vacation, Integer userID,
 			Integer locked, Integer deleted, Date forDate, Date dateModified, Set<User> users) {
 		super();
 		this.companyName = companyName;
@@ -115,11 +115,11 @@ public class Report {
 		this.projects = projects;
 	}*/
 
-	public double getHoursReported() {
+	public Double getHoursReported() {
 		return hoursReported;
 	}
 
-	public void setHoursReported(double hoursReported) {
+	public void setHoursReported(Double hoursReported) {
 		this.hoursReported = hoursReported;
 	}
 
@@ -140,19 +140,19 @@ public class Report {
 
 	}
 
-	public Integer getVab() {
+	public Double getVab() {
 		return vab;
 	}
 
-	public void setVab(Integer vab) {
+	public void setVab(Double vab) {
 		this.vab = vab;
 	}
 
-	public Integer getVacation() {
+	public Double getVacation() {
 		return vacation;
 	}
 
-	public void setVacation(Integer vacation) {
+	public void setVacation(Double vacation) {
 		this.vacation = vacation;
 	}
 
