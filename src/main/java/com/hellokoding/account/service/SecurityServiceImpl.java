@@ -14,16 +14,15 @@ import org.springframework.stereotype.Service;
 public class SecurityServiceImpl implements SecurityService {
 
 	@Autowired
-	private AuthenticationManager authenticationManager;// interface, processes an Authentication request
+	private AuthenticationManager authenticationManager;//interface, processes an Authentication request
 
 	@Autowired
 	private UserDetailsService userDetailsService;
 
 	private static final Logger logger = LoggerFactory.getLogger(SecurityServiceImpl.class);
 
-	// public final utility class producing Loggers for various logging
-	// APIs(log4j/logback/JDK)extends Object
-	// all methods are static
+//public final utility class producing Loggers for various logging
+// APIs(log4j/logback/JDK)extends Object, all methods are static
 	@Override
 	public String findLoggedInUsername() {
 		Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();

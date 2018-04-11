@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hellokoding.account.model.User;
-import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.service.SecurityService;
 import com.hellokoding.account.service.UserService;
 import com.hellokoding.account.validator.UserValidator;
@@ -23,8 +22,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@Autowired
-	private ProjectService projectService;
+	/*@Autowired
+	private ProjectService projectService;*/
 	
 	@Autowired
 	private SecurityService securityService;

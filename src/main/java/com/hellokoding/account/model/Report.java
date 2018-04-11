@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -92,7 +91,8 @@ public class Report {
 	}
 
 	public String getCompanyName() {
-		return companyName;
+		return (companyName!=null && companyName.length()>0) ? companyName : "N/A";
+		
 	}
 
 	public void setCompanyName(String companyName) {

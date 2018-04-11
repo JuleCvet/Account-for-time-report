@@ -29,6 +29,7 @@
 		$("#forDate").datepicker();
 	});
 </script>
+
 </head>
 
 <body>
@@ -55,12 +56,12 @@
 			</spring:bind>
 			
 		<div class="form-group">
-			<spring:bind path="companyName">
+			<spring:bind path="companyName" >
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
 					<label class="control-label col-sm-2">Company Name:</label>
 					<div class="col-sm-2">
 						<form:input type="text" path="companyName" class="form-control" 
-							 value="${report.companyName}"></form:input>
+							 value="${report.companyName}" ></form:input>
 						<form:errors path="companyName"></form:errors>
 					</div>
 			</spring:bind>

@@ -16,8 +16,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.Where;
-
 @Entity
 @Table(name = "project")
 public class Project {

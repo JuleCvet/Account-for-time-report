@@ -2,8 +2,6 @@ package com.hellokoding.account.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,24 +12,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.ProjectTypeEnum;
+import com.hellokoding.account.model.User;
 import com.hellokoding.account.service.ProjectService;
-import com.hellokoding.account.service.UserService;
+import com.hellokoding.account.validator.ProjectValidator;
 
 @Controller
 @RequestMapping("/project")
 public class ProjectController {
 
-	private static final String projectName = null;
-
 	@Autowired
 	private ProjectService projectService;
-
+	
 	@Autowired
-	private UserService userService;
+	private ProjectValidator projectValidator;
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/create-project", method = RequestMethod.GET)
 	public String create_project(Model model) {
+		
 		model.addAttribute("projectTypeEnums", ProjectTypeEnum.values());
 		model.addAttribute("projectForm", new Project());
 
@@ -57,12 +55,14 @@ public class ProjectController {
 	 * 
 	 * return "viewProjects"; }
 	 */
-
+	
+	
 	@RequestMapping(value = "/create-project", method = RequestMethod.POST)
-	public String create_project(@ModelAttribute("projectForm") Project projectForm, BindingResult bindingResult,
-			Model model) {
+	public String registration(@ModelAttribute("projectForm") Project projectForm, BindingResult bindingResult, Model model) {
+		projectValidator.validate(projectForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
+			
 			return "create-project";
 		}
 

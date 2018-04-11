@@ -39,7 +39,7 @@ public class Customer {
 	 */
 	
 	public String getCustomerName() {
-		return customerName;
+		return (customerName!=null && customerName.length()>0) ? customerName : "N/A";
 	}
 
 	public void setCustomerName(String customerName) {
