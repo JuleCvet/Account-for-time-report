@@ -43,10 +43,10 @@
 			<spring:bind path="projectName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="control-label col-sm-2">Project name:</label>
-				<div class="col-sm-2">
+				<div class="col-sm-2" >
 					<form:input type="text" path="projectName" class="form-control"
-						 value="${project.projectName}"></form:input>
-					<form:errors path="projectName"></form:errors>
+						 value="${project.projectName}" disabled="true"></form:input>
+					<form:errors path="projectName" ></form:errors>
 				</div>
 				</div>
 			</spring:bind>
@@ -56,7 +56,7 @@
 				<label class="control-label col-sm-2">Project description</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="description" class="form-control"
-						value="${project.description}"></form:input>
+						value="${project.description}" disabled="true"></form:input>
 					<form:errors path="description"></form:errors>
 				</div>
 				</div>
@@ -67,7 +67,7 @@
 				<label class="control-label col-sm-2">Project type:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="type" class="form-control"
-						value="${project.type}"></form:input>
+						value="${project.type}" disabled="true"></form:input>
 					<form:errors path="type"></form:errors>
 				</div>
 				</div>

@@ -25,7 +25,7 @@ public class Report {
 	private Long idReport;
 	
 	private String companyName;
-	private double hoursReported;
+	private Double hoursReported;
 	private Integer vab;
 	private Integer vacation;
 	private Integer userID;

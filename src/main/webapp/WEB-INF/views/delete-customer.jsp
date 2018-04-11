@@ -46,7 +46,7 @@
 			<label class="control-label col-sm-2">Company name:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="customerName" class="form-control"
-						value="${customer.customerName}"></form:input>
+						value="${customer.customerName}" disabled="true" ></form:input>
 					<form:errors path="customerName"></form:errors>
 				</div>
 			</div>

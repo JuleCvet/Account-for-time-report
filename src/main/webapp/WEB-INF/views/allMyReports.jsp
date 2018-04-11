@@ -136,7 +136,7 @@
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<td><i><a href="delete-report">Delete report</a></i></td>
+								<td><i><a href="delete-report/${report.idReport}">Delete report</a></i></td>
 							</security:authorize>
 							
 						</c:when>
@@ -179,7 +179,7 @@
 								</security:authorize>
 
 								<security:authorize access="hasRole('ROLE_ADMIN')">
-									<td><a href="delete-report">Delete report</a></td>
+									<td><a href="delete-report/${report.idReport}">Delete report</a></td>
 								</security:authorize>
 								
 						</c:otherwise>

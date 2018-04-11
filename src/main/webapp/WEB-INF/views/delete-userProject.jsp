@@ -46,7 +46,7 @@
 				<label class="control-label col-sm-2">User ID:</label>
 					<div class="col-sm-2">
 						<form:input type="text" path="userID" class="form-control"
-							value="${userproject.userID}"></form:input>
+							value="${userproject.userID}" disabled="true" ></form:input>
 						<form:errors path="userID"></form:errors>
 					</div>
 				</div>
@@ -57,8 +57,8 @@
 				<label class="control-label col-sm-2">Project ID:</label>
 					<div class="col-sm-2">
 						<form:input type="text" path="projectID" class="form-control"
-							value="${userproject.projectID}"></form:input>
-						<form:errors path="projectID"></form:errors>
+							value="${userproject.projectID}"  disabled="true" ></form:input>
+						<form:errors path="projectID" ></form:errors>
 					</div>
 				</div>
 			</spring:bind>

@@ -44,7 +44,7 @@
 			<label class="control-label col-sm-2">Company name:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="companyName" class="form-control"
-						value="${report.companyName}"></form:input>
+						value="${report.companyName}" disabled="true" ></form:input>
 					<form:errors path="companyName"></form:errors>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 			<label class="control-label col-sm-2">Reported hours:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="hoursReported" class="form-control"
-						value="${report.hoursReported}"></form:input>
+						value="${report.hoursReported}" disabled="true" ></form:input>
 					<form:errors path="hoursReported"></form:errors>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 			<label class="control-label col-sm-2">VAB:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="vab" class="form-control"
-						value="${report.vab}"></form:input>
+						value="${report.vab}" disabled="true" ></form:input>
 					<form:errors path="vab"></form:errors>
 				</div>
 			</div>
@@ -77,7 +77,7 @@
 			<label class="control-label col-sm-2">Hours for Vacation:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="vacation" class="form-control"
-						value="${report.vacation}"></form:input>
+						value="${report.vacation}" disabled="true"></form:input>
 					<form:errors path="vacation"></form:errors>
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 			<label class="control-label col-sm-2">Hours for Date:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="forDate" class="form-control"
-						value="${report.forDate}"></form:input>
+						value="${report.forDate}" disabled="true"></form:input>
 					<form:errors path="forDate"></form:errors>
 				</div>
 			</div>
@@ -99,7 +99,7 @@
 			<label class="control-label col-sm-2">Modified date:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="dateModified" class="form-control"
-						value="${report.dateModified}"></form:input>
+						value="${report.dateModified}" disabled="true" ></form:input>
 					<form:errors path="dateModified"></form:errors>
 				</div>
 			</div>

@@ -44,7 +44,7 @@
 			
 			<spring:bind path="username">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="username" class="form-control"></form:input>
+					<form:input type="text" path="username"  disabled="true" class="form-control"></form:input>
 					<form:errors path="username"></form:errors>
 				</div>
 			</spring:bind>
