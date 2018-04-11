@@ -23,7 +23,7 @@
 <body>
 	<div class="container">
 	
-	<div class="alert alert-info" role="alert">
+	<div class="alert alert-info" role="alert" style="width: 34%;">
 	<h4 class="alert-heading">Well done!</h4>
 	</div>
     <c:if test="${pageContext.request.userPrincipal.name != null}">

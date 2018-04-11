@@ -14,12 +14,10 @@
 <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"
-	type="text/javascript"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-	type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
 <script type="text/javascript">
   $( function() {
     $( "#datepicker" ).datepicker();
@@ -37,8 +35,7 @@
 
 <title>Create a report</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
@@ -47,10 +44,9 @@
 	<div class="container">
 
 		<c:if test="${pageContext.request.userPrincipal.name != null}">
-			<%-- <h2>Welcome ${pageContext.request.userPrincipal.name} with user id: ${username.id}</h2> --%>
+<%-- <h2>Welcome ${pageContext.request.userPrincipal.name} with user id: ${username.id}</h2> --%>
 		</c:if>
-		<form:form method="POST" modelAttribute="reportForm"
-			class="form-signin">
+		<form:form method="POST" modelAttribute="reportForm" class="form-signin">
 
 			<h2 class="form-signin-heading">Create your report</h2>
 

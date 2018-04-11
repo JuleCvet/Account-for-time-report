@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.ProjectTypeEnum;
-import com.hellokoding.account.model.User;
 import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.validator.ProjectValidator;
 

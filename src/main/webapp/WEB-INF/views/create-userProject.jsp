@@ -24,7 +24,7 @@
 
 		<form:form method="POST" modelAttribute="createUserProject" class="form-signin">
 		<p>Today's date:<%= (new java.util.Date()).toLocaleString()%></p>
-		<div class="form-group">
+		<div class="form-group"></div>
 		
 			<h2>Select User</h2>
 			<spring:bind path="userID">

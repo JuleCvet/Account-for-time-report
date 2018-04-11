@@ -143,11 +143,6 @@ public class ReportServiceImpl implements ReportService {
 		return true;
 	}
 
-	
-
-
-
-
 /*	@Override
 	public List<Report> findAllLockedReportsByUserId(Long idReport) {
 		

@@ -91,7 +91,7 @@ public class Report {
 	}
 
 	public String getCompanyName() {
-		return (companyName!=null && companyName.length()>0) ? companyName : "N/A";
+		return companyName;
 		
 	}
 

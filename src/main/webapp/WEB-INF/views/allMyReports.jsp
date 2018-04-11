@@ -192,7 +192,6 @@
 		<br />
 		<form action=""></form>
 	</div>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
+	<script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

@@ -19,13 +19,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.Report;
 import com.hellokoding.account.service.ReportService;
 import com.hellokoding.account.service.UserService;
+import com.hellokoding.account.validator.ReportValidator;
 
 @Controller
 @RequestMapping("/report")
 public class ReportController {
+	
+	@Autowired
+	private ReportValidator reportValidator;
 	
 	@Autowired
 	private ReportService reportService;
@@ -52,9 +57,10 @@ public class ReportController {
 	}
 
 	@RequestMapping(value = "/create-report", method = RequestMethod.POST)
-	public String create_report(@ModelAttribute("reportForm") Report reportForm, BindingResult bindingResult,
-			Model model) {
-
+	public String create_report(@ModelAttribute("reportForm") Report reportForm, BindingResult bindingResult, Model model) {
+		
+		reportValidator.validate(reportForm, bindingResult);
+		
 		if (bindingResult.hasErrors()) {
 			return "create-report";
 		}
