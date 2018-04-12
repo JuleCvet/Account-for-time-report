@@ -21,8 +21,7 @@ public class ReportValidator implements Validator{
 		if(b) {
 			return true;
 				}
-				else
-					return false;
+				return false;
 				}
 
 	@Override
