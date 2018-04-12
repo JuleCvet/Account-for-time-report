@@ -20,7 +20,7 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Project findByProjectName(String projectName) {
+	public Project findByProjectname(String projectName) {
 		return projectRepository.findByProjectName(projectName);
 	}
 

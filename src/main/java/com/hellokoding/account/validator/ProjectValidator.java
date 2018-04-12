@@ -34,7 +34,7 @@ public class ProjectValidator implements Validator {
 		if(project.getDescription().length() < 6  || project.getDescription().length() > 32) {
 			errors.reject("description", "Size.projectForm.description");
 		}	
-		/*if(projectService.findByProjectName(project.getProjectName() != null)) {
+	/*	if(projectService.findByProjectname(project.getProjectName() != null)) {
 			errors.rejectValue("projectName", "Duplicate.projectForm.projectName");
 			}*/
 		}

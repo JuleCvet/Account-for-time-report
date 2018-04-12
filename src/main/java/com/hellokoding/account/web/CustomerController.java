@@ -12,10 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hellokoding.account.model.Customer;
 import com.hellokoding.account.service.CustomerService;
+import com.hellokoding.account.validator.CustomerValidator;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
+	
+	@Autowired
+	private CustomerValidator customerValidator;
 
 	@Autowired
 	private CustomerService customerService;
@@ -32,6 +36,8 @@ public class CustomerController {
 	public String createCustomer(@ModelAttribute("customerForm") Customer customerForm, BindingResult bindingResult,
 			Model model) {
 
+		customerValidator.validate(customerForm, bindingResult);
+		
 		if (bindingResult.hasErrors()) {
 			return "create-customer";
 		}

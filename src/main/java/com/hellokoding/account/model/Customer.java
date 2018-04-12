@@ -17,10 +17,6 @@ public class Customer {
 	private String customerName;
 	private Integer deleted;
 
-	/*
-	 * @OneToMany private Set<Project> projects;
-	 */
-
 	public Customer() {
 	}
 
@@ -31,15 +27,9 @@ public class Customer {
 	public void setcustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
-	
-	/*
-	 * public Set<Project> getProjects() { return projects; }
-	 * 
-	 * public void setProjects(Set<Project> projects) { this.projects = projects; }
-	 */
-	
+
 	public String getCustomerName() {
-		return (customerName!=null && customerName.length()>0) ? customerName : "N/A";
+		return customerName;
 	}
 
 	public void setCustomerName(String customerName) {

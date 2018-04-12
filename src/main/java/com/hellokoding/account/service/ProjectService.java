@@ -8,7 +8,7 @@ public interface ProjectService {
 
 	void save(Project project);
 
-	Project findByProjectName(String projectname);
+	Project findByProjectname(String projectname);
 	
 	Project findByProjectId (Long id);
 
