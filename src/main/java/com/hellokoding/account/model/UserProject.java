@@ -18,10 +18,10 @@ public class UserProject {
 	private Long id;
 	
 	@Column(name="userID")
-	private Integer userID;
+	private Long userID;
 	
 	@Column(name="projectID")
-	private Integer projectID;
+	private Long projectID;
 	
 	@Column(name="deleted")
 	private Integer deleted;
@@ -30,7 +30,7 @@ public class UserProject {
 
 	}
 
-	public UserProject(Integer userID, Integer projectID, Integer deleted) {
+	public UserProject(Long userID, Long projectID, Integer deleted) {
 		super();
 		this.userID = userID;
 		this.projectID = projectID;
@@ -53,19 +53,19 @@ public class UserProject {
 		this.id = id;
 	}
 
-	public Integer getUserID() {
+	public Long getUserID() {
 		return userID;
 	}
 
-	public void setUserID(Integer userID) {
+	public void setUserID(Long userID) {
 		this.userID = userID;
 	}
 
-	public Integer getProjectID() {
+	public Long getProjectID() {
 		return projectID;
 	}
 
-	public void setProjectID(Integer projectID) {
+	public void setProjectID(Long projectID) {
 		this.projectID = projectID;
 	}
 

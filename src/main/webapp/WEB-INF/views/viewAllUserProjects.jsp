@@ -62,8 +62,8 @@
 						
 					
 					<td>${userproject.id}</td>
-					<td>${userproject.userID}</td>
-					<td>${userproject.projectID}</td>
+					<td>${userproject.userID} (${userproject.userName})</td>
+					<td>${userproject.projectID} (${userproject.companyName})</td>
 					<td><c:choose>
 				    <c:when test="${userproject.deleted=='1'}">TRUE<br /></c:when>    
 				    <c:otherwise>FALSE<br /></c:otherwise>
@@ -77,8 +77,8 @@
 						
 						<c:otherwise>
 							<td>${userproject.id}</td>
-							<td>${userproject.userID}</td>
-							<td>${userproject.projectID}</td>
+					<td>${userproject.userID} (${userproject.userName})</td>
+					<td>${userproject.projectID} (${userproject.companyName})</td>
 							<td><c:choose>
 						    <c:when test="${userproject.deleted=='1'}">TRUE<br /></c:when>    
 						    <c:otherwise>FALSE<br /></c:otherwise>

@@ -44,6 +44,7 @@ public class ReportController {
 	
 	@RequestMapping(value = "/create-report", method = RequestMethod.GET)
 	public String create_report(Model model) {
+		
 		model.addAttribute("reportForm", new Report());
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
