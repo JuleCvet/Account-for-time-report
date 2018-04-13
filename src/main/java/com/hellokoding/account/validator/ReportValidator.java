@@ -43,7 +43,9 @@ public class ReportValidator implements Validator{
 			errors.rejectValue("companyName", "Size.reportForm.companyName");
 		}
 		
+		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "forDate", "NotEmpty");
+		
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "hoursReported", "NotEmpty");
 		if (report.getHoursReported() != null) {
