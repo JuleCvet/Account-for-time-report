@@ -14,23 +14,16 @@
 <head>
 <title>UsersProjects Combination</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet" />
-
+<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
+
 </head>
 <body>
 	<div class="container">
-		<br />
+		<br/>
 		
 		<table class="table table-striped table-bordered">
-			<tr>
-				<th><security:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="/project/create-project">Add New Project</a></security:authorize></th>
-					
-				<th><security:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="/customer/create-customer">Add New Customer</a></security:authorize></th>
-						
+			<tr>	
 				<th><security:authorize access="hasRole('ROLE_ADMIN')">
 						<a href="/userproject/create-userProject">Add New Combination</a></security:authorize></th>		
 						
@@ -52,15 +45,13 @@
 				<th>Project Id</th>
 				<th>Is deleted</th>
 				<th>Delete combination</th>
-				<th>Update combination</th>
 			</tr>
 
 			<c:forEach var="userproject" items="${list}">
 				<tr>
 					<c:choose>
-						<c:when test="${userproject.deleted=='1'}">
-						
-					
+						<c:when test="${userproject.deleted=='1'}">	
+
 					<td>${userproject.id}</td>
 					<td>${userproject.userID} (${userproject.userName})</td>
 					<td>${userproject.projectID} (${userproject.companyName})</td>
@@ -70,15 +61,13 @@
 					</c:choose></td>
 					
 					<th><security:authorize access="hasRole('ROLE_ADMIN')"></security:authorize></th>
-					
-					<th><security:authorize access="hasRole('ROLE_ADMIN')"></security:authorize></th>
 						
 						</c:when>
 						
 						<c:otherwise>
 							<td>${userproject.id}</td>
-					<td>${userproject.userID} (${userproject.userName})</td>
-					<td>${userproject.projectID} (${userproject.companyName})</td>
+							<td>${userproject.userID} (${userproject.userName})</td>
+							<td>${userproject.projectID} (${userproject.companyName})</td>
 							<td><c:choose>
 						    <c:when test="${userproject.deleted=='1'}">TRUE<br /></c:when>    
 						    <c:otherwise>FALSE<br /></c:otherwise>
@@ -86,10 +75,6 @@
 							
 							<th><security:authorize access="hasRole('ROLE_ADMIN')">
 								<a href="/userproject/delete-userProject/${userproject.id}">Delete combination</a></security:authorize></th>
-							
-							<th><security:authorize access="hasRole('ROLE_ADMIN')">
-								<a href="/userproject/update-userProject/${userproject.id}">Update Combination</a></security:authorize></th>
-								
 						
 						</c:otherwise>
 					</c:choose>
@@ -97,10 +82,9 @@
 			</c:forEach>
 		</table>
 	</div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+				crossorigin="anonymous" type="text/javascript"></script>
 </body>
-	</html>
+</html>
 </jsp:root>
 

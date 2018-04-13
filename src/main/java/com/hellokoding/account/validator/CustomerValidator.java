@@ -12,16 +12,18 @@ import com.hellokoding.account.model.Customer;
 
 @Component
 public class CustomerValidator implements Validator{
+	
 
 	public boolean checkChars(String s) {
+		
 		Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
 		Matcher m = p.matcher(s);
 		boolean b = m.find();
-		if(b) {
-			return true;
+			if(b) {
+				return true;
+					}
+					return false;
 				}
-				return false;
-			}
 	
 	@Override
 	public boolean supports(Class<?> aClass) {
@@ -30,10 +32,10 @@ public class CustomerValidator implements Validator{
 
 	@Override
 	public void validate(Object o, Errors errors) {
+		
 		Customer customer = (Customer) o;
 		
 		ValidationUtils.rejectIfEmpty(errors, "customerName", "NotEmpty");
-		
 		if(checkChars(customer.getCustomerName())) {
 			errors.rejectValue("customerName", "Chars.customerForm.customerName");
 			
@@ -42,12 +44,5 @@ public class CustomerValidator implements Validator{
 		if(customer.getCustomerName().length() < 3 || customer.getCustomerName().length() > 32) {
 			errors.rejectValue("customerName", "Size.customerForm.customerName");
 		}
-		
 	}
-	
-
-	
-	
-	
-
 }

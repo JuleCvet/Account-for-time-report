@@ -70,8 +70,19 @@ public class UserProjectController {
 	@RequestMapping(value = "delete-userProject/{id}", method = RequestMethod.GET)
 	public String delete_userProject(Model model, @PathVariable Long id) {
 		
+		UserProject userProject = userProjectService.findByUserProjectid(id);
+		
+		Long userID = userProject.getUserID();
+		User user = userRepository.findByid(userID);
+		
+		Long projectID = userProject.getProjectID();
+		Project project = projectRepository.findByid(projectID);
+		
 		model.addAttribute("deleteUserProject", userProjectService.findByUserProjectid(id));
-
+		model.addAttribute("user", user);
+		model.addAttribute("project", project);
+		
+		
 		return "delete-userProject";
 	}
 
@@ -91,7 +102,17 @@ public class UserProjectController {
 	@RequestMapping(value="update-userProject/{id}", method=RequestMethod.GET)
 	public String update_userProject(Model model, @PathVariable Long id) {
 		
+		UserProject userProject = userProjectService.findByUserProjectid(id);
+		
+		Long userId = userProject.getUserID();
+		User user = userRepository.findByid(userId);
+		
+		Long projectId = userProject.getProjectID();
+		Project project = projectRepository.findByid(projectId);
+		
 		model.addAttribute("updateUserProject", userProjectService.findByUserProjectid(id));
+		model.addAttribute("user",user);
+		model.addAttribute("project", project);
 		
 		return "update-userProject";
 	}
@@ -113,8 +134,8 @@ public class UserProjectController {
 	@RequestMapping(value="/viewAllUserProjects", method=RequestMethod.GET)
 	public String showAllUsersAndProjects(Model model) {
 		
-		List<userProjectExtended> result = new ArrayList <userProjectExtended>();
-					
+	    List<userProjectExtended> result = new ArrayList <userProjectExtended>();
+		
 		for (UserProject userProject : userProjectService.showAllUsersAndProjects()) {
 			
 			Long userID = userProject.getUserID();

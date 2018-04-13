@@ -28,11 +28,10 @@
 
 		<div class="alert alert-danger" role="alert" style="width: 67%">
 			<h4 class="alert-heading">Are you sure that you want to delete
-				Info about this combination between User and Project?</h4>
+				Info about combination between: ${user.username} and ${project.projectName}?</h4>
 		</div>
 
 		<form:form method="POST" modelAttribute="deleteUserProject" class="form-horizontal">
-			<h2 class="form-signin-heading">Delete info about combination of user - project with Id's:</h2>
 
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -43,20 +42,18 @@
 			
 			<spring:bind path="userID">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">User ID:</label>
 					<div class="col-sm-2">
-						<form:input type="text" path="userID" class="form-control"
+						<form:input type="hidden" path="userID" class="form-control"
 							value="${userproject.userID}" disabled="true" ></form:input>
 						<form:errors path="userID"></form:errors>
 					</div>
 				</div>
-			</spring:bind>
-			
+			</spring:bind>		
+					
 			<spring:bind path="projectID">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">Project ID:</label>
 					<div class="col-sm-2">
-						<form:input type="text" path="projectID" class="form-control"
+						<form:input type="hidden" path="projectID" class="form-control"
 							value="${userproject.projectID}"  disabled="true" ></form:input>
 						<form:errors path="projectID" ></form:errors>
 					</div>

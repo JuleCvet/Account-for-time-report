@@ -26,7 +26,7 @@
 	<div class="container">
 	
 		<form:form method="POST" modelAttribute="updateUserProject" class="form-horizontal">
-			<h2 class="form-signin-heading">Update your User/Project combination: ${userID}</h2>
+			<h2 class="form-signin-heading">Update your User/Project combination: ${user.username}</h2>
 
 			<spring:bind path="id">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
