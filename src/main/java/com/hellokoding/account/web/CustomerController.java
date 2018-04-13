@@ -27,6 +27,7 @@ public class CustomerController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/create-customer", method = RequestMethod.GET)
 	public String createCustomer(Model model) {
+		
 		model.addAttribute("customerForm", new Customer());
 
 		return "create-customer";

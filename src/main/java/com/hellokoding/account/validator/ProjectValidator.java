@@ -45,18 +45,20 @@ public class ProjectValidator implements Validator {
 		
 		if(checkChars(project.getProjectName())) {
 			errors.rejectValue("projectName", "Chars.projectForm.projectName");
-		}	
+		}
+		
+		if(projectService.findByProjectname(project.getProjectName()) != null) {
+			errors.rejectValue("projectName", "Duplicate.projectForm.projectName");
+			}
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "NotEmpty");
 		if(project.getDescription().length() < 6  || project.getDescription().length() > 32) {
 			errors.rejectValue("description", "Size.projectForm.description");
 		}
+		
 		if (checkChars(project.getDescription())) {
 			errors.rejectValue("description", "Chars.projectForm.description");
-		}
-	/*	if(projectService.findByProjectname(project.getProjectName() != null)) {
-			errors.rejectValue("projectName", "Duplicate.projectForm.projectName");
-			}*/
+			}
 		}
 	}
 }

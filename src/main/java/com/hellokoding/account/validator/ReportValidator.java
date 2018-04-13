@@ -34,7 +34,7 @@ public class ReportValidator implements Validator{
 		
 		Report report = (Report) o;
 		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "companyName", "NotEmpty");		
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "companyName", "NotEmpty");	
 		if(checkChars(report.getCompanyName())) {
 			errors.rejectValue("companyName", "Chars.reportForm.companyName");
 		}
@@ -46,8 +46,10 @@ public class ReportValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "forDate", "NotEmpty");
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "hoursReported", "NotEmpty");
-	/*	if(report.getHoursReported() >= 1 || report.getHoursReported()<= 24) {
-			errors.rejectValue("hoursReported", "Size.reportForm.hoursReported");
-		}*/
+		if (report.getHoursReported() != null) {
+			if(report.getHoursReported().doubleValue() < 1.0 || report.getHoursReported().doubleValue() > 24.0) {
+				errors.rejectValue("hoursReported", "Size.reportForm.hoursReported");
+			}
+		}
 	}
 }
