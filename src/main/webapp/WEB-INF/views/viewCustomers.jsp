@@ -25,6 +25,7 @@
 
 </head>
 <body>
+<img src="${contextPath}/resources/img/logo.png"></img>
 	<div class="container">
 		<br />
 		<table class="table table-striped table-bordered">

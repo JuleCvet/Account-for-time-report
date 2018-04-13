@@ -40,7 +40,7 @@
 
 </head>
 <body>
-
+<img src="${contextPath}/resources/img/logo.png">
 	<div class="container">
 
 		<c:if test="${pageContext.request.userPrincipal.name != null}">

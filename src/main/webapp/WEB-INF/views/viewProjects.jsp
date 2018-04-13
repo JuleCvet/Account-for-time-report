@@ -20,6 +20,7 @@
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
 </head>
 <body>
+<img src="${contextPath}/resources/img/logo.png"></img>
 	<div class="container">
 		<br/><br/>
 		<table class="table table-striped table-bordered">

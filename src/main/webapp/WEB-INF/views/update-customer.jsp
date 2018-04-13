@@ -22,7 +22,7 @@
 </head>
 
 <body>
-
+<img src="${contextPath}/resources/img/logo.png">
 	<div class="container">
 	
 		<form:form modelAttribute="update" class="form-horizontal">

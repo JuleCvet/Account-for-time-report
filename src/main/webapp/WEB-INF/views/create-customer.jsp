@@ -23,7 +23,7 @@
 </head>
 
 <body>
-
+<img src="${contextPath}/resources/img/logo.png">
 	<div class="container">
 
 		<form:form method="POST" modelAttribute="customerForm"

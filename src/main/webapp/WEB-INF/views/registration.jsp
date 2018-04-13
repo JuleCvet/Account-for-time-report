@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+<img src="${contextPath}/resources/img/logo.png"></img>
 <div class="container">
 
     <form:form method="POST" modelAttribute="userForm" class="form-signin">

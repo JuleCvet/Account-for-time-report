@@ -22,7 +22,7 @@
 </head>
 
 <body>
-
+<img src="${contextPath}/resources/img/logo.png">
 <div class="container">
 
 	<div class="alert alert-danger" role="alert" style = "width: 45%">
