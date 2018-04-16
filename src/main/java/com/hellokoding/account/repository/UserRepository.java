@@ -1,5 +1,6 @@
 package com.hellokoding.account.repository;
 
+import com.hellokoding.account.model.Role;
 import com.hellokoding.account.model.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;

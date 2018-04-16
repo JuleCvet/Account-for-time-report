@@ -2,6 +2,7 @@ package com.hellokoding.account.service;
 
 import java.util.List;
 
+import com.hellokoding.account.model.Role;
 import com.hellokoding.account.model.User;
 
 public interface UserService {
@@ -11,7 +12,7 @@ public interface UserService {
 	User findByUsername(String username);
 	
 	User findByid (Long id);
-
+	
 	void deleteUser(User user);
 
 	List<User> showAllUsers();
