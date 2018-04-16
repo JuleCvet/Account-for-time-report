@@ -22,7 +22,7 @@ public class ReportValidator implements Validator{
 			return true;
 				}
 				return false;
-				}
+	}
 
 	@Override
 	public boolean supports(Class<?> aClass) {
@@ -49,6 +49,7 @@ public class ReportValidator implements Validator{
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "hoursReported", "NotEmpty");
 		if (report.getHoursReported() != null) {
+			
 			if(report.getHoursReported().doubleValue() < 1.0 || report.getHoursReported().doubleValue() > 24.0) {
 				errors.rejectValue("hoursReported", "Size.reportForm.hoursReported");
 			}

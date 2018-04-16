@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.Report;
@@ -58,8 +59,8 @@ public class ReportController {
 	}
 
 	@RequestMapping(value = "/create-report", method = RequestMethod.POST)
-	public String create_report(@ModelAttribute("reportForm") Report reportForm, BindingResult bindingResult, Model model) {
-		
+	public String create_report(@RequestParam("hoursReported")String hoursReported, @ModelAttribute("reportForm") Report reportForm, BindingResult bindingResult, Model model) {
+
 		reportValidator.validate(reportForm, bindingResult);
 		
 		if (bindingResult.hasErrors()) {

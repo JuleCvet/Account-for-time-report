@@ -19,12 +19,25 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
 <script type="text/javascript">
+
+var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018', '05/01/2018', '05/10/2018', '05/20/2018', 
+	 '06/06/2018', '06/22/2018','06/23/2018', '11/03/2018', '12/24/2018',  '12/25/2018',  '12/26/2018',  '12/31/2018'];
+	 
   $( function() {
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker({ firstDay: 1 , beforeShowDay: highlightDays});
   } );
   $( function() {
-	    $( "#datepicker1" ).datepicker();
+	    $( "#datepicker1" ).datepicker({ firstDay: 1 , beforeShowDay: highlightDays});
  } );
+  
+  function highlightDays(date) {
+	    for (var i = 0; i < dates.length; i++) {
+	        if (new Date(dates[i]).toString() == date.toString()) {
+	            return [true, 'highlight'];
+	        }
+	    }
+	    return [true, ''];
+	} 
 </script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,7 +68,7 @@
 			<spring:bind path="companyName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="companyName" class="form-control"
-						placeholder="Name of report: " autofocus="true"></form:input>
+						placeholder="Name of report " autofocus="true"></form:input>
 					<form:errors path="companyName"></form:errors>
 				</div>
 			</spring:bind>
@@ -63,15 +76,15 @@
 			<spring:bind path="forDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="forDate" id="datepicker"
-						class="form-control" placeholder="For Date:"></form:input>
+						class="form-control" placeholder="For Date"></form:input>
 					<form:errors path="forDate"></form:errors>
 				</div>
 			</spring:bind>
 
 			<spring:bind path="hoursReported">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="hoursReported" class="form-control"
-						placeholder="Reported hours:" autofocus="true"></form:input>
+					<form:input type="number" min="0" step="1" path="hoursReported" class="form-control"
+						placeholder="Reported hours" autofocus="true"></form:input>
 					<form:errors path="hoursReported"></form:errors>
 				</div>
 			</spring:bind>
@@ -79,7 +92,7 @@
 			<spring:bind path="dateModified">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="dateModified" id="datepicker1"
-						class="form-control" placeholder="Date Modified:"></form:input>
+						class="form-control" placeholder="Date Modified"></form:input>
 					<form:errors path="dateModified"></form:errors>
 				</div>
 

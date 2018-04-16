@@ -34,7 +34,7 @@
 			<spring:bind path="customerName">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="customerName" class="form-control"
-						placeholder="Customer name:" autofocus="true"></form:input>
+						placeholder="Customer name" autofocus="true"></form:input>
 					<form:errors path="customerName"></form:errors>
 				</div>
 			</spring:bind>

@@ -40,7 +40,7 @@
 				<label class="control-label col-sm-2">User name:</label>
 				<div class="col-sm-2">
 					<form:input type="text" path="username" class="form-control"
-						placeholder="User name:" value="${user.username}"></form:input>
+						placeholder="User name" value="${user.username}"></form:input>
 					<form:errors path="username"></form:errors>
 				</div>
 				</div>
