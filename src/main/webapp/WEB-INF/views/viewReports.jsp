@@ -38,15 +38,14 @@
 <meta name="author" content="">
 <title>View Reports</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
 <body>
 <img src="${contextPath}/resources/img/logo.png">
 	<div class="container">
-		<br />
+		<br/>
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th><a href="create-report">Add New Report</a></th>
@@ -127,7 +126,6 @@
 						</c:when>
 
 						<c:otherwise>
-						
 							<td>${report.idReport}</td>
 							<td>${report.companyName}</td>
 							<td>${report.hoursReported}</td>
@@ -135,7 +133,8 @@
 							<td>${report.vacation}</td>
 							<td>${report.userID}</td>
 
-							<td><c:choose>
+							<td>
+							<c:choose>
 								<c:when test="${report.locked=='1'}">
 									<input type="checkbox"  value="1" checked disabled>
 									<label for="locked">TRUE</label>
