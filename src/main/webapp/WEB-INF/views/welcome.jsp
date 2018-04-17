@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <style>
 .grid-container {
   display: grid;
@@ -24,6 +25,7 @@
   font-size: 30px;
 }
 </style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,14 +33,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Welcome</title>
+<title>Welcome</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-
 </head>
 
 <body>
-	  <img src="${contextPath}/resources/img/logo.png"></img> 
+	<img src="${contextPath}/resources/img/logo.png"></img> 
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="POST" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
