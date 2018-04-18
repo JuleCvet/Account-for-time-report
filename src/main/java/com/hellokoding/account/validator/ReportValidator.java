@@ -3,6 +3,7 @@ package com.hellokoding.account.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.interceptor.MatchAlwaysTransactionAttributeSource;
 import org.springframework.validation.Errors;
@@ -10,9 +11,13 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.hellokoding.account.model.Report;
+import com.hellokoding.account.service.ReportService;
 
 @Component
 public class ReportValidator implements Validator{
+	
+	@Autowired
+	private ReportService reportService;
 	
 	public boolean checkChars(String s) {
 		Pattern p = Pattern.compile( "[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
@@ -41,6 +46,10 @@ public class ReportValidator implements Validator{
 		
 		if(report.getCompanyName().length() < 3 || report.getCompanyName().length() > 32) {
 			errors.rejectValue("companyName", "Size.reportForm.companyName");
+		}
+		
+		if (reportService.findByReportName(report.getCompanyName()) != null) {
+			errors.rejectValue("companyName", "Duplicate.reportForm.companyName");
 		}
 		
 		
