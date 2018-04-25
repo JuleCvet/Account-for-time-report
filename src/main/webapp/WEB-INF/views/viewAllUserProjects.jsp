@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<img src="${contextPath}/resources/img/logo.png"></img>
+<img id="img" src="${contextPath}/resources/img/logo.png"></img>
 	<div class="container">
 		<br/>
 		

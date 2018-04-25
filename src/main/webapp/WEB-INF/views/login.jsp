@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<img src="${contextPath}/resources/img/logo.png"></img>
+<img id="img" src="${contextPath}/resources/img/logo.png"></img>
 <div class="container">
 
     <form method="POST" action="${contextPath}/login" class="form-signin">
@@ -37,7 +37,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-            <h4 class="text-center"><a href="${contextPath}/user/registration">Create an account</a></h4>
+            <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
         </div>
 
     </form>

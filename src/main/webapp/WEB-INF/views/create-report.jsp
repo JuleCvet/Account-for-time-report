@@ -53,7 +53,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 
 </head>
 <body>
-<img src="${contextPath}/resources/img/logo.png">
+<img id="img" src="${contextPath}/resources/img/logo.png">
 	<div class="container">
 
 		<c:if test="${pageContext.request.userPrincipal.name != null}">

@@ -50,14 +50,13 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 
 <title>All My Reports</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
 <body>
 
-<img src="${contextPath}/resources/img/logo.png">
+<img id="img" src="${contextPath}/resources/img/logo.png">
 
 	<div class="container">
 		<br />

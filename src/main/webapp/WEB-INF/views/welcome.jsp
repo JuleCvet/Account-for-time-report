@@ -36,10 +36,12 @@
 <title>Welcome</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <body>
-	<img src="${contextPath}/resources/img/logo.png"></img> 
+
+	<img id="img"  src="${contextPath}/resources/img/logo.png">
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="POST" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -50,22 +52,24 @@
    
 	   <div class="grid-container">
 	    	<c:choose>
-				<c:when test="${showadmin == true}">
+				 <c:when test="${showadmin == true}"> 
 				  <div><a href="/report/allMyReports">All my Reports</a></div>
 				  <div><a href="/project/viewProjects">Show Projects</a></div>
 				  <div><a href="/customer/viewCustomers">Show Customers</a></div> 
 				  <div><a href="/report/create-report">Add New Report</a></div>
 				  <div><a href="/report/viewReports">View all Reports</a></div>
+				  <security:authorize access="hasRole('ROLE_ADMIN')">
 				  <div><a href="/userproject/viewAllUserProjects">Admin</a></div>
-				</c:when>
+				  </security:authorize>
+				 </c:when>
 		
 				<c:otherwise>
-						  <div><a href="/report/allMyReports">All my Reports</a></div> 
-						  <div><a href="/project/viewProjects">Show Projects</a></div> 
-						  <div><a href="/customer/viewCustomers">Show Customers</a></div> 
-						  <div><a href="/report/create-report">Add New Report</a></div> 
-						  <div><a href="/report/viewReports">View all Reports</a></div> 
-						  <div><a href="/userproject/viewAllUserProjects">Admin</a></div>
+					<div><a href="/report/allMyReports">All my Reports</a></div> 
+					<div><a href="/project/viewProjects">Show Projects</a></div> 
+					<div><a href="/customer/viewCustomers">Show Customers</a></div> 
+				    <div><a href="/report/create-report">Add New Report</a></div> 
+					<div><a href="/report/viewReports">View all Reports</a></div> 
+					<div><a href="/userproject/viewAllUserProjects">Admin</a></div>
 				</c:otherwise>	
 			</c:choose>	
 		</div>

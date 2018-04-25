@@ -18,14 +18,12 @@
 	crossorigin="anonymous" />
 <title>Users</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet" />
-
+<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
 
 </head>
 <body>
-<img src="${contextPath}/resources/img/logo.png"></img>
+<img id="img" src="${contextPath}/resources/img/logo.png"></img>
 	<div class="container">
 
 		<br />
@@ -35,6 +33,7 @@
 				<th><a href="/project/viewProjects">Show Projects</a></th>
 				<th><a href="/report/viewReports">Show Reports</a></th>
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
+				<th><a href="/userproject/viewAllUserProjects">Show User/project</a></th>
 				<th><a href="/welcome">Back</a></th>
 			</tr>
 		</table>

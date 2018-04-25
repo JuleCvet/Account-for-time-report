@@ -16,6 +16,10 @@ body {
     background-color: #eee;
 }
 
+#img {
+	width: 350px;
+}
+
 @media (max-width: @screen-xs) {
     .form-group label{font-size: 10px;}
 }
