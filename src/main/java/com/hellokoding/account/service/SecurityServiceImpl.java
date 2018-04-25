@@ -5,7 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
@@ -45,5 +47,18 @@ public class SecurityServiceImpl implements SecurityService {
 			SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 			logger.debug(String.format("Auto login %s successfully!", username));
 		}
+	}
+	
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+
+	    http.authorizeRequests().antMatchers("/").permitAll()
+	            .antMatchers("/register").permitAll()
+	            .antMatchers("/security/checkpoint/for/admin/**").hasRole("ADMIN")
+	            .antMatchers("/rest/users/**").hasRole("ADMIN").anyRequest()
+	            .authenticated().and().formLogin().loginPage("/")
+	            .defaultSuccessUrl("/welcome").permitAll().and().logout()
+	            .logoutUrl("/logout").and()
+	            .exceptionHandling().accessDeniedPage("/accessDenied");
 	}
 }

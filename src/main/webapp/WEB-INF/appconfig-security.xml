@@ -10,9 +10,10 @@
     <http use-expressions="true" auto-config="true">
         <intercept-url pattern="/" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/welcome" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')"/>
-   <intercept-url pattern="/project/**" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')"/>
+   		<intercept-url pattern="/project/**" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')"/>
         <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/login?error" username-parameter="username" password-parameter="password"/>
         <logout logout-success-url="/login?logout" />
+        <access-denied-handler error-page="/accessDenied" />
     </http>
 
     <authentication-manager alias="authenticationManager">

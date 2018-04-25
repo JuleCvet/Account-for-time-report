@@ -51,27 +51,12 @@
     </c:if>
    
 	   <div class="grid-container">
-	    	<c:choose>
-				 <c:when test="${showadmin == true}"> 
 				  <div><a href="/report/allMyReports">All my Reports</a></div>
 				  <div><a href="/project/viewProjects">Show Projects</a></div>
 				  <div><a href="/customer/viewCustomers">Show Customers</a></div> 
 				  <div><a href="/report/create-report">Add New Report</a></div>
 				  <div><a href="/report/viewReports">View all Reports</a></div>
-				  <security:authorize access="hasRole('ROLE_ADMIN')">
 				  <div><a href="/userproject/viewAllUserProjects">Admin</a></div>
-				  </security:authorize>
-				 </c:when>
-		
-				<c:otherwise>
-					<div><a href="/report/allMyReports">All my Reports</a></div> 
-					<div><a href="/project/viewProjects">Show Projects</a></div> 
-					<div><a href="/customer/viewCustomers">Show Customers</a></div> 
-				    <div><a href="/report/create-report">Add New Report</a></div> 
-					<div><a href="/report/viewReports">View all Reports</a></div> 
-					<div><a href="/userproject/viewAllUserProjects">Admin</a></div>
-				</c:otherwise>	
-			</c:choose>	
 		</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
