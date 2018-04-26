@@ -1,11 +1,8 @@
 package com.hellokoding.account.web;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hellokoding.account.model.User;
-import com.hellokoding.account.service.SecurityService;
-import com.hellokoding.account.service.UserRoleService;
+import com.hellokoding.account.service.SecurityService; 
 import com.hellokoding.account.service.UserService;
 import com.hellokoding.account.validator.UserValidator;
 

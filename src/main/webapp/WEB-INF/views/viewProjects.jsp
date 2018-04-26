@@ -25,12 +25,12 @@
 		<br/><br/>
 		<table class="table table-striped table-bordered">
 			<tr>
-				<th><a href="/project/create-project">Create new Project</a></th>
 				<th><a href="/report/allMyReports">All My reports</a></th>
 				<th><a href="/report/viewReports">Show all Reports</a></th>
 				<th><a href="/customer/viewCustomers">Show Customers</a></th>
 				<th><a href="/userproject/viewAllUserProjects">Show User/project</a></th>
 				<th><a href="/viewUsers">Show Users</a></th>
+				<th><a href="/project/create-project">Create new Project</a></th>
 				<th><a href="/welcome">Back</a></th>
 			</tr>
 		</table>

@@ -2,13 +2,9 @@ package com.hellokoding.account.service;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.hellokoding.account.model.Role;
 import com.hellokoding.account.model.User;
 import com.hellokoding.account.repository.roleRepository;
 import com.hellokoding.account.repository.UserRepository;

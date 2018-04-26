@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.Report;
 import com.hellokoding.account.service.ReportService;
 import com.hellokoding.account.service.UserService;

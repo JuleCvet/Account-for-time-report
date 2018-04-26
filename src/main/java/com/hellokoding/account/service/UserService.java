@@ -2,7 +2,6 @@ package com.hellokoding.account.service;
 
 import java.util.List;
 
-import com.hellokoding.account.model.Role;
 import com.hellokoding.account.model.User;
 
 public interface UserService {
