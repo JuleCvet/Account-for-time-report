@@ -14,13 +14,22 @@
 <head>
 <meta charset="utf-8">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+.navbar.navbar-expand-lg.navbar-light li a {
+    color: #337ab7;
+    font-weight: bold;
+}
+li.nav-item{
+color: red;
+}
+</style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"
-	type="text/javascript"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-	type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018', '05/01/2018', '05/10/2018', '05/20/2018', 
@@ -50,26 +59,12 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 
 <title>All My Reports</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
 <body>
-
-<img id="img" src="${contextPath}/resources/img/logo.png">
-
+<jsp:include page="menu.jsp"/>
 	<div class="container">
-		<br />
-		<table class="table table-striped table-bordered">
-			<tr>
-				<th><a href="create-report">Add New Report</a></th>
-				<th><a href="viewReports">Show all Reports</a></th>
-				<th><a href="/project/viewProjects">Show Projects</a></th>
-				<th><a href="/customer/viewCustomers">Show Customers</a></th>
-				<th><a href="/welcome">Back</a></th>
-			</tr>
-		</table>
-
 		<h1>All Reports for user:
 			${pageContext.request.userPrincipal.name}</h1>
 
@@ -206,6 +201,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 		<br />
 		<form action=""></form>
 	</div>
-	<script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
