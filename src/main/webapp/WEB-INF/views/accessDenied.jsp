@@ -16,7 +16,7 @@
 
 <title>Welcome</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="${contextPath}/resources/css/bootstrap.min.css" type="text/css"  rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
@@ -27,7 +27,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
-        <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+        <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()" href="#">Logout</a></h2>
     </c:if>
 <h1>HTTP Status 403 - Access is denied</h1>
 <h2>${msg}</h2>

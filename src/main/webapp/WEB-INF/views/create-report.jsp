@@ -89,15 +89,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 				</div>
 			</spring:bind>
 
-			<spring:bind path="dateModified">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="dateModified" id="datepicker1"
-						class="form-control" placeholder="Date Modified"></form:input>
-					<form:errors path="dateModified"></form:errors>
-				</div>
-
-			</spring:bind>
-
 			<spring:bind path="vab">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<form:input type="text" path="vab" class="form-control"

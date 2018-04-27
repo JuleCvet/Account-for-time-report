@@ -33,6 +33,7 @@ public class CustomerController {
 		return "create-customer";
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/create-customer", method = RequestMethod.POST)
 	public String createCustomer(@ModelAttribute("customerForm") Customer customerForm, BindingResult bindingResult,
 			Model model) {
@@ -56,6 +57,7 @@ public class CustomerController {
 		return "delete-customer";
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "delete-customer/{customerId}", method = RequestMethod.POST)
 	public String delete_customer(@ModelAttribute("deleteCustomer") Customer customer, BindingResult bindingResult,
 			Model model) {
@@ -86,6 +88,7 @@ public class CustomerController {
 		return "update-customer";
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "update-customer/{customerId}", method = RequestMethod.POST)
 	public String update_customer(@ModelAttribute("update") Customer customer, BindingResult bindingResult,
 			Model model) {

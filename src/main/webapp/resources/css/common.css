@@ -1,3 +1,11 @@
+.navbar.navbar-expand-lg.navbar-light li a {
+    color: #337ab7;
+    font-weight: bold;
+}
+li.nav-item{
+color: red;
+}
+
 .ui-datepicker-week-end a {
     color: red !important;
 }

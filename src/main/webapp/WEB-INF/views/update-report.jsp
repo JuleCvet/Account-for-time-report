@@ -32,6 +32,10 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 		$("#forDate").datepicker({ firstDay: 1 , beforeShowDay: highlightDays});
 	});
 
+	$( function() {
+	    $( "#datepicker1" ).datepicker({ firstDay: 1 , beforeShowDay: highlightDays});
+ 	} );
+	 
 	function highlightDays(date) {
 	    for (var i = 0; i < dates.length; i++) {
 	        if (new Date(dates[i]).toString() == date.toString()) {
@@ -70,7 +74,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 		<div class="form-group">
 			<spring:bind path="companyName" >
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
-					<label class="control-label col-sm-2">Company Name:</label>
+					<label class="control-label col-sm-2">Name of report:</label>
 					<div class="col-sm-2">
 						<form:input type="text" path="companyName" class="form-control" 
 							 value="${report.companyName}" ></form:input>
@@ -124,7 +128,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 					</div>
 			</spring:bind>
 		</div>
-		
 		<div class="form-group">
 			<spring:bind path="deleted">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>

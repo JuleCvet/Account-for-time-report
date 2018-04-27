@@ -13,23 +13,14 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <head>
 <meta charset="utf-8">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<style>
-.navbar.navbar-expand-lg.navbar-light li a {
-    color: #337ab7;
-    font-weight: bold;
-}
-li.nav-item{
-color: red;
-}
-</style>
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<jsp:include page="cssandjs.jsp"/>
 
 <script type="text/javascript">
 var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018', '05/01/2018', '05/10/2018', '05/20/2018', 
@@ -51,17 +42,10 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 	}
   </script>
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-
 <title>All My Reports</title>
 
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
 </head>
+
 <body>
 <jsp:include page="menu.jsp"/>
 	<div class="container">
@@ -177,7 +161,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 									<c:otherwise>FALSE<br /></c:otherwise>
 								</c:choose></td>
 								
-								
 								<security:authorize access="hasRole('ROLE_ADMIN')">
 									<td><a href="update-report/${report.idReport}">Update report</a></td>
 								</security:authorize>
@@ -195,12 +178,8 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 				</tr>
 			</c:forEach>
 		</table>
-
 		<h3>Sum of all working hours: ${totalHours}</h3>
 		<h3>Expected monthly working hours: 168</h3>
-		<br />
-		<form action=""></form>
 	</div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

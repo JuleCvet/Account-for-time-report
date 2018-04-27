@@ -55,7 +55,7 @@ public class ProjectController {
 	 * return "viewProjects"; }
 	 */
 	
-	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/create-project", method = RequestMethod.POST)
 	public String registration(@ModelAttribute("projectForm") Project projectForm, BindingResult bindingResult, Model model) {
 		projectValidator.validate(projectForm, bindingResult);
@@ -79,7 +79,8 @@ public class ProjectController {
 		
 		return "delete-project";
 	}
-
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "delete-project/{id}", method = RequestMethod.POST)
 	public String delete_project(@ModelAttribute("delete") Project project, BindingResult bindingResult, Model model) {
 		
@@ -114,7 +115,9 @@ public class ProjectController {
 		model.addAttribute("project", projectService.findByProjectId(id));
 
 		return "update-project";
-}
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "update-project/{id}", method = RequestMethod.POST)
 	public String update_project(@ModelAttribute("project") Project project, BindingResult bindingResult,
 			Model model) {

@@ -100,7 +100,8 @@ public class UserController {
 
 		return "delete-user";
 	}
-
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "delete-user/{id}", method = RequestMethod.POST)
 	public String user_delete(@ModelAttribute("userDelete") User user, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
@@ -131,6 +132,7 @@ public class UserController {
 		return "update-user";
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "update-user/{id}", method = RequestMethod.POST)
 	public String update_user(@ModelAttribute("userUpdate") User user, BindingResult bindingResult,
 			Model model) {

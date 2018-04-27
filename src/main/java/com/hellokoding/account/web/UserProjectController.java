@@ -51,7 +51,7 @@ public class UserProjectController {
 		return "create-userProject";
 	}
 	
-	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/create-userProject", method = RequestMethod.POST)
 	public String create_userProject(@ModelAttribute ("createUserProject") UserProject userProject,BindingResult bindingResult, Model model) {
 		
@@ -84,6 +84,7 @@ public class UserProjectController {
 		return "delete-userProject";
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "delete-userProject/{id}", method = RequestMethod.POST)
 	public String delete_userProject(@ModelAttribute("deleteUserProject") UserProject userProject, BindingResult bindingResult, Model model) {
 		
@@ -115,6 +116,7 @@ public class UserProjectController {
 		return "update-userProject";
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="update-userProject/{id}", method=RequestMethod.POST)
 	public String update_userProject(@ModelAttribute("updateUserProject")UserProject userProject, BindingResult bindingResult,
 			Model model) {
