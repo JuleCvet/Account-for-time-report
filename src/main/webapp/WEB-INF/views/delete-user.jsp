@@ -6,6 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,16 +16,15 @@
 <meta name="author" content="">
 
 <title>Delete a User</title>
-
+<jsp:include page="cssandjs.jsp"/>
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
 </head>
 
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png"></img>
-	<div class="container">
-
+	<jsp:include page="menu.jsp"/>
+		<div class="container">
+		<br/>
 		<div class="alert alert-danger" role="alert" style = "width: 65%">
 			<h4 class="alert-heading">Are you sure that you want to delete
 				Info about this user?</h4>
@@ -50,10 +50,6 @@
 
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button>
 		</form:form>
-
 	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
-	<script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

@@ -28,8 +28,8 @@
   </script>
 
 <title>View Reports</title>
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 <jsp:include page="cssandjs.jsp"/>
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
 </head>
 
 <body>

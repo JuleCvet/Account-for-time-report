@@ -9,7 +9,7 @@
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav w-100 justify-content-center">
+	    <ul class="navbar-nav w-75 justify-content-center">
 	      <li class="nav-item">
 	        <a class="nav-link" href="/report/allMyReports">All my Reports</a>
 	      </li>
@@ -42,7 +42,7 @@
      	<form id="logoutForm" method="POST" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
-        	<ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+        	<ul class="nav navbar-nav ml-auto w-25 justify-content-end">
 	            <li class="nav-item">
 	                <a class="nav-link" onclick="document.forms['logoutForm'].submit()" href="#">Logout</a>
 	            </li>

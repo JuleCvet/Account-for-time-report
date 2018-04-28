@@ -1,10 +1,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,16 +16,15 @@
 <meta name="author" content="">
 
 <title>Update your customer</title>
-
+<jsp:include page="cssandjs.jsp"/>
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
 </head>
 
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png">
+<jsp:include page="menu.jsp"/>
 	<div class="container">
-	
+		<br/>
 		<form:form modelAttribute="update" class="form-horizontal">
 			<h2 class="form-signin-heading">Update your customer ${customerName}</h2>
 
@@ -34,7 +35,6 @@
 					<form:errors path="customerId"></form:errors>
 				</div>
 			</spring:bind>
-			
 			
 			<div class="form-group">
 			<spring:bind path="customerName">
@@ -61,13 +61,7 @@
 			</div>
 
 			<button class="btn btn-primary" type="submit" id="search">Submit</button>
-
 	</form:form>
 	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
-		type="text/javascript"></script>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
 </body>
 </html>

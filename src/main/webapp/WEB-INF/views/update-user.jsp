@@ -14,16 +14,15 @@
 <meta name="author" content="">
 
 <title>Update User</title>
-
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
+<jsp:include page="cssandjs.jsp"/>
+<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png"></img>
+	<jsp:include page="menu.jsp"/>
 	<div class="container">
-
+		<br/>
 		<form:form method="POST" modelAttribute="userUpdate" class="form-horizontal">
 			<h2 class="form-signin-heading">Update User ${username}</h2>
 
@@ -46,12 +45,8 @@
 				</div>
 			</spring:bind>
 
-
-			<button class="btn btn-primary" type="submit" id="search" >Submit</button>
+			<button class="btn btn-primary" type="submit" id="search">Submit</button>
 		</form:form>
-
 	</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

@@ -7,27 +7,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>Lock one report</title>
-
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
+<title>Lock one report</title>
+<jsp:include page="cssandjs.jsp"/>
+<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png"></img>
-<div class="container">
-
-	<div class="alert alert-danger" role="alert" style = "width: 35%">
-	<h4 class="alert-heading">Are you sure that you want to lock this report? ${report.idReport}</h4>
-	</div>
+	<jsp:include page="menu.jsp"/>
+		<div class="container">
+		<br/>
+		<div class="alert alert-danger" role="alert" style = "width: 35%">
+		<h4 class="alert-heading">Are you sure that you want to lock this report? ${report.idReport}</h4>
+		</div>
 	
     <form:form method="POST" modelAttribute="updateReportLocked" class="form-horizontal">
         <h2 class="form-signin-heading">Lock this report ${report.idReport}</h2>
@@ -108,10 +107,7 @@
 		</spring:bind>
         
         <button class="btn btn-primary" type="submit" id="search" >Lock</button>
-        
     </form:form>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

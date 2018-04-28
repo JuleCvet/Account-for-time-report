@@ -15,22 +15,22 @@
 <meta name="author" content="">
 
 <title>Delete a Customer</title>
-
+<jsp:include page="cssandjs.jsp"/>
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
 </head>
 
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png">
-	<div class="container">
-
+	<jsp:include page="menu.jsp"/>
+				<div class="container">
+				<br/>
 		<div class="alert alert-danger" role="alert" style="width: 47%">
 			<h4 class="alert-heading">Are you sure that you want to delete
 				Info about this customer?</h4>
 		</div>
 
 		<form:form method="POST" modelAttribute="deleteCustomer" class="form-horizontal">
+		
 			<h2 class="form-signin-heading">Delete info about this customer:</h2>
 			
 			<spring:bind path="customerId">
@@ -53,10 +53,6 @@
 
 			<button class="btn btn-primary " type="submit" id ="search">Delete</button>
 		</form:form>
-
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
 </body>
 </html>

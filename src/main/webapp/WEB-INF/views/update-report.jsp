@@ -1,28 +1,23 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-
 <title>Update your report</title>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
+<jsp:include page="cssandjs.jsp"/>
+<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-1.12.4.js"
-	type="text/javascript"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-	type="text/javascript"></script>
 
 <script type="text/javascript">
 var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018', '05/01/2018', '05/10/2018', '05/20/2018', 
@@ -45,13 +40,12 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 	    return [true, ''];
 	} 	
 </script>
-
 </head>
 
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png">
+	<jsp:include page="menu.jsp"/>
 	<div class="container">
-
+		<br/>
 		<form:form modelAttribute="update" class="form-horizontal">
 		
 			<spring:bind path="userID">
@@ -59,7 +53,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 						value="${report.userID}"></form:input>	
 					<form:errors path="userID"></form:errors>
 			</spring:bind>
-			
 		
 			<h2 class="form-signin-heading">Update your report ${report.idReport}</h2>
 
@@ -70,7 +63,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 					<form:errors path="idReport"></form:errors>
 					</div>
 			</spring:bind>
-			
 		<div class="form-group">
 			<spring:bind path="companyName" >
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
@@ -82,7 +74,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 					</div>
 			</spring:bind>
 		</div>
-	
 		<div class="form-group">	
 			<spring:bind path="hoursReported">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
@@ -94,7 +85,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 						</div>
 			</spring:bind>
 		</div>
-		
 		<div class="form-group">	
 			<spring:bind path="vab">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
@@ -105,7 +95,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 						</div>
 			</spring:bind>
 		</div>
-		
 		<div class="form-group">
 			<spring:bind path="vacation">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
@@ -116,7 +105,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 					</div>
 			</spring:bind>
 		</div>
-		
 		<div class="form-group">
 			<spring:bind path="forDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
@@ -139,11 +127,8 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 					</div>
 			</spring:bind>
 		</div>
-		
 			<button class="btn btn-primary" type="submit" id="search">Submit</button>
 		</form:form>
 	</div>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
 </body>
 </html>

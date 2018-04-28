@@ -16,8 +16,8 @@
 <meta name="author" content="">
 
 <title>Create a customer</title>
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 <jsp:include page="cssandjs.jsp"/>
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
 </head>
 
 <body>
