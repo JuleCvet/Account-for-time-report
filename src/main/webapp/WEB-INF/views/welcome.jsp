@@ -8,6 +8,7 @@
 <head>
 
 <jsp:include page="cssandjs.jsp"/>
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

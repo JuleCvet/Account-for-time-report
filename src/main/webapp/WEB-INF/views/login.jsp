@@ -22,8 +22,8 @@
 </head>
 
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png"></img>
 <div class="container">
+<img class="img-responsive center-block" id="img" src="${contextPath}/resources/img/logo.png"></img>
 
     <form method="POST" action="${contextPath}/login" class="form-signin">
         <h2 class="form-heading">Log in</h2>

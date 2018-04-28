@@ -25,7 +25,8 @@ body {
 }
 
 #img {
-	width: 350px;
+	width: 300px;
+	padding-top: 20px;
 }
 
 @media (max-width: @screen-xs) {
