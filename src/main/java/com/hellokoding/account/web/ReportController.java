@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -215,7 +217,12 @@ public class ReportController {
 
 		return "update-report";
 	}
-
+	
+/*	@RequestMapping(value = "/{dateString}", method = RequestMethod.GET)
+	public HttpStatus getSomething(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String dateString) {
+	   return OK;
+	  }
+*/
 	@RequestMapping(value = "update-report/{idReport}", method = RequestMethod.POST)
 	public String update_report(@ModelAttribute("update") Report report, BindingResult bindingResult,
 			Model model) {

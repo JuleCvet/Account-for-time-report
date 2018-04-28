@@ -33,6 +33,7 @@
 			          <a class="dropdown-item" href="/userproject/create-userProject">Connect User-Project</a>
 			          <a class="dropdown-item" href="/report/viewReports">View All Reports</a>
 			          <a class="dropdown-item" href="/userproject/viewAllUserProjects">View UserProjects</a>
+			           <a class="dropdown-item" href="/viewUsers">View All Users</a>
 			        </div>
 		      	</li>
 			</security:authorize>

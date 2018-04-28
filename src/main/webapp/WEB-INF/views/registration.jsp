@@ -6,6 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,15 +16,13 @@
 <meta name="author" content="">
 
 <title>Create an account</title>
-
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+<jsp:include page="cssandjs.jsp"/>
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
 
 <body>
 	<img id="img" src="${contextPath}/resources/img/logo.png">
-	
 	<div class="container">
 
 		<form:form method="POST" modelAttribute="userForm" class="form-signin">
@@ -61,7 +60,7 @@
 				</div>
 			</spring:bind>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color:#337ab7;" >Submit</button>
 		</form:form>
 
 	</div>

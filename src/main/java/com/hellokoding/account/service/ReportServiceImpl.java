@@ -142,6 +142,12 @@ public class ReportServiceImpl implements ReportService {
 			
 		return true;
 	}
+/*
+	@Override
+	public Date getDataModified() {
+		Date dataModified = l
+		return null;
+	}*/
 
 /*	@Override
 	public List<Report> findAllLockedReportsByUserId(Long idReport) {

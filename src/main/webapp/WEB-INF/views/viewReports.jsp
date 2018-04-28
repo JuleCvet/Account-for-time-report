@@ -6,19 +6,17 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org.ui"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<html lang="en" xmlns="http://www.w3.org/1999/xtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org.ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
 <head>
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
 
 <script type="text/javascript">
   $( function() {
@@ -29,31 +27,15 @@
  } );
   </script>
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
 <title>View Reports</title>
-
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
+<jsp:include page="cssandjs.jsp"/>
 </head>
-<body>
-<img id="img" src="${contextPath}/resources/img/logo.png">
-	<div class="container">
-		<br/>
-		<table class="table table-striped table-bordered">
-			<tr>
-				<th><a href="create-report">Add New Report</a></th>
-				<th><a href="/report/allMyReports">All my Reports</a></th>
-				<th><a href="/project/viewProjects">Show Projects</a></th>
-				<th><a href="/customer/viewCustomers">Show Customers</a></th>
-				<th><a href="/welcome">Back</a></th>
-			</tr>
-		</table>
 
+<body>
+<jsp:include page="menu.jsp"/>
+<div class="container">
+		<br/>
 		<h1>All our Reports</h1>
 		<table class="table table-striped table-bordered">
 			<tr>
@@ -79,34 +61,36 @@
 				<tr>
 					<c:choose>
 						<c:when test="${report.locked=='1'}">
-						
 							<td><i>${report.idReport}</i></td>
 							<td><i>${report.companyName}</i></td>
 							<td><i>${report.hoursReported}</i></td>
 							<td><i>${report.vab}</i></td>
 							<td><i>${report.vacation}</i></td>
 							<td><i>${report.userID}</i></td>
-
+							
 							<td><i><b>
-							<c:choose>
-								<c:when test="${report.locked=='1'}">
-									<input type="checkbox" value="1" checked disabled>
-									<label for="locked">TRUE</label>
-								</c:when>
-								<c:otherwise>
+								<c:choose>
+									<c:when test="${report.locked=='1'}">
+										<input type="checkbox" value="1" checked disabled>
+										<label for="locked">TRUE</label>
+									</c:when>
+									
+									<c:otherwise>
 									<input type="checkbox" value="0" disabled>
-									<label for="locked">FALSE</label>
-								</c:otherwise>
-							</c:choose>
-							</b></i></td>
+										<label for="locked">FALSE</label>
+									</c:otherwise>
+								</c:choose>
+								</b></i>
+							</td>
 				
 							<td><i>${report.forDate}</i></td>
 							<td><i>${report.dateModified}</i></td>
 
-							<td><i><c:choose>
-								<c:when test="${report.deleted=='1'}">TRUE<br /></c:when>
-								<c:otherwise>FALSE<br /></c:otherwise>
-									</c:choose></i>
+							<td><i>
+								<c:choose>
+									<c:when test="${report.deleted=='1'}">TRUE<br /></c:when>
+									<c:otherwise>FALSE<br /></c:otherwise>
+								</c:choose></i>
 							</td>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
@@ -120,57 +104,55 @@
 							<security:authorize access="hasRole('ROLE_ADMIN')">
 								<td><i></i></td>
 							</security:authorize>
-					
 						</c:when>
 
-						<c:otherwise>
-							<td>${report.idReport}</td>
-							<td>${report.companyName}</td>
-							<td>${report.hoursReported}</td>
-							<td>${report.vab}</td>
-							<td>${report.vacation}</td>
-							<td>${report.userID}</td>
+				<c:otherwise>
+					<td>${report.idReport}</td>
+					<td>${report.companyName}</td>
+					<td>${report.hoursReported}</td>
+					<td>${report.vab}</td>
+					<td>${report.vacation}</td>
+					<td>${report.userID}</td>
 
-							<td>
-							<c:choose>
-								<c:when test="${report.locked=='1'}">
-									<input type="checkbox"  value="1" checked disabled>
-									<label for="locked">TRUE</label>
-								</c:when>
-								<c:otherwise>
-									<input type="checkbox" value="0" disabled>
-									<label for="locked">FALSE</label>
-								</c:otherwise>
-							</c:choose>
-							</td>
+					<td>
+						<c:choose>
+							<c:when test="${report.locked=='1'}">
+								<input type="checkbox"  value="1" checked disabled>
+								<label for="locked">TRUE</label>
+							</c:when>
+							<c:otherwise>
+								<input type="checkbox" value="0" disabled>
+								<label for="locked">FALSE</label>
+							</c:otherwise>
+						</c:choose>
+					</td>
 							
-							<td>${report.forDate}</td>
-							<td>${report.dateModified}</td>
+					<td>${report.forDate}</td>
+					<td>${report.dateModified}</td>
 
-							<td><c:choose>
-									<c:when test="${report.deleted=='1'}">TRUE<br/></c:when>
-									<c:otherwise>FALSE<br/></c:otherwise>
-								</c:choose></td>
+					<td>
+						<c:choose>
+							<c:when test="${report.deleted=='1'}">TRUE<br/></c:when>
+							<c:otherwise>FALSE<br/></c:otherwise>
+						</c:choose>
+					</td>
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<td><a href="update-report/${report.idReport}" style="color:#337ab7;" >Update report</a></td>
+						</security:authorize>
 
-							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<td><a href="update-report/${report.idReport}">Update report</a></td>
-							</security:authorize>
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<th><a href="/report/locked-report/${report.idReport}" style="color:#337ab7;" >Lock Report</a></th>
+						</security:authorize>
 
-							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<th><a href="/report/locked-report/${report.idReport}">Lock Report</a></th>
-							</security:authorize>
-
-							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<td><a href="delete-report/${report.idReport}">Delete report</a></td>
-							</security:authorize>
-
-						</c:otherwise>
-					</c:choose>
-				</tr>
-			</c:forEach>
-		</table>
-		<br/>
-	</div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<td><a href="delete-report/${report.idReport}" style="color:#337ab7;" >Delete report</a></td>
+						</security:authorize>
+				</c:otherwise>
+			</c:choose>
+		</tr>
+	</c:forEach>
+</table>
+<br/>
+</div>
 </body>
 </html>

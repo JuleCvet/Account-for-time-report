@@ -13,16 +13,16 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
+
 <title>Create a User - Project</title>
-
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
+<jsp:include page="cssandjs.jsp"/>
 </head>
-<body>
-<img id="img" src="${contextPath}/resources/img/logo.png"></img>
-	<div class="container">
 
+<body>
+<jsp:include page="menu.jsp"/>
+<div class="container">
+		<br/>
 		<form:form method="POST" modelAttribute="createUserProject" class="form-signin">
 		<p>Today's date:<%= (new java.util.Date()).toLocaleString()%></p>
 		<div class="form-group"></div>
@@ -52,14 +52,8 @@
 				</div>
 			</spring:bind>		
 			
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-
+			<button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color:#337ab7;" >Submit</button>
 		</form:form>
 	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
-		type="text/javascript"></script>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xtml"
@@ -11,6 +11,7 @@
 	xmlns:p="http://primefaces.org.ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +44,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
   </script>
 
 <title>All My Reports</title>
-
 </head>
 
 <body>
@@ -67,7 +67,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 			
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			
-			<button type="submit" class="btn btn-primary">Filter Dates</button>
+			<button type="submit" class="btn btn-primary" style="background-color:#337ab7;" >Filter Dates</button>
 		</form>
 
 		<table class="table table-striped table-bordered">
@@ -120,7 +120,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 								</c:choose></i></td>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<td><i><a href="update-report/${report.idReport}">Update report</a></i></td>
+								<td><i><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></i></td>
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
@@ -128,7 +128,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 							</security:authorize>
 
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-								<td><i><a href="delete-report/${report.idReport}">Delete report</a></i></td>
+								<td><i><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></i></td>
 							</security:authorize>
 							
 						</c:when>
@@ -162,15 +162,15 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 								</c:choose></td>
 								
 								<security:authorize access="hasRole('ROLE_ADMIN')">
-									<td><a href="update-report/${report.idReport}">Update report</a></td>
+									<td><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></td>
 								</security:authorize>
 
 								<security:authorize access="hasRole('ROLE_ADMIN')">
-									<th><a href="/report/locked-report/${report.idReport}">Lock Report</a></th>
+									<th><a href="/report/locked-report/${report.idReport}"  style="color:#337ab7;" >Lock Report</a></th>
 								</security:authorize>
 
 								<security:authorize access="hasRole('ROLE_ADMIN')">
-									<td><a href="delete-report/${report.idReport}">Delete report</a></td>
+									<td><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></td>
 								</security:authorize>
 								
 						</c:otherwise>

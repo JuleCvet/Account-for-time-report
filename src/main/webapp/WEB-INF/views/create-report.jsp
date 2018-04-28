@@ -12,12 +12,15 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <head>
 <meta charset="utf-8">
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
+<jsp:include page="cssandjs.jsp"/>
+
 <script type="text/javascript">
 
 var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018', '05/01/2018', '05/10/2018', '05/20/2018', 
@@ -40,20 +43,13 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 	} 
 </script>
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-
 <title>Create a report</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png">
+<jsp:include page="menu.jsp"/>
 	<div class="container">
 
 		<c:if test="${pageContext.request.userPrincipal.name != null}">
@@ -121,10 +117,8 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 				</div>
 			</spring:bind>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color:#337ab7;" >Submit</button>
 		</form:form>
 	</div>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"
-		type="text/javascript"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -14,17 +13,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Create a project</title>
-
-    <link href="${contextPath}/resources/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="${contextPath}/resources/css/common.css" type="text/css" rel="stylesheet">
-
+<title>Create a project</title>
+<link href="${contextPath}/resources/css/common.css" type="text/css" rel="stylesheet">
+<jsp:include page="cssandjs.jsp"/>
 </head>
 
 <body>
-<img id="img" src="${contextPath}/resources/img/logo.png"></img>
+<jsp:include page="menu.jsp"/>
 <div class="container">
-
+	<br/>
+	
     <form:form method="POST" modelAttribute="projectForm" class="form-signin">
         <h2 class="form-signin-heading">Create your project</h2>
         
@@ -58,12 +56,8 @@
 				</form:select>
 			</div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        <button class="btn btn-lg btn-primary btn-block" style="background-color:#337ab7;" >Submit</button>
     </form:form>
-
 </div>
-<script src="${contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
 </body>
 </html>

@@ -33,5 +33,7 @@ public interface ReportService {
 	Double calculateHoursByUserID(Integer userID);
 	
 	Double calculateHoursByUserIdAndDate(Integer userID, Date fromDate, Date toDate);
+
+	/*Date getDataModified();*/
 	
 }
