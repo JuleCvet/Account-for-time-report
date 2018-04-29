@@ -39,21 +39,29 @@
                 <form:errors path="deleted"></form:errors>
             </div>
         </spring:bind>
-
-			<spring:bind path="description">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="text" path="description" class="form-control" placeholder="Description"></form:input>
-					<form:errors path="description"></form:errors>
-				</div>
-			</spring:bind>
-			
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<form:select path="type" name="type" class="form-control">
-					<c:forEach items="<%=ProjectTypeEnum.values()%>" var="typeType">
-						<option>${typeType}</option>
+        
+        <spring:bind path="customerID">
+				<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" id="projectSelection" name="projectSelection" path="customerID">
+					<c:forEach var="customer" items="${customers}">
+						<option value="${customer.customerId}">${customer.customerName}</option>
 					</c:forEach>
 				</form:select>
+			</spring:bind>
+
+		<spring:bind path="description">
+			<div class="form-group ${status.error ? 'has-error' : ''}">
+				<form:input type="text" path="description" class="form-control" placeholder="Description"></form:input>
+				<form:errors path="description"></form:errors>
 			</div>
+		</spring:bind>
+			
+		<div class="form-group ${status.error ? 'has-error' : ''}">
+			<form:select path="type" name="type" class="form-control" style="padding-bottom:5px; padding-top:5px;">
+				<c:forEach items="<%=ProjectTypeEnum.values()%>" var="typeType">
+					<option>${typeType}</option>
+				</c:forEach>
+			</form:select>
+		</div>
 
         <button class="btn btn-lg btn-primary btn-block" style="background-color:#337ab7;" >Submit</button>
     </form:form>

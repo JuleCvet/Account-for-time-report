@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.ProjectTypeEnum;
+import com.hellokoding.account.service.CustomerService;
 import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.validator.ProjectValidator;
 
@@ -23,12 +25,16 @@ public class ProjectController {
 	private ProjectService projectService;
 	
 	@Autowired
+	private CustomerService customerService;
+	
+	@Autowired
 	private ProjectValidator projectValidator;
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/create-project", method = RequestMethod.GET)
 	public String create_project(Model model) {
 		
+		model.addAttribute("customers", customerService.showAllCustomers());
 		model.addAttribute("projectTypeEnums", ProjectTypeEnum.values());
 		model.addAttribute("projectForm", new Project());
 
@@ -57,7 +63,8 @@ public class ProjectController {
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/create-project", method = RequestMethod.POST)
-	public String registration(@ModelAttribute("projectForm") Project projectForm, BindingResult bindingResult, Model model) {
+	public String registration(@RequestParam("customerID")Integer customerID, @ModelAttribute("projectForm") Project projectForm, BindingResult bindingResult, Model model) {
+		
 		projectValidator.validate(projectForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {

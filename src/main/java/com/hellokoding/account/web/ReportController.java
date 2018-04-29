@@ -23,13 +23,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.hellokoding.account.model.Project;
 import com.hellokoding.account.model.Report;
 import com.hellokoding.account.model.User;
-import com.hellokoding.account.repository.ReportRepository;
+import com.hellokoding.account.service.ProjectService;
 import com.hellokoding.account.service.ReportService;
 import com.hellokoding.account.service.UserService;
 import com.hellokoding.account.validator.ReportValidator;
-import com.hellokoding.account.web.UserProjectController.userProjectExtended;
 
 import antlr.collections.List;
 
@@ -48,15 +49,19 @@ public class ReportController {
 
 	@Autowired
 	private UserService userRepository;
-
+	
+	@Autowired
+	private ProjectService projectService;
+	
 	public boolean isValidDate(String inputStringDate){
 	    return inputStringDate.matches("^(0?[1-9]|1[0-2])\\/(0?[1-9]|1\\d|2\\d|3[01])\\/(19|20)\\d{2}$");
 	}
 	
 	@RequestMapping(value = "/create-report", method = RequestMethod.GET)
 	public String create_report(Model model) {
-		
+				
 		model.addAttribute("reportForm", new Report());
+		model.addAttribute("projects", projectService.showAllProjects());
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -97,7 +102,8 @@ public class ReportController {
 			Long userID = oldReport.getUserID().longValue();
 			
 			if (userID != loggedInUserID) {
-				return "You don't own this report";
+			model.addAttribute("msgTwo", "You dont own this report!");
+				return "accessDenied404";
 			}
 			
 		}
@@ -112,9 +118,9 @@ public class ReportController {
 			Model model) {
 		
 		Report oldReport = reportService.findByIdReport(report.getIdReport());
-		
+	
 		if (oldReport.getLocked() == 1) {
-			return "Error: report is locked!";
+			return "accessDenied404";
 		}
 		
 		if (bindingResult.hasErrors()) {
@@ -258,6 +264,8 @@ public class ReportController {
 	@RequestMapping(value = "update-report/{idReport}", method = RequestMethod.GET)
 	public String update_report(Model model, @PathVariable Long idReport) {
 		
+		model.addAttribute("projects", projectService.showAllProjects());
+
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 		if (principal instanceof UserDetails) {
@@ -269,7 +277,8 @@ public class ReportController {
 			Long userID = oldReport.getUserID().longValue();
 			
 			if (userID != loggedInUserID) {
-				return "You don't own this report";
+				model.addAttribute("msgTwo", "You dont own this report!");
+				return "accessDenied404";
 			}
 			
 		}
@@ -285,7 +294,7 @@ public class ReportController {
 		Report oldReport = reportService.findByIdReport(report.getIdReport());
 		
 		if (oldReport.getLocked() == 1) {
-			return "Error: report is locked!";
+			return "accessDenied404";
 		}
 		
 		if (bindingResult.hasErrors()) {

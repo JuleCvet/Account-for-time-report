@@ -48,6 +48,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 <body>
 <jsp:include page="menu.jsp"/>
 	<div class="container">
+	<br/>
 		<h1>All Reports for user:
 			${pageContext.request.userPrincipal.name}</h1>
 

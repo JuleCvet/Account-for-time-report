@@ -41,6 +41,7 @@ public class ReportServiceImpl implements ReportService {
 		oldReport.setVab(report.getVab());
 		oldReport.setVacation(report.getVacation());
 		oldReport.setUserID(report.getUserID());
+		oldReport.setProjectID(report.getProjectID());
 		oldReport.setForDate(report.getForDate());
 		oldReport.setDateModified(curDate);
 		oldReport.setDeleted(report.getDeleted());

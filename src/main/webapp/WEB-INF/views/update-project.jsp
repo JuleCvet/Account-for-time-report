@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@page import="com.hellokoding.account.model.ProjectTypeEnum"%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
@@ -55,8 +56,11 @@
 			<spring:bind path="type">
 					<label class="col-sm-2 col-form-label">Type of project:</label>
 					<div class="col-sm-4">
-						<form:input type="text" path="type" class="form-control" placeholder="Project type" value="${project.type}"></form:input>
-						<form:errors path="type"></form:errors>
+						<form:select path="type" name="type" class="form-control">
+							<c:forEach items="<%=ProjectTypeEnum.values()%>" var="typeType">
+								<option>${typeType}</option>
+							</c:forEach>
+						</form:select>
 					</div>
 			</spring:bind>
 		</div>

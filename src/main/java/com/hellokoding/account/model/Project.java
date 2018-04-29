@@ -28,6 +28,7 @@ public class Project {
 	private String projectName;
 	private String description;
 	private Integer deleted;
+	private Integer customerID;
 
 	@Transient
 	private List<Project> projects_allprojects;
@@ -102,16 +103,25 @@ public class Project {
 		this.deleted = deleted;
 	}
 
-	public Project(String projectName, String description, Integer deleted,
+	public Project(String projectName, String description, Integer deleted, Integer customerID,
 			List<Project> projects_allprojects, ProjectTypeEnum type, Set<User> users, Set<Customer> customers) {
 		super();
 		this.projectName = projectName;
 		this.description = description;
 		this.deleted = deleted;
+		this.customerID = customerID;
 		this.projects_allprojects = projects_allprojects;
 		this.type = type;
 		this.users = users;
 		this.customers = customers;
+	}
+
+	public Integer getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(Integer customerID) {
+		this.customerID = customerID;
 	}
 
 	public List<Project> getprojects_allprojects() {
@@ -133,7 +143,7 @@ public class Project {
 	@Override
 	public String toString() {
 		return "Project [projectName=" + projectName + ", description=" + description + ", deleted=" + deleted
-				+ ", projects_allprojects=" + projects_allprojects + ", type="
-				+ type + ", users=" + users + ", customers=" + customers + "]";
+				+ ", customerID=" + customerID + ", projects_allprojects=" + projects_allprojects + ", type=" + type
+				+ ", users=" + users + ", customers=" + customers + "]";
 	}
 }

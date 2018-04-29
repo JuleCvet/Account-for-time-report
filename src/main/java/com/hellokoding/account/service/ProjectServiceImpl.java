@@ -52,6 +52,7 @@ public class ProjectServiceImpl implements ProjectService {
 		oldProject.setDescription(project.getDescription());
 		oldProject.setType(project.getType());
 		oldProject.setDeleted(project.getDeleted());
+		oldProject.setCustomerID(project.getCustomerID());
 		projectRepository.saveAndFlush(oldProject);
 
 		return true;

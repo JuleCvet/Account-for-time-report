@@ -25,6 +25,7 @@
 <jsp:include page="menu.jsp"/>
 <div class="container">
 	<c:if test="${pageContext.request.userPrincipal.name != null}">
+	<br/>
         <h2>Welcome ${pageContext.request.userPrincipal.name}</h2>
     </c:if>
 </div>

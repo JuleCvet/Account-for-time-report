@@ -71,6 +71,19 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 			</div>
 			
 			<div class="form-group row ${status.error ? 'has-error' : ''}">
+				<spring:bind path="projectID">
+				<label class="col-sm-2 col-form-label">Name of project:</label>
+					<div class="col-sm-4">
+						<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" id="projectSelection" name="projectSelection" path="projectID">
+							<c:forEach var="project" items="${projects}">
+								<option value="${project.id}">${project.projectName}</option>
+							</c:forEach>
+						</form:select>
+					</div>
+				</spring:bind>
+			</div>
+			
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
 				<spring:bind path="hoursReported">
 						<label class="col-sm-2 col-form-label">Hours Reported:</label>
 							<div class="col-sm-4">

@@ -68,6 +68,14 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 					<form:errors path="companyName"></form:errors>
 				</div>
 			</spring:bind>
+			
+			<spring:bind path="projectID">
+				<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" id="projectSelection" name="projectSelection" path="projectID">
+					<c:forEach var="project" items="${projects}">
+						<option value="${project.id}">${project.projectName}</option>
+					</c:forEach>
+				</form:select>
+			</spring:bind>
 
 			<spring:bind path="forDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}">

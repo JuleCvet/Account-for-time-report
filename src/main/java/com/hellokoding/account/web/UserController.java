@@ -147,7 +147,7 @@ public class UserController {
 	}
 	
 	// for 403 access denied page
-	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
+	@RequestMapping(value = "/accessDenied403", method = RequestMethod.GET)
 	public ModelAndView accesssDenied(Principal user) {
 
 		ModelAndView model = new ModelAndView();
@@ -155,13 +155,28 @@ public class UserController {
 		if (user != null) {
 			model.addObject("msg", "Hi " + user.getName() 
 			+ ", you do not have permission to access this page!");
-		} else {
+		} 
+		else {
 			model.addObject("msg", 
 			"You do not have permission to access this page!");
 		}
 
-		model.setViewName("accessDenied");
+		model.setViewName("accessDenied403");
 		return model;
-
+	}
+	
+	// for 404 access denied page
+	@RequestMapping(value="/accessDenied404", method= RequestMethod.GET)
+	public ModelAndView accessDeniedFourNullFour(Principal user) {
+		
+		ModelAndView model = new ModelAndView();
+			if(user != null) {
+				model.addObject("msgTwo", "hi" + user.getName() + " , you don't own this report!");
+			}
+			else {
+				model.addObject("msgTwo", "You do not have permission to access this page!");
+			}
+		model.setViewName("accessDenied404");
+		return model;
 	}
 }

@@ -28,6 +28,7 @@ public class Report {
 	private Double vab;
 	private Double vacation;
 	private Integer userID;
+	private Integer projectID;
 	
 	@Column(name = "locked")
 	private Integer locked;
@@ -45,9 +46,6 @@ public class Report {
 	@ManyToMany(mappedBy = "reports")
 	private Set<User> users;
 
-//	@ManyToMany(mappedBy="reports")
-//	private Set<Project> projects;
-
 	public Report() {
 	}
 
@@ -59,14 +57,23 @@ public class Report {
 		this.deleted = deleted;
 	}
 
+	public Integer getProjectID() {
+		return projectID;
+	}
+
+	public void setProjectID(Integer projectID) {
+		this.projectID = projectID;
+	}
+
 	public Report(String companyName, Double hoursReported, Double vab, Double vacation, Integer userID,
-			Integer locked, Integer deleted, Date forDate, Date dateModified, Set<User> users) {
+			Integer projectID, Integer locked, Integer deleted, Date forDate, Date dateModified, Set<User> users) {
 		super();
 		this.companyName = companyName;
 		this.hoursReported = hoursReported;
 		this.vab = vab;
 		this.vacation = vacation;
 		this.userID = userID;
+		this.projectID = projectID;
 		this.locked = locked;
 		this.deleted = deleted;
 		this.forDate = forDate;
@@ -106,14 +113,6 @@ public class Report {
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
-
-/*	public Set<Project> getProjects() {
-		return projects;
-	}
-
-	public void setProjects(Set<Project> projects) {
-		this.projects = projects;
-	}*/
 
 	public Double getHoursReported() {
 		return hoursReported;
@@ -192,7 +191,8 @@ public class Report {
 	@Override
 	public String toString() {
 		return "Report [companyName=" + companyName + ", hoursReported=" + hoursReported + ", vab=" + vab
-				+ ", vacation=" + vacation + ", userID=" + userID + ", locked=" + locked + ", deleted=" + deleted
-				+ ", forDate=" + forDate + ", dateModified=" + dateModified + ", users=" + users + "]";
+				+ ", vacation=" + vacation + ", userID=" + userID + ", projectID=" + projectID + ", locked=" + locked
+				+ ", deleted=" + deleted + ", forDate=" + forDate + ", dateModified=" + dateModified + ", users="
+				+ users + "]";
 	}
 }
