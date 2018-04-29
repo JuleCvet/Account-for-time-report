@@ -44,7 +44,7 @@
 				<th>Working hours</th>
 				<th>Hours of VAB</th>
 				<th>Hours of Vacation</th>
-				<th>User Id</th>
+				<th>User</th>
 				<th>Locked</th>
 				<th>Report for date:</th>
 				<th>Date when report is been modified:</th>
@@ -61,12 +61,12 @@
 				<tr>
 					<c:choose>
 						<c:when test="${report.locked=='1'}">
-							<td><i>${report.idReport}</i></td>
+							<td><i>${report.id}</i></td>
 							<td><i>${report.companyName}</i></td>
 							<td><i>${report.hoursReported}</i></td>
 							<td><i>${report.vab}</i></td>
 							<td><i>${report.vacation}</i></td>
-							<td><i>${report.userID}</i></td>
+							<td><i>${report.username}</i></td>
 							
 							<td><i><b>
 								<c:choose>
@@ -107,12 +107,12 @@
 						</c:when>
 
 				<c:otherwise>
-					<td>${report.idReport}</td>
+					<td>${report.id}</td>
 					<td>${report.companyName}</td>
 					<td>${report.hoursReported}</td>
 					<td>${report.vab}</td>
 					<td>${report.vacation}</td>
-					<td>${report.userID}</td>
+					<td><i>${report.username}</i></td>
 
 					<td>
 						<c:choose>
@@ -137,15 +137,15 @@
 						</c:choose>
 					</td>
 						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<td><a href="update-report/${report.idReport}" style="color:#337ab7;" >Update report</a></td>
+							<td><a href="update-report/${report.id}" style="color:#337ab7;" >Update report</a></td>
 						</security:authorize>
 
 						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<th><a href="/report/locked-report/${report.idReport}" style="color:#337ab7;" >Lock Report</a></th>
+							<th><a href="/report/locked-report/${report.id}" style="color:#337ab7;" >Lock Report</a></th>
 						</security:authorize>
 
 						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<td><a href="delete-report/${report.idReport}" style="color:#337ab7;" >Delete report</a></td>
+							<td><a href="delete-report/${report.id}" style="color:#337ab7;" >Delete report</a></td>
 						</security:authorize>
 				</c:otherwise>
 			</c:choose>

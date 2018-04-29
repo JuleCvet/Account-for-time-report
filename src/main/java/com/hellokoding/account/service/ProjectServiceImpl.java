@@ -16,6 +16,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Override
 	public void save(Project project){
+		project.setDeleted(0);
 		projectRepository.saveAndFlush(project);
 	}
 

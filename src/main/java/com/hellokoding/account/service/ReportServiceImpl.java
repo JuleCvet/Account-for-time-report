@@ -20,6 +20,8 @@ public class ReportServiceImpl implements ReportService {
 
 	@Override
 	public void save(Report report) {
+		report.setLocked(0);
+		report.setDeleted(0);
 		reportRepository.saveAndFlush(report);
 
 	}

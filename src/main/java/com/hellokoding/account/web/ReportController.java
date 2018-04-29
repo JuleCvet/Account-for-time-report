@@ -1,13 +1,17 @@
 package com.hellokoding.account.web;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.persistence.Column;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,9 +25,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.hellokoding.account.model.Report;
 import com.hellokoding.account.model.User;
+import com.hellokoding.account.repository.ReportRepository;
 import com.hellokoding.account.service.ReportService;
 import com.hellokoding.account.service.UserService;
 import com.hellokoding.account.validator.ReportValidator;
+import com.hellokoding.account.web.UserProjectController.userProjectExtended;
+
+import antlr.collections.List;
 
 @Controller
 @RequestMapping("/report")
@@ -37,6 +45,9 @@ public class ReportController {
 	
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private UserService userRepository;
 
 	public boolean isValidDate(String inputStringDate){
 	    return inputStringDate.matches("^(0?[1-9]|1[0-2])\\/(0?[1-9]|1\\d|2\\d|3[01])\\/(19|20)\\d{2}$");
@@ -140,7 +151,21 @@ public class ReportController {
 	@RequestMapping(value = "/viewReports", method = RequestMethod.GET)
 	public String view_reports(Model model) {
 		
-		model.addAttribute("list", reportService.showAllREports());
+		ArrayList<ReportExtended> allReportWithID = new ArrayList<ReportExtended>();
+	
+		for(Report reportExtended : reportService.showAllREports()) {
+			
+			Long userID = reportExtended.getUserID().longValue();
+			User user = userRepository.findByid(userID);
+			
+			ReportExtended re = new ReportExtended( reportExtended.getIdReport(), user.getUsername(), reportExtended.getCompanyName(),
+			reportExtended.getHoursReported(), reportExtended.getVab(), reportExtended.getVacation(), reportExtended.getUserID(), 
+			reportExtended.getLocked(), reportExtended.getDeleted(), reportExtended.getForDate(), reportExtended.getDateModified());
+			
+			allReportWithID.add(re);
+		}
+		model.addAttribute("list", allReportWithID);
+		
 		return "viewReports";
 	}
 	
@@ -270,5 +295,88 @@ public class ReportController {
 		reportService.updateReport(report);
 		
 		return "redirect:/report/allMyReports";
+	}
+	
+	public class ReportExtended {
+		private Long id;
+		private String username;
+		private String companyName;
+		private Double hoursReported;
+		private Double vab;
+		private Double vacation;
+		private Integer userID;
+		
+		@Column(name = "locked")
+		private Integer locked;
+		
+		@Column(name = "deleted")
+		private Integer deleted;
+		
+		
+		@DateTimeFormat(pattern = "MM/dd/yyyy")
+		private Date forDate;
+
+		@DateTimeFormat(pattern = "MM/dd/yyyy")
+		private Date dateModified;
+
+		public ReportExtended(Long id, String username, String companyName, Double hoursReported, Double vab,
+				Double vacation, Integer userID, Integer locked, Integer deleted, Date forDate, Date dateModified) {
+			super();
+			this.id = id;
+			this.username = username;
+			this.companyName = companyName;
+			this.hoursReported = hoursReported;
+			this.vab = vab;
+			this.vacation = vacation;
+			this.userID = userID;
+			this.locked = locked;
+			this.deleted = deleted;
+			this.forDate = forDate;
+			this.dateModified = dateModified;
+		}
+
+		public Long getId() {
+			return id;
+		}
+
+		public String getUsername() {
+			return username;
+		}
+
+		public String getCompanyName() {
+			return companyName;
+		}
+
+		public Double getHoursReported() {
+			return hoursReported;
+		}
+
+		public Double getVab() {
+			return vab;
+		}
+
+		public Double getVacation() {
+			return vacation;
+		}
+
+		public Integer getUserID() {
+			return userID;
+		}
+
+		public Integer getLocked() {
+			return locked;
+		}
+
+		public Integer getDeleted() {
+			return deleted;
+		}
+
+		public Date getForDate() {
+			return forDate;
+		}
+
+		public Date getDateModified() {
+			return dateModified;
+		}
 	}
 }
