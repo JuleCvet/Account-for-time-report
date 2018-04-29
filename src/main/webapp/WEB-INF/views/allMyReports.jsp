@@ -108,7 +108,8 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 										<input type="checkbox" value="0" disabled>
 									    <label for="locked">FALSE</label>
 									</c:otherwise>
-								</c:choose></b></i></td>
+										</c:choose>
+							</b></i></td>
 
 							<td><i>${report.forDate}</i></td>
 							<td><i>${report.dateModified}</i></td>
@@ -118,11 +119,11 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 									<c:otherwise>FALSE<br /></c:otherwise>
 								</c:choose></i></td>
 
-								<td><i><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></i></td>
+							<td><i><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></i></td>
 							<security:authorize access="hasRole('ROLE_ADMIN')">
 								<th></th>
 							</security:authorize>
-								<td><i><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></i></td>
+							<td><i><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></i></td>
 						</c:when>
 						
 						<c:otherwise>
@@ -153,14 +154,13 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 									<c:otherwise>FALSE<br /></c:otherwise>
 								</c:choose></td>
 							
-									<td><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></td>
+							<td><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></td>
 								
+							<security:authorize access="hasRole('ROLE_ADMIN')">
+							<th><a href="/report/locked-report/${report.idReport}"  style="color:#337ab7;" >Lock Report</a></th>
+							</security:authorize>
 
-								<security:authorize access="hasRole('ROLE_ADMIN')">
-									<th><a href="/report/locked-report/${report.idReport}"  style="color:#337ab7;" >Lock Report</a></th>
-								</security:authorize>
-
-									<td><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></td>
+							<td><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></td>
 								
 						</c:otherwise>
 					</c:choose>

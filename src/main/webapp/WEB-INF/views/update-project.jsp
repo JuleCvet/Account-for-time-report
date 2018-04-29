@@ -16,68 +16,61 @@
 
 <title>Update your project</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <body>
 	<jsp:include page="menu.jsp"/>
-		<div class="container">
+	<div class="container">
 			<br/>
-		<form:form method="POST" modelAttribute="project" class="form-horizontal">
-			<h2 class="form-signin-heading">Update Project ${companyName}</h2>
-
-			<spring:bind path="id">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="hidden" path="id" class="form-control"
-						value="${project.id}"></form:input>
-					<form:errors path="id"></form:errors>
-				</div>
-			</spring:bind>
-
-			<spring:bind path="projectName">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">Project name:</label>
-					<div class="col-sm-2">
-						<form:input type="text" path="projectName" class="form-control"
-							placeholder="Project name" value="${project.projectName}"></form:input>
+	<h2 class="form-signin-heading">Update Project ${companyName}</h2>
+		<form:form modelAttribute="project">
+		
+		<spring:bind path="id">
+			<form:input type="hidden" path="id" class="form-control" value="${project.id}"></form:input>
+			<form:errors path="id"></form:errors>
+		</spring:bind>
+		
+		<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="projectName" >
+					<label class="col-sm-2 col-form-label">Project Name:</label>
+					<div class="col-sm-4">
+							<form:input type="text" path="projectName" class="form-control" placeholder="Project name" value="${project.projectName}"></form:input>
 						<form:errors path="projectName"></form:errors>
 					</div>
-				</div>
 			</spring:bind>
-
-			<spring:bind path="description">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">Project description</label>
-					<div class="col-sm-2">
-						<form:input type="text" path="description" class="form-control"
-							placeholder="Project description" value="${project.description}"></form:input>
+		</div>
+		
+		<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="description" >
+					<label class="col-sm-2 col-form-label">Description:</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="description" class="form-control" placeholder="Project description" value="${project.description}"></form:input>
 						<form:errors path="description"></form:errors>
 					</div>
-				</div>
 			</spring:bind>
-
+		</div>
+		
+		<div class="form-group row ${status.error ? 'has-error' : ''}">
 			<spring:bind path="type">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">Project type:</label>
-					<div class="col-sm-2">
-						<form:input type="text" path="type" class="form-control"
-							placeholder="Project type" value="${project.type}"></form:input>
+					<label class="col-sm-2 col-form-label">Type of project:</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="type" class="form-control" placeholder="Project type" value="${project.type}"></form:input>
 						<form:errors path="type"></form:errors>
 					</div>
-				</div>
 			</spring:bind>
-			
+		</div>
+		
+		<div class="form-group row ${status.error ? 'has-error' : ''}">
 			<spring:bind path="deleted">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">Deleted:</label>
-					<div class="col-sm-2">
+					<label class="col-sm-2 col-form-label">Delete</label>
+					<div class="col-sm-4">
 						<form:input type="text" path="deleted" class="form-control" value="${project.deleted}"></form:input>
 						<form:errors path="deleted"></form:errors>
 					</div>
-				</div>
 			</spring:bind>
-
+		</div>
+		
 			<button class="btn btn-primary" type="submit" id="search" >Submit</button>
 		</form:form>
 	</div>

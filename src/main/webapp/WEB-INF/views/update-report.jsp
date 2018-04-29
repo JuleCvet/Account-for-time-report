@@ -49,6 +49,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 		<br/>
 		<h2 class="form-signin-heading">Update your report ${report.idReport}</h2>
 		<form:form modelAttribute="update">
+		
 			<spring:bind path="userID">
 				<form:input type="hidden" path="userID" class="form-control" value="${report.userID}"></form:input>	
 				<form:errors path="userID"></form:errors>
@@ -57,6 +58,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 				<form:input type="hidden" value="${report.idReport}" path="idReport" class="form-control"></form:input>
 				<form:errors path="idReport"></form:errors>
 			</spring:bind>
+			
 			<div class="form-group row ${status.error ? 'has-error' : ''}">
 				<spring:bind path="companyName" >
 						<label class="col-sm-2 col-form-label">Name of report:</label>
