@@ -1,6 +1,8 @@
 package com.hellokoding.account.service;
 
 import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,14 +33,14 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public boolean updateReport(Report report) {
 		Report oldReport = reportRepository.findOne(report.getIdReport());
-
+		Date curDate = new Date();
 		oldReport.setCompanyName(report.getCompanyName());
 		oldReport.setHoursReported(report.getHoursReported());
 		oldReport.setVab(report.getVab());
 		oldReport.setVacation(report.getVacation());
 		oldReport.setUserID(report.getUserID());
 		oldReport.setForDate(report.getForDate());
-		oldReport.setDateModified(report.getDateModified());
+		oldReport.setDateModified(curDate);
 		oldReport.setDeleted(report.getDeleted());
 		
 		reportRepository.saveAndFlush(oldReport);
@@ -142,12 +144,8 @@ public class ReportServiceImpl implements ReportService {
 			
 		return true;
 	}
-/*
-	@Override
-	public Date getDataModified() {
-		Date dataModified = l
-		return null;
-	}*/
+
+
 
 /*	@Override
 	public List<Report> findAllLockedReportsByUserId(Long idReport) {

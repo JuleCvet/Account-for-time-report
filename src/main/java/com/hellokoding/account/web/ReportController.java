@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.hellokoding.account.model.Report;
+import com.hellokoding.account.model.User;
 import com.hellokoding.account.service.ReportService;
 import com.hellokoding.account.service.UserService;
 import com.hellokoding.account.validator.ReportValidator;
@@ -119,7 +120,6 @@ public class ReportController {
 	public String view_reports(Model model) {
 		
 		model.addAttribute("list", reportService.showAllREports());
-
 		return "viewReports";
 	}
 	
@@ -209,23 +209,38 @@ public class ReportController {
 		return "allMyReports";
 	}
 
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "update-report/{idReport}", method = RequestMethod.GET)
 	public String update_report(Model model, @PathVariable Long idReport) {
 		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails) {
+			String username = ((UserDetails)principal).getUsername();
+			User user = userService.findByUsername(username);
+			Long loggedInUserID = user.getId();
+		
+			Report oldReport = reportService.findByIdReport(idReport);
+			Long userID = oldReport.getUserID().longValue();
+			
+			if (userID != loggedInUserID) {
+				return "You don't own this report";
+			}
+			
+		}
 		model.addAttribute("update", reportService.findByIdReport(idReport));
 
 		return "update-report";
 	}
-	
-/*	@RequestMapping(value = "/{dateString}", method = RequestMethod.GET)
-	public HttpStatus getSomething(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String dateString) {
-	   return OK;
-	  }
-*/
+
 	@RequestMapping(value = "update-report/{idReport}", method = RequestMethod.POST)
 	public String update_report(@ModelAttribute("update") Report report, BindingResult bindingResult,
 			Model model) {
+		
+		Report oldReport = reportService.findByIdReport(report.getIdReport());
+		
+		if (oldReport.getLocked() == 1) {
+			return "Error: report is locked!";
+		}
 		
 		if (bindingResult.hasErrors()) {
 			return "update-report";
