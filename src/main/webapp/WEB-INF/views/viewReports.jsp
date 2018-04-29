@@ -41,6 +41,7 @@
 			<tr>
 				<th>Report Id</th>
 				<th>Name</th>
+				<th>Project</th>
 				<th>Working hours</th>
 				<th>Hours of VAB</th>
 				<th>Hours of Vacation</th>
@@ -63,6 +64,7 @@
 						<c:when test="${report.locked=='1'}">
 							<td><i>${report.id}</i></td>
 							<td><i>${report.companyName}</i></td>
+							<td><i>${report.projectName}</i></td>
 							<td><i>${report.hoursReported}</i></td>
 							<td><i>${report.vab}</i></td>
 							<td><i>${report.vacation}</i></td>
@@ -109,6 +111,7 @@
 				<c:otherwise>
 					<td>${report.id}</td>
 					<td>${report.companyName}</td>
+					<td><i>${report.projectName}</i></td>
 					<td>${report.hoursReported}</td>
 					<td>${report.vab}</td>
 					<td>${report.vacation}</td>

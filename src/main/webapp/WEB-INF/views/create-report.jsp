@@ -70,7 +70,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 			</spring:bind>
 			
 			<spring:bind path="projectID">
-				<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" id="projectSelection" name="projectSelection" path="projectID">
+				<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" path="projectID">
 					<c:forEach var="project" items="${projects}">
 						<option value="${project.id}">${project.projectName}</option>
 					</c:forEach>

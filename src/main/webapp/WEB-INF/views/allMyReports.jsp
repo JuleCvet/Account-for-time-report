@@ -74,12 +74,13 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 			<tr>
 				<th>Report Id</th>
 				<th>Name</th>
+				<th>Project</th>
 				<th>Working hours</th>
 				<th>Hours of VAB</th>
 				<th>Hours of Vacation</th>
 				<th>Locked</th>
-				<th>Report for date:</th>
-				<th>Date when report is been modified:</th>
+				<th>Report for date</th>
+				<th>Date modified</th>
 				<th>Is deleted</th>
 			
 					<th>Update report</th>
@@ -96,6 +97,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 
 							<td><i>${report.idReport}</i></td>
 							<td><i>${report.companyName}</i></td>
+							<td><i>${report.projectID}</i></td>
 							<td><i>${report.hoursReported}</i></td>
 							<td><i>${report.vab}</i></td>
 							<td><i>${report.vacation}</i></td>
@@ -130,6 +132,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 						<c:otherwise>
 							<td>${report.idReport}</td>
 							<td>${report.companyName}</td>
+							<td><i>${report.projectID}</i></td>
 							<td>${report.hoursReported}</td>
 							<td>${report.vab}</td>
 							<td>${report.vacation}</td>

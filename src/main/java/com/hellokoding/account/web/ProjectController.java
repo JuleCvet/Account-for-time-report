@@ -120,7 +120,8 @@ public class ProjectController {
 	public String update_project(Model model, @PathVariable Long id) {
 
 		model.addAttribute("project", projectService.findByProjectId(id));
-
+		model.addAttribute("customers", customerService.showAllCustomers());
+		
 		return "update-project";
 	}
 	

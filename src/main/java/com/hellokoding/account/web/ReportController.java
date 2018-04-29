@@ -163,10 +163,11 @@ public class ReportController {
 			
 			Long userID = reportExtended.getUserID().longValue();
 			User user = userRepository.findByid(userID);
+			Project project = projectService.findByProjectId(reportExtended.getProjectID().longValue());
 			
 			ReportExtended re = new ReportExtended( reportExtended.getIdReport(), user.getUsername(), reportExtended.getCompanyName(),
-			reportExtended.getHoursReported(), reportExtended.getVab(), reportExtended.getVacation(), reportExtended.getUserID(), 
-			reportExtended.getLocked(), reportExtended.getDeleted(), reportExtended.getForDate(), reportExtended.getDateModified());
+			reportExtended.getHoursReported(), reportExtended.getVab(), reportExtended.getVacation(), reportExtended.getUserID(), reportExtended.getProjectID(),
+			project.getProjectName(),reportExtended.getLocked(), reportExtended.getDeleted(), reportExtended.getForDate(), reportExtended.getDateModified());
 			
 			allReportWithID.add(re);
 		}
@@ -314,6 +315,8 @@ public class ReportController {
 		private Double vab;
 		private Double vacation;
 		private Integer userID;
+		private Integer projectID;
+		private String projectName;
 		
 		@Column(name = "locked")
 		private Integer locked;
@@ -328,8 +331,11 @@ public class ReportController {
 		@DateTimeFormat(pattern = "MM/dd/yyyy")
 		private Date dateModified;
 
+
+
 		public ReportExtended(Long id, String username, String companyName, Double hoursReported, Double vab,
-				Double vacation, Integer userID, Integer locked, Integer deleted, Date forDate, Date dateModified) {
+				Double vacation, Integer userID, Integer projectID, String projectName, Integer locked, Integer deleted,
+				Date forDate, Date dateModified) {
 			super();
 			this.id = id;
 			this.username = username;
@@ -338,11 +344,24 @@ public class ReportController {
 			this.vab = vab;
 			this.vacation = vacation;
 			this.userID = userID;
+			this.projectID = projectID;
+			this.projectName = projectName;
 			this.locked = locked;
 			this.deleted = deleted;
 			this.forDate = forDate;
 			this.dateModified = dateModified;
 		}
+		
+
+		public Integer getProjectID() {
+			return projectID;
+		}
+
+
+		public String getProjectName() {
+			return projectName;
+		}
+
 
 		public Long getId() {
 			return id;

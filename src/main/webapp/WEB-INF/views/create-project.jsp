@@ -41,7 +41,7 @@
         </spring:bind>
         
         <spring:bind path="customerID">
-				<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" id="projectSelection" name="projectSelection" path="customerID">
+				<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" path="customerID">
 					<c:forEach var="customer" items="${customers}">
 						<option value="${customer.customerId}">${customer.customerName}</option>
 					</c:forEach>

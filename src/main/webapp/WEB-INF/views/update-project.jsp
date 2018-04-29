@@ -43,6 +43,19 @@
 		</div>
 		
 		<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="customerID">
+			<label class="col-sm-2 col-form-label">Name of customer:</label>
+				<div class="col-sm-4">
+					<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" path="customerID">
+						<c:forEach var="customer" items="${customers}">
+							<option value="${customer.customerId}">${customer.customerName}</option>
+						</c:forEach>
+					</form:select>
+				</div>
+			</spring:bind>
+		</div>
+		
+		<div class="form-group row ${status.error ? 'has-error' : ''}">
 			<spring:bind path="description" >
 					<label class="col-sm-2 col-form-label">Description:</label>
 					<div class="col-sm-4">
