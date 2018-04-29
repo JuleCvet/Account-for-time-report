@@ -46,7 +46,7 @@ public class CustomerController {
 
 		customerService.save(customerForm);
 
-		return "redirect:/welcome";
+		return "redirect:/customer/viewCustomers";
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -68,7 +68,7 @@ public class CustomerController {
 
 		customerService.updateCustomerDel(customer);
 
-		return "redirect:/welcome";
+		return "redirect:/customer/viewCustomers";
 	}
 
 	@RequestMapping(value = "/viewCustomers", method = RequestMethod.GET)
@@ -99,6 +99,6 @@ public class CustomerController {
 
 		customerService.updateCustomer(customer);
 
-		return "redirect:/welcome";
+		return "redirect:/customer/viewCustomers";
 	}
 }

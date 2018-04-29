@@ -68,7 +68,7 @@ public class ReportController {
 
 		reportService.save(reportForm);
 
-		return "redirect:/welcome";
+		return "redirect:/report/allMyReports";
 	}
 
 
@@ -112,7 +112,7 @@ public class ReportController {
 
 		reportService.updateReportDel(report);
 
-		return "redirect:/welcome";
+		return "redirect:/report/allMyReports";
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -133,7 +133,7 @@ public class ReportController {
 		
 		reportService.updateReportLocked(report);
 		
-		return "redirect:/welcome";
+		return "redirect:/report/allMyReports";
 	}
 	
 	
@@ -269,6 +269,6 @@ public class ReportController {
 
 		reportService.updateReport(report);
 		
-		return "redirect:/welcome";
+		return "redirect:/report/allMyReports";
 	}
 }

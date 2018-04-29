@@ -110,7 +110,7 @@ public class UserController {
 
 		userService.updateUserDel(user);
 
-		return "redirect:/welcome";
+		return "redirect:/viewUsers";
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -143,7 +143,7 @@ public class UserController {
 
 		userService.updateUser(user);
 
-		return "redirect:/welcome";
+		return "redirect:/viewUsers";
 	}
 	
 	// for 403 access denied page

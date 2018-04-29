@@ -61,7 +61,7 @@ public class UserProjectController {
 		
 		userProjectService.saveUserProject(userProject);
 		
-		return "redirect:/welcome";
+		return "redirect:/userproject/viewAllUserProjects";
 	}
 	
 	@PreAuthorize(value="hasRole('ROLE_ADMIN')")
@@ -94,7 +94,7 @@ public class UserProjectController {
 
 		userProjectService.updateUserProjectDelete(userProject);
 
-		return "redirect:/welcome";
+		return "redirect:/userproject/viewAllUserProjects";
 	}
 	
 	@PreAuthorize(value="hasRole('ROLE_ADMIN')")
@@ -127,7 +127,7 @@ public class UserProjectController {
 		}
 		userProjectService.updateUserProject(userProject);
 		
-		return "redirect:/welcome";
+		return "redirect:/userproject/viewAllUserProjects";
 	}	
 	
 	@PreAuthorize(value="hasRole('ROLE_ADMIN')")

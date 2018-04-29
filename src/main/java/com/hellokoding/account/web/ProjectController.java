@@ -67,7 +67,7 @@ public class ProjectController {
 
 		projectService.save(projectForm);
 
-		return "redirect:/welcome";
+		return "redirect:/project/viewProjects";
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -90,7 +90,7 @@ public class ProjectController {
 
 		projectService.updateProjectDel(project);
 
-		return "redirect:/welcome";
+		return "redirect:/project/viewProjects";
 	}
 
 	@RequestMapping(value = "/viewProjects", method = RequestMethod.GET)
@@ -127,6 +127,6 @@ public class ProjectController {
 
 		projectService.updateProject(project);
 
-		return "redirect:/welcome";
+		return "redirect:/project/viewProjects";
 	}
 }
