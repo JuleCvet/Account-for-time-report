@@ -80,12 +80,12 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 				<th>Report for date:</th>
 				<th>Date when report is been modified:</th>
 				<th>Is deleted</th>
-
-				<security:authorize access="hasRole('ROLE_ADMIN')">
+			
 					<th>Update report</th>
+				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<th>Lock Report</th>
-					<th>Delete report</th>
 				</security:authorize>
+					<th>Delete report</th>
 			</tr>
 
 			<c:forEach var="report" items="${list}">
@@ -118,18 +118,11 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 									<c:otherwise>FALSE<br /></c:otherwise>
 								</c:choose></i></td>
 
-							<security:authorize access="hasRole('ROLE_ADMIN')">
 								<td><i><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></i></td>
-							</security:authorize>
-
 							<security:authorize access="hasRole('ROLE_ADMIN')">
 								<th></th>
 							</security:authorize>
-
-							<security:authorize access="hasRole('ROLE_ADMIN')">
 								<td><i><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></i></td>
-							</security:authorize>
-							
 						</c:when>
 						
 						<c:otherwise>
@@ -159,18 +152,15 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 									<c:when test="${report.deleted=='1'}">TRUE<br /></c:when>
 									<c:otherwise>FALSE<br /></c:otherwise>
 								</c:choose></td>
-								
-								<security:authorize access="hasRole('ROLE_ADMIN')">
+							
 									<td><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></td>
-								</security:authorize>
+								
 
 								<security:authorize access="hasRole('ROLE_ADMIN')">
 									<th><a href="/report/locked-report/${report.idReport}"  style="color:#337ab7;" >Lock Report</a></th>
 								</security:authorize>
 
-								<security:authorize access="hasRole('ROLE_ADMIN')">
 									<td><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></td>
-								</security:authorize>
 								
 						</c:otherwise>
 					</c:choose>

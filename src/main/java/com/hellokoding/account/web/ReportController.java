@@ -73,17 +73,40 @@ public class ReportController {
 		return "redirect:/welcome";
 	}
 
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+
 	@RequestMapping(value = "delete-report/{idReport}", method = RequestMethod.GET)
 	public String delete_report(Model model, @PathVariable Long idReport) {
-		model.addAttribute("updateReportDel", reportService.findByIdReport(idReport));
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+		if (principal instanceof UserDetails) {
+			String username = ((UserDetails)principal).getUsername();
+			User user = userService.findByUsername(username);
+			Long loggedInUserID = user.getId();
+		
+			Report oldReport = reportService.findByIdReport(idReport);
+			Long userID = oldReport.getUserID().longValue();
+			
+			if (userID != loggedInUserID) {
+				return "You don't own this report";
+			}
+			
+		}
+		
+		model.addAttribute("updateReportDel", reportService.findByIdReport(idReport));
+		
 		return "delete-report";
 	}
 
 	@RequestMapping(value = "delete-report/{idReport}", method = RequestMethod.POST)
 	public String delete_report(@ModelAttribute("updateReportDel") Report report, BindingResult bindingResult,
 			Model model) {
+		
+		Report oldReport = reportService.findByIdReport(report.getIdReport());
+		
+		if (oldReport.getLocked() == 1) {
+			return "Error: report is locked!";
+		}
 		
 		if (bindingResult.hasErrors()) {
 			return "delete-report";

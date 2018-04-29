@@ -120,7 +120,6 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 							</div>
 					</spring:bind>
 				</div>
-				dateModified
 			<button class="btn btn-primary" type="submit" id="search">Submit</button>
 		</form:form>
 	</div>
