@@ -29,7 +29,7 @@
 		
 			<h2>Select User</h2>
 			<spring:bind path="userID">
-				<form:select class="form-control" id="userSelection" name="userSelection" path="userID">
+				<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" path="userID">
 					<c:forEach var="user" items="${listUsers}">
 						<option value="${user.id}">${user.username}</option>
 					</c:forEach>
@@ -38,7 +38,7 @@
 			
 			<h2>Select Project</h2>
 			<spring:bind path="projectID">
-				<form:select class="form-control" id="projectSelection" name="projectSelection" path="projectID">
+				<form:select class="form-control" style="padding-bottom:5px; padding-top:5px;" path="projectID">
 					<c:forEach var="project" items="${listProjects}">
 						<option value="${project.id}">${project.projectName}</option>
 					</c:forEach>

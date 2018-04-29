@@ -23,6 +23,7 @@
 			<tr>
 				<th>Id</th>
 				<th>Name</th>
+				<th>Customer</th>
 				<th>Description</th>
 				<th>Type</th>
 				<th>Is deleted</th>
@@ -39,6 +40,7 @@
 						<c:when test="${project.deleted=='1'}">
 							<td>${project.id}</td>
 							<td>${project.projectName}</td>
+							<td>${project.customerID}</td>
 							<td>${project.description}</td>
 							<td>${project.type}</td>
 							
@@ -58,6 +60,7 @@
 					
 						<td>${project.id}</td>
 						<td>${project.projectName}</td>
+						<td>${project.customerID}</td>
 						<td>${project.description}</td>
 						<td>${project.type}</td>
 						
