@@ -16,95 +16,87 @@
 
 <title>Lock one report</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <body>
-	<jsp:include page="menu.jsp"/>
-		<div class="container">
-		<br/>
-		<div class="alert alert-danger" role="alert" style = "width: 35%">
-		<h4 class="alert-heading">Are you sure that you want to lock this report? ${report.idReport}</h4>
-		</div>
+<jsp:include page="menu.jsp"/>
+	<div class="container">
+	<br/>
+	<div class="alert alert-danger" role="alert" style = "width: 49%">
+	<h4 class="alert-heading">Are you sure that you want to lock this report? ${report.idReport}</h4>
+	</div>
 	
-    <form:form method="POST" modelAttribute="updateReportLocked" class="form-horizontal">
-        <h2 class="form-signin-heading">Lock this report ${report.idReport}</h2>
-     
-         <spring:bind path="idReport">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-            	<div class="col-sm-2">
-                <form:input type="hidden" path="idReport" class="form-control"></form:input>
-                <form:errors path="idReport"></form:errors>
-            </div>
-            </div>
-        </spring:bind>
+	<h2 class="form-signin-heading">Lock this report ${report.idReport}</h2>
+	<br/>
+    <form:form modelAttribute="updateReportLocked">
+    
+    		<spring:bind path="idReport">
+				<div class="form-group ${status.error ? 'has-error' : ''}">
+					<form:input type="hidden" path="idReport" class="form-control"></form:input>
+                	<form:errors path="idReport"></form:errors>
+				</div>
+			</spring:bind>
+   
+         	<div class="form-group row ${status.error ? 'has-error' : ''}">
+				<spring:bind path="companyName" >
+					<label class="col-sm-2 col-form-label">Name of company:</label>
+						<div class="col-sm-4">
+							<form:input type="text" path="companyName" class="form-control" value="${report.companyName}"  disabled="true" ></form:input>
+							<form:errors path="companyName"></form:errors>
+						</div>
+				</spring:bind>
+			</div>	
         
-        <spring:bind path="companyName">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-			<label class="control-label col-sm-2">Company name:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="companyName" class="form-control"
-						value="${report.companyName}"  disabled="true" ></form:input>
-					<form:errors path="companyName"></form:errors>
-				</div>
-			</div>
-		</spring:bind>
+        	<div class="form-group row ${status.error ? 'has-error' : ''}">
+				<spring:bind path="hoursReported" >
+					<label class="col-sm-2 col-form-label">Reported hours:</label>
+						<div class="col-sm-4">
+							<form:input type="text" path="hoursReported" class="form-control" value="${report.hoursReported}"  disabled="true" ></form:input>
+							<form:errors path="hoursReported"></form:errors>
+						</div>
+				</spring:bind>
+			</div>	
+        
+    		<div class="form-group row ${status.error ? 'has-error' : ''}">
+				<spring:bind path="vab" >
+					<label class="col-sm-2 col-form-label">VAB</label>
+						<div class="col-sm-4">
+							<form:input type="text" path="vab" class="form-control" value="${report.vab}"  disabled="true" ></form:input>
+							<form:errors path="vab"></form:errors>
+						</div>
+				</spring:bind>
+			</div>	
 		
-		<spring:bind path="hoursReported">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-			<label class="control-label col-sm-2">Reported hours:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="hoursReported" class="form-control"
-						value="${report.hoursReported}"  disabled="true" ></form:input>
-					<form:errors path="hoursReported"></form:errors>
-				</div>
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="vacation" >
+				<label class="col-sm-2 col-form-label">Vacation</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="vacation" class="form-control" value="${report.vacation}" disabled="true"></form:input>
+						<form:errors path="vacation"></form:errors>
+					</div>
+			</spring:bind>
 			</div>
-		</spring:bind>
-		
-		<spring:bind path="vab">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-			<label class="control-label col-sm-2">VAB:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="vab" class="form-control"
-						value="${report.vab}"  disabled="true" ></form:input>
-					<form:errors path="vab"></form:errors>
-				</div>
+	
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="forDate" >
+				<label class="col-sm-2 col-form-label">For Date:</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="forDate" class="form-control" value="${report.forDate}" disabled="true"></form:input>
+						<form:errors path="forDate"></form:errors>
+					</div>
+			</spring:bind>
 			</div>
-		</spring:bind>
-		
-		<spring:bind path="vacation">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-			<label class="control-label col-sm-2">Hours for Vacation:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="vacation" class="form-control"
-						value="${report.vacation}"  disabled="true" ></form:input>
-					<form:errors path="vacation"></form:errors>
-				</div>
+	
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="dateModified" >
+				<label class="col-sm-2 col-form-label">Date modified:</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="dateModified" class="form-control" value="${report.dateModified}" disabled="true" ></form:input>
+						<form:errors path="dateModified"></form:errors>
+					</div>
+			</spring:bind>
 			</div>
-		</spring:bind>
-		
-		<spring:bind path="forDate">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-			<label class="control-label col-sm-2">Hours for Date:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="forDate" class="form-control"
-						value="${report.forDate}"  disabled="true" ></form:input>
-					<form:errors path="forDate"></form:errors>
-				</div>
-			</div>
-		</spring:bind>
-		
-		<spring:bind path="dateModified">
-			<div class="form-group ${status.error ? 'has-error' : ''}">
-			<label class="control-label col-sm-2">Modified date:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="dateModified" class="form-control"
-						value="${report.dateModified}"  disabled="true" ></form:input>
-					<form:errors path="dateModified"></form:errors>
-				</div>
-			</div>
-		</spring:bind>
         
         <button class="btn btn-primary" type="submit" id="search" >Lock</button>
     </form:form>

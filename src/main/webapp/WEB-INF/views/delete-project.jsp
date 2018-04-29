@@ -16,60 +16,55 @@
 
 <title>Delete a Project</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <body>
 	<jsp:include page="menu.jsp"/>
-			<div class="container">
-			<br/>
-		<div class="alert alert-danger" role="alert" style = "width: 45%">
-			<h4 class="alert-heading">Are you sure that you want to delete Info about this project?</h4>
+		<div class="container">
+		<br/>
+		<div class="alert alert-danger" role="alert" style = "width: 49%">
+		<h4 class="alert-heading">Are you sure that you want to delete Info about this project?</h4>
 		</div>
-
-		<form:form method="POST" modelAttribute="delete" class="form-horizontal">
-			<h2 class="form-signin-heading">Delete info for this project: ${project.id}</h2>
+		
+		<h2 class="form-signin-heading">Delete info for this project: ${project.id}</h2>
+		<br/>
+		<form:form modelAttribute="delete">
 			
 			<spring:bind path="id">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="hidden" path="id" class="form-control" value="${project.id}"></form:input>
-					<form:errors path="id"></form:errors>
-				</div>
+				<form:input type="hidden" path="id" class="form-control" value="${project.id}"></form:input>
+				<form:errors path="id"></form:errors>
 			</spring:bind>
+			
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="projectName" >
+				<label class="col-sm-2 col-form-label">Project name:</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="projectName" class="form-control" value="${project.projectName}" disabled="true"></form:input>
+						<form:errors path="projectName" ></form:errors>
+					</div>
+			</spring:bind>
+			</div>
 		
-			<spring:bind path="projectName">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">Project name:</label>
-				<div class="col-sm-2" >
-					<form:input type="text" path="projectName" class="form-control"
-						 value="${project.projectName}" disabled="true"></form:input>
-					<form:errors path="projectName" ></form:errors>
-				</div>
-				</div>
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="description" >
+				<label class="col-sm-2 col-form-label">Description:</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="description" class="form-control" value="${project.description}" disabled="true"></form:input>
+						<form:errors path="description"></form:errors>
+					</div>
 			</spring:bind>
-
-			<spring:bind path="description">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">Project description</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="description" class="form-control"
-						value="${project.description}" disabled="true"></form:input>
-					<form:errors path="description"></form:errors>
-				</div>
-				</div>
+			</div>
+			
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="type" >
+				<label class="col-sm-2 col-form-label">Project type:</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="type" class="form-control" value="${project.type}" disabled="true"></form:input>
+						<form:errors path="type"></form:errors>
+					</div>
 			</spring:bind>
-
-			<spring:bind path="type">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">Project type:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="type" class="form-control"
-						value="${project.type}" disabled="true"></form:input>
-					<form:errors path="type"></form:errors>
-				</div>
-				</div>
-			</spring:bind>
+			</div>
 			
 			<button class="btn btn-primary" type="submit" id="search">Delete</button>
 		</form:form>

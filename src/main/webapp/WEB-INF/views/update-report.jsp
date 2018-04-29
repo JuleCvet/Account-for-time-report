@@ -48,6 +48,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 	<div class="container">
 		<br/>
 		<h2 class="form-signin-heading">Update your report ${report.idReport}</h2>
+		<br/>
 		<form:form modelAttribute="update">
 		
 			<spring:bind path="userID">
@@ -68,6 +69,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 						</div>
 				</spring:bind>
 			</div>
+			
 			<div class="form-group row ${status.error ? 'has-error' : ''}">
 				<spring:bind path="hoursReported">
 						<label class="col-sm-2 col-form-label">Hours Reported:</label>
@@ -77,6 +79,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 							</div>
 				</spring:bind>
 			</div>
+			
 			<div class="form-group row ${status.error ? 'has-error' : ''}">
 					<spring:bind path="vab">
 							<label class="col-sm-2 col-form-label">VAB:</label>
@@ -86,7 +89,8 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 								</div>
 					</spring:bind>
 				</div>
-			<div class="form-group row ${status.error ? 'has-error' : ''}">
+				
+				<div class="form-group row ${status.error ? 'has-error' : ''}">
 					<spring:bind path="vacation">
 						<label class="col-sm-2 col-form-label">Hours for Vacation</label>
 							<div class="col-sm-4">
@@ -95,7 +99,8 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 							</div>
 					</spring:bind>
 				</div>
-			<div class="form-group row ${status.error ? 'has-error' : ''}">
+				
+				<div class="form-group row ${status.error ? 'has-error' : ''}">
 					<spring:bind path="forDate">
 						<label class="col-sm-2 col-form-label">For Date:</label>
 							<div class="col-sm-4">
@@ -104,24 +109,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 							</div>
 					</spring:bind>
 				</div>
-			<div class="form-group row ${status.error ? 'has-error' : ''}">
-					<spring:bind path="deleted">
-						<label class="col-sm-2 col-form-label">Deleted:</label>
-							<div class="col-sm-4">
-								<form:input type="text" id="deleted" name="deleted" path="deleted" class="form-control" value="${deleted}"></form:input>
-								<form:errors path="deleted"></form:errors>
-							</div>
-					</spring:bind>
-				</div>
-				<div class="form-group row ${status.error ? 'has-error' : ''}">
-					<spring:bind path="dateModified">
-						<label class="col-sm-2 col-form-label">Date modified:</label>
-							<div class="col-sm-4">
-								<form:input type="text" id="dateModified" name="dateModified" path="dateModified" class="form-control" value="${dateModified}"></form:input>
-								<form:errors path="dateModified"></form:errors>
-							</div>
-					</spring:bind>
-				</div>
+				
 			<button class="btn btn-primary" type="submit" id="search">Submit</button>
 		</form:form>
 	</div>

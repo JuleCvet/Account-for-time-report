@@ -15,7 +15,6 @@
 
 <title>Update User</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
@@ -23,27 +22,24 @@
 	<jsp:include page="menu.jsp"/>
 	<div class="container">
 		<br/>
-		<form:form method="POST" modelAttribute="userUpdate" class="form-horizontal">
-			<h2 class="form-signin-heading">Update User ${username}</h2>
+		<h2 class="form-signin-heading">Update User ${username}</h2>
+		<br/>
+		<form:form modelAttribute="userUpdate">
 
 			<spring:bind path="id">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="hidden" path="id" class="form-control"
-						value="${user.id}"></form:input>
+					<form:input type="hidden" path="id" class="form-control" value="${user.id}"></form:input>
 					<form:errors path="id"></form:errors>
-				</div>
 			</spring:bind>
-	
-			<spring:bind path="username">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="control-label col-sm-2">User name:</label>
-				<div class="col-sm-2">
-					<form:input type="text" path="username" class="form-control"
-						placeholder="User name" value="${user.username}"></form:input>
-					<form:errors path="username"></form:errors>
-				</div>
-				</div>
-			</spring:bind>
+			
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
+				<spring:bind path="username" >
+						<label class="col-sm-2 col-form-label">User Name:</label>
+						<div class="col-sm-4">
+							<form:input type="text" path="username" class="form-control" placeholder="User name" value="${user.username}"></form:input>
+							<form:errors path="username"></form:errors>	
+						</div>
+				</spring:bind>
+			</div>
 
 			<button class="btn btn-primary" type="submit" id="search">Submit</button>
 		</form:form>

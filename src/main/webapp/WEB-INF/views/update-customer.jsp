@@ -17,7 +17,6 @@
 
 <title>Update your customer</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
@@ -25,42 +24,26 @@
 <jsp:include page="menu.jsp"/>
 	<div class="container">
 		<br/>
-		<form:form modelAttribute="update" class="form-horizontal">
-			<h2 class="form-signin-heading">Update your customer ${customerName}</h2>
+		<h2 class="form-signin-heading">Update your customer ${customerName}</h2>
+		<br/>
+		<form:form modelAttribute="update">
 
 			<spring:bind path="customerId">
-				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<form:input type="hidden" path="customerId" class="form-control"
-						value="${customer.customerId}"></form:input>
-					<form:errors path="customerId"></form:errors>
-				</div>
+				<form:input type="hidden" path="customerId" class="form-control" value="${customer.customerId}"></form:input>
+				<form:errors path="customerId"></form:errors>
 			</spring:bind>
 			
-			<div class="form-group">
-			<spring:bind path="customerName">
-				<div class="form-group ${status.error ? 'has-error' : ''}"></div>
-					<label class="control-label col-sm-2">Company Name:</label>
-					<div class="col-sm-2">
-						<form:input type="text" path="customerName" class="form-control" 
-							value="${customer.customerName}"></form:input>
-					<form:errors path="customerName"></form:errors>
-				</div>
+			<div class="form-group row ${status.error ? 'has-error' : ''}">
+			<spring:bind path="customerName" >
+				<label class="col-sm-2 col-form-label">Customer Name:</label>
+					<div class="col-sm-4">
+						<form:input type="text" path="customerName" class="form-control" value="${customer.customerName}"></form:input>
+						<form:errors path="customerName"></form:errors>
+					</div>
 			</spring:bind>
 			</div>
-		
-			<div class="form-group">
-				<spring:bind path="deleted">
-					<div class="form-group ${status.error ? 'has-error' : ''}"></div>
-						<label class="control-label col-sm-2">Deleted:</label>
-						<div class="col-sm-2">
-							<form:input type="text" path="deleted" class="form-control" 
-								value="${customer.deleted}"></form:input>
-						<form:errors path="deleted"></form:errors>
-					</div>
-				</spring:bind>
-			</div>
 
-			<button class="btn btn-primary" type="submit" id="search">Submit</button>
+		<button class="btn btn-primary" type="submit" id="search">Submit</button>
 	</form:form>
 	</div>
 </body>

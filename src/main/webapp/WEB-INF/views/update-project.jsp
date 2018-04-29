@@ -61,16 +61,6 @@
 			</spring:bind>
 		</div>
 		
-		<div class="form-group row ${status.error ? 'has-error' : ''}">
-			<spring:bind path="deleted">
-					<label class="col-sm-2 col-form-label">Delete</label>
-					<div class="col-sm-4">
-						<form:input type="text" path="deleted" class="form-control" value="${project.deleted}"></form:input>
-						<form:errors path="deleted"></form:errors>
-					</div>
-			</spring:bind>
-		</div>
-		
 			<button class="btn btn-primary" type="submit" id="search" >Submit</button>
 		</form:form>
 	</div>
