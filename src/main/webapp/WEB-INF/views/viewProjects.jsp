@@ -40,7 +40,7 @@
 						<c:when test="${project.deleted=='1'}">
 							<td>${project.id}</td>
 							<td>${project.projectName}</td>
-							<td>${project.customerID}</td>
+							<td>${project.customerName}</td>
 							<td>${project.description}</td>
 							<td>${project.type}</td>
 							
@@ -60,7 +60,7 @@
 					
 						<td>${project.id}</td>
 						<td>${project.projectName}</td>
-						<td>${project.customerID}</td>
+						<td>${project.customerName}</td>
 						<td>${project.description}</td>
 						<td>${project.type}</td>
 						

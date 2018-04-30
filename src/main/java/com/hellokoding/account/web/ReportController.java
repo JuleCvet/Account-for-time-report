@@ -32,8 +32,6 @@ import com.hellokoding.account.service.ReportService;
 import com.hellokoding.account.service.UserService;
 import com.hellokoding.account.validator.ReportValidator;
 
-import antlr.collections.List;
-
 @Controller
 @RequestMapping("/report")
 public class ReportController {
@@ -43,12 +41,9 @@ public class ReportController {
 	
 	@Autowired
 	private ReportService reportService;
-	
-	@Autowired
-	private UserService userService;
 
 	@Autowired
-	private UserService userRepository;
+	private UserService userService;
 	
 	@Autowired
 	private ProjectService projectService;
@@ -162,7 +157,7 @@ public class ReportController {
 		for(Report reportExtended : reportService.showAllREports()) {
 			
 			Long userID = reportExtended.getUserID().longValue();
-			User user = userRepository.findByid(userID);
+			User user = userService.findByid(userID);
 			Project project = projectService.findByProjectId(reportExtended.getProjectID().longValue());
 			
 			ReportExtended re = new ReportExtended( reportExtended.getIdReport(), user.getUsername(), reportExtended.getCompanyName(),
@@ -171,6 +166,7 @@ public class ReportController {
 			
 			allReportWithID.add(re);
 		}
+		
 		model.addAttribute("list", allReportWithID);
 		
 		return "viewReports";
@@ -330,8 +326,6 @@ public class ReportController {
 
 		@DateTimeFormat(pattern = "MM/dd/yyyy")
 		private Date dateModified;
-
-
 
 		public ReportExtended(Long id, String username, String companyName, Double hoursReported, Double vab,
 				Double vacation, Integer userID, Integer projectID, String projectName, Integer locked, Integer deleted,
