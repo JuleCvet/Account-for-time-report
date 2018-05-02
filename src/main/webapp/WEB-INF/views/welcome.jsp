@@ -1,10 +1,11 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
 <jsp:include page="cssandjs.jsp"/>
@@ -29,5 +30,15 @@
         <h2>Welcome ${pageContext.request.userPrincipal.name}</h2>
     </c:if>
 </div>
+Language : <a href="?language=en">English</a>|
+<a href="?language=mk">Macedonian</a>
+
+<h3>
+	welcome.springmvc : <spring:message code="welcome.springmvc" text="default text" />
+</h3>
+
+
+Current Locale : ${pageContext.response.locale}
+
 </body>
 </html>
