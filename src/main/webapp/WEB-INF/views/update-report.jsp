@@ -14,11 +14,10 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
+
 <title>Update your report</title>
-
 <jsp:include page="cssandjs.jsp"/>
-
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet">
 
 <script type="text/javascript">
 var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018', '05/01/2018', '05/10/2018', '05/20/2018', 

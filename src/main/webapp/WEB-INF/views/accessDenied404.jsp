@@ -16,12 +16,12 @@
 
 <title>Welcome</title>
 
-<link href="${contextPath}/resources/css/bootstrap.min.css" type="text/css"  rel="stylesheet">
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" type="text/css"  rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet">
 
 </head>
 <body>
-<img id="img"  src="${contextPath}/resources/img/logo.png">
+<img id="img"  src="${pageContext.request.contextPath}/resources/img/logo.png">
  <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="POST" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

@@ -18,7 +18,6 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <jsp:include page="cssandjs.jsp"/>
 
 <script type="text/javascript">
@@ -44,8 +43,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 </script>
 
 <title>Create a report</title>
-
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet"/>
 
 </head>
 <body>

@@ -10,7 +10,7 @@
 <head>
 <title>UsersProjects Combination</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -54,7 +54,7 @@
 							</c:choose></td>
 							
 							<th><security:authorize access="hasRole('ROLE_ADMIN')">
-								<a href="/userproject/delete-userProject/${userproject.id}" style="color:#337ab7;" >Delete combination</a></security:authorize></th>
+								<a href="delete-userProject/${userproject.id}" style="color:#337ab7;" >Delete combination</a></security:authorize></th>
 						</c:otherwise>
 						
 					</c:choose>

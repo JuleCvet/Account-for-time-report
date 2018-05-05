@@ -6,11 +6,8 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-
-<jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +16,8 @@
 <meta name="author" content="">
 
 <title>Welcome</title>
-
+<jsp:include page="cssandjs.jsp"/>
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -29,16 +27,14 @@
 	<br/>
         <h2>Welcome ${pageContext.request.userPrincipal.name}</h2>
     </c:if>
-</div>
-Language : <a href="?language=en">English</a>|
+    Language :
+<a href="?language=en">English</a>|
 <a href="?language=mk">Macedonian</a>
 
 <h3>
 	welcome.springmvc : <spring:message code="welcome.springmvc" text="default text" />
 </h3>
-
-
 Current Locale : ${pageContext.response.locale}
-
+</div>
 </body>
 </html>

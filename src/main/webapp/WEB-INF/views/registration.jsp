@@ -17,15 +17,14 @@
 
 <title>Create an account</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <body>
 	<div class="container">
 	<a href="/">
-		<img class="img-responsive center-block" id="img" src="${contextPath}/resources/img/logo.png"></img>
+		<img class="img-responsive center-block" id="img" src="${pageContext.request.contextPath}/resources/img/logo.png"></img>
 		</a>
 		<form:form method="POST" modelAttribute="userForm" class="form-signin">
 			<h2 class="form-signin-heading">Create your account</h2>

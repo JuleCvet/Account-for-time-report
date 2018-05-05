@@ -17,7 +17,7 @@
 
 <title>Create a customer</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" />
 </head>
 
 <body>

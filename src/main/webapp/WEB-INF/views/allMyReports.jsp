@@ -23,7 +23,7 @@
 
 <title>All My Reports</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" />
 <script type="text/javascript">
 var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018', '05/01/2018', '05/10/2018', '05/20/2018', 
 		 '06/06/2018', '06/22/2018','06/23/2018', '11/03/2018', '12/24/2018',  '12/25/2018',  '12/26/2018',  '12/31/2018'];
@@ -52,7 +52,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 		<h1>All Reports for user:
 			${pageContext.request.userPrincipal.name}</h1>
 
-		<form method="POST" class="form-inline" action="/report/allMyReports" style="padding-bottom: 10px;">
+		<form method="POST" class="form-inline" action="${pageContext.request.contextPath}/report/allMyReports" style="padding-bottom: 10px;">
 		
 			<div class="form-group">
 				<label for="datepicker">From Date:</label> <input type="text"
@@ -161,7 +161,7 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 							<td><a href="update-report/${report.idReport}"  style="color:#337ab7;" >Update report</a></td>
 								
 							<security:authorize access="hasRole('ROLE_ADMIN')">
-							<th><a href="/report/locked-report/${report.idReport}"  style="color:#337ab7;" >Lock Report</a></th>
+							<th><a href="locked-report/${report.idReport}"  style="color:#337ab7;" >Lock Report</a></th>
 							</security:authorize>
 
 							<td><a href="delete-report/${report.idReport}"  style="color:#337ab7;" >Delete report</a></td>

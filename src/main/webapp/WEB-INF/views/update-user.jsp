@@ -15,15 +15,15 @@
 
 <title>Update User</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <body>
 	<jsp:include page="menu.jsp"/>
 	<div class="container">
-		<br/>
-		<h2 class="form-signin-heading">Update User ${username}</h2>
-		<br/>
+	<br/>
+	<h2 class="form-signin-heading">Update User ${username}</h2>
+	<br/>
 		<form:form modelAttribute="userUpdate">
 
 			<spring:bind path="id">
