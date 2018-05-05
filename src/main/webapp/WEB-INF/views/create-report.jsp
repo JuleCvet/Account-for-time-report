@@ -2,22 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org.ui"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="cssandjs.jsp"/>
 
 <script type="text/javascript">
@@ -44,8 +32,8 @@ var dates = ['01/01/2018', '01/06/2018', '03/30/2018','04/01/2018', '04/02/2018'
 
 <title>Create a report</title>
 <link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet"/>
-
 </head>
+
 <body>
 <jsp:include page="menu.jsp"/>
 	<div class="container">

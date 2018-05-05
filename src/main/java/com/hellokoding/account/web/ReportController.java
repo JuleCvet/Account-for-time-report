@@ -145,7 +145,7 @@ public class ReportController {
 		
 		reportService.updateReportLocked(report);
 		
-		return "redirect:/report/allMyReports";
+		return "redirect:/report/viewReports";
 	}
 	
 	

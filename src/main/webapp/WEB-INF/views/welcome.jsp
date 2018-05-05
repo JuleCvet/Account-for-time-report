@@ -27,7 +27,7 @@
 	<br/>
         <h2>Welcome ${pageContext.request.userPrincipal.name}</h2>
     </c:if>
-    Language :
+ Language :
 <a href="?language=en">English</a>|
 <a href="?language=mk">Macedonian</a>
 

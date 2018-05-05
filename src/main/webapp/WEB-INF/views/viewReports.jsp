@@ -1,41 +1,22 @@
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+<jsp:directive.page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" session="false"/>
+<jsp:output doctype-root-element="html" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" omit-xml-declaration="true"/>
 
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:security="http://www.springframework.org/security/tags">
 
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org.ui"
-	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-
-<script type="text/javascript">
-  $( function() {
-    $( "#fromDate" ).datepicker();
-  } );
-  $( function() {
-	    $( "#toDate" ).datepicker();
- } );
-  </script>
-
-<title>View Reports</title>
+<title>All my reports</title>
 <jsp:include page="cssandjs.jsp"/>
-<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet"/>
 </head>
 
 <body>
 <jsp:include page="menu.jsp"/>
-<div class="container">
-		<br/>
+	<div class="container">
+		<br />
 		<h1>All our Reports</h1>
 		<table class="table table-striped table-bordered">
 			<tr>
@@ -73,12 +54,12 @@
 							<td><i><b>
 								<c:choose>
 									<c:when test="${report.locked=='1'}">
-										<input type="checkbox" value="1" checked disabled>
+										<input type="checkbox" value="1" checked="checked" disabled="disabled"></input>
 										<label for="locked">TRUE</label>
 									</c:when>
 									
 									<c:otherwise>
-									<input type="checkbox" value="0" disabled>
+									<input type="checkbox" value="0" disabled="disabled"></input>
 										<label for="locked">FALSE</label>
 									</c:otherwise>
 								</c:choose>
@@ -120,11 +101,11 @@
 					<td>
 						<c:choose>
 							<c:when test="${report.locked=='1'}">
-								<input type="checkbox"  value="1" checked disabled>
+								<input type="checkbox" value="1" checked="checked" disabled="disabled" ></input>
 								<label for="locked">TRUE</label>
 							</c:when>
 							<c:otherwise>
-								<input type="checkbox" value="0" disabled>
+								<input type="checkbox" value="0" disabled="disabled"></input>
 								<label for="locked">FALSE</label>
 							</c:otherwise>
 						</c:choose>
@@ -144,7 +125,7 @@
 						</security:authorize>
 
 						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<th><a href="/report/locked-report/${report.id}" style="color:#337ab7;" >Lock Report</a></th>
+							<th><a href="locked-report/${report.id}" style="color:#337ab7;" >Lock Report</a></th>
 						</security:authorize>
 
 						<security:authorize access="hasRole('ROLE_ADMIN')">
@@ -159,3 +140,4 @@
 </div>
 </body>
 </html>
+</jsp:root>
